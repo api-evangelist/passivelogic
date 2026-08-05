@@ -1,0 +1,105 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/passivelogic-rest-api-openapi.yml
+versioning:
+  scheme: uri-path
+  current: v0.20
+  supported:
+  - /api/v0.20
+  - /api/v0.19
+  unversioned_alias: /api
+  schema_version:
+    name: Quantum Schema
+    observed: 0.28.0
+    endpoint: https://passivelogic.com/api/util/quantumversion
+  build_metadata:
+    endpoint: https://passivelogic.com/api/meta.json
+    observed:
+      build: v12.5.0
+      commit: 77590e1
+      datetime: '2026-06-24T16:08:45+00:00'
+  docs: https://quantumalliance.org/documentation/
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  in_spec: true
+  note: >-
+    PassiveLogic flags deprecated operations in the OpenAPI (49 of 197 operation objects, 17 distinct operations once
+    the duplicated version trains are collapsed) and several descriptions name the replacement route. There is no
+    published deprecation POLICY, no Sunset or Deprecation response header, and no announced removal dates — so
+    consumers learn an operation is going away only by re-reading the spec.
+deprecated_operations:
+- operation: getApiAuthLogin
+  path: GET /api/auth/login
+  note: superseded by the Keycloak-hosted login flow (/app/login)
+- operation: postApiAuthRegister
+  path: POST /api/auth/register
+- operation: postApiAuthRegisterInitiate
+  path: POST /api/auth/register/initiate
+- operation: postApiAuthMagic-link-generate
+  path: POST /api/auth/magic-link-generate
+- operation: getApiAuthMagic-link-login
+  path: GET /api/auth/magic-link-login
+- operation: postApiAuthPasswordChange
+  path: POST /api/auth/password/change
+  note: replaced by GET /api/auth/password/change, which redirects to the external IdP
+- operation: postApiAuthPasswordReset
+  path: POST /api/auth/password/reset
+- operation: postApiAuthPasswordResetChange
+  path: POST /api/auth/password/reset/change
+- operation: postApiAuthEmailChange
+  path: POST /api/auth/email/change
+- operation: getApiAuthEmailChangeVerify
+  path: GET /api/auth/email/change/verify
+- operation: deleteApiAuthApi-keyRemove
+  path: DELETE /api/auth/api-key/remove
+  note: replaced by DELETE /api/auth/api-key
+- operation: postApiAuthApi-keyRemove
+  path: POST /api/auth/api-key/remove
+  note: replaced by DELETE /api/auth/api-key
+- operation: postApiAccountEulaAccept
+  path: POST /api/account/eula/accept
+- operation: postApiAuthgroupJoin
+  path: POST /api/authgroup/join
+  note: replaced by GET /api/authgroup/join
+- operation: deleteApiImageByImageID
+  path: DELETE /api/image/{imageID}
+  note: delete the image node through the node API instead
+- operation: getApiDatasync
+  path: GET /api/datasync
+  note: legacy QuantumSync route; use /api/quantumsync
+- operation: getApiUtilVersion
+  path: GET /api/util/version
+  note: replaced by GET /api/meta.json
+deprecated_security_schemes:
+- name: 'DEPRECATED - PL API Key'
+  parameter: 'Authorization: PL-API-KEY'
+  replacement: PL-API-KEY header
+status_page:
+  url: https://status.passivelogic.com/
+  provider: PagerDuty Status
+  http_status: 200
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment was found.
+health_endpoints:
+- https://passivelogic.com/api/health/liveness
+- https://passivelogic.com/api/health/readiness
+- https://passivelogic.com/api/util/ping
+changelog:
+  url: https://support.passivelogic.com/hc/en-us/articles/25211549694875-Release-Notes
+  reference: changelog/passivelogic-changelog.yml
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://passivelogic.com/api/util/quantumversion
+    http_status: 200
+  - url: https://passivelogic.com/api/meta.json
+    http_status: 200
+  - url: https://status.passivelogic.com/
+    http_status: 200
+  - url: https://passivelogic.com/api/health/liveness
+    http_status: 200

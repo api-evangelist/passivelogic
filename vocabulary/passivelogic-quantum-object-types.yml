@@ -1,0 +1,40 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/passivelogic-rest-api-openapi.yml#/components/schemas/QuantumObjectType
+docs: https://quantumalliance.org/documentation/
+name: Quantum Object Types
+description: >-
+  The 89-member QuantumObjectType enumeration published in the PassiveLogic OpenAPI is the node-type registry of the
+  Quantum digital twin ontology — every kind of thing that can exist as a node in the Quantum graph, from physical
+  building fabric (Building, Floor, Zone, Surface, Vertex, Adjacency) through systems engineering (Equipment,
+  EquipmentComponent, System, Subsystem, ConnectionNode, ConnectionNet, Behavior, Quanta, Property, Equation) to
+  platform concerns (User, Organization, AuthGroup, ApiKey, Event, History, Prediction). It is the closest thing
+  PassiveLogic publishes to a machine-readable ontology term list, and it is the vocabulary the Quantum GraphQL API
+  is typed against. Terms are transcribed verbatim; the groupings below are API Evangelist's reading of the terms,
+  not a PassiveLogic-published taxonomy.
+term_count: 89
+groups:
+- name: Site and building fabric
+  terms: [Campus, CampusDirectory, Site, Building, Floor, Zone, ZoneGroup, Surface, Shape, Vertex, Adjacency, Location, LocationProperty, ConstructionCategory, TypicalConstruction, Layer, LayerSet, LayerSetJoin]
+- name: Systems and equipment
+  terms: [Equipment, EquipmentComponent, EquipmentComponentPropertyRouter, System, Subsystem, SubsystemSet, SubsystemCapability, ZoneSubsystem, ZoneSubsystemSet, Device, Manufacturer, Asset, ControlKnot, Procedure]
+- name: Physics and behaviour
+  terms: [Behavior, Quanta, AllowedQuanta, CompatibleQuanta, ConnectionNode, ConnectionNet, NodeSet, NodeSetConnectionNodeJoin, Property, Equation, UnitLookup, UnitPreference, WeatherSource]
+- name: Modelling and versioning
+  terms: [Model, SelectedModel, ImportedModel, Library, GraphVersion, Relationship, Analysis, Prediction, PredictionGroup]
+- name: Events, history and telemetry
+  terms: [Event, EventClass, EventType, EventRelation, EventHistory, History, EscalationGroup]
+- name: Identity, access and tenancy
+  terms: [User, UserSession, UserSessionHistory, SessionBinding, SessionEvent, Organization, AuthGroup, OrganizationAuthGroupPermission, PrivilegeJoin, Invite, ApiKey, RefreshToken, MultifactorAuthentication, EmailVerification, Preference, PreferenceGroup]
+- name: Media, presentation and tagging
+  terms: [Image, Media, MediaComponent, Animation, Artifact, Binding, View, DisplayRule, InterfaceAlternate, Tag, TagFamily, PropertyTagRouter]
+roles:
+  source: openapi/passivelogic-rest-api-openapi.yml#/components/schemas/QuantumRole
+  terms: [SuperUser, PrivilegedUser, StandardUser, ReadOnlyUser]
+user_status:
+  source: openapi/passivelogic-rest-api-openapi.yml#/components/schemas/QuantumUserStatus
+  terms: [Active, Pending, Blocked, Locked, Reset, Deleted]
+note: >-
+  This is a derived transcription of an enum in PassiveLogic's own published OpenAPI. It is not the full Quantum
+  ontology — the ontology's attributes, relationships and physics semantics live in the GraphQL type system, which
+  requires an authenticated introspection query or the Quantum Insights query builder to read.

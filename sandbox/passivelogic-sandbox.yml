@@ -1,0 +1,89 @@
+generated: '2026-08-04'
+method: searched
+source: https://quantumalliance.org/documentation/
+summary: >-
+  PassiveLogic ships no test-mode key prefix and no fixture tooling, but it does publish a real, free, self-serve
+  way to exercise the Quantum API against real data: sign up on quantumalliance.org, open the Quantum Insights app,
+  and query three publicly available demonstration building datasets through the built-in query builder and its
+  embedded GraphiQL interface. Every value below is transcribed from the Quantum documentation — none is invented.
+test_live_separation:
+  key_prefixes: []
+  modes: []
+  note: >-
+    No sandbox/live key separation is documented. PL API keys and JWTs are issued against the same production
+    surface; the isolation is by dataset (the demo buildings) rather than by mode.
+console:
+  name: Quantum Insights
+  url: https://quantumalliance.org/insights/
+  launch: https://quantumalliance.org/app/login/
+  capabilities:
+  - Interactive query builder (drag object types into From / To / Where trays, with query chaining)
+  - Built-in GraphiQL interface showing the generated Quantum API GraphQL syntax
+  - Interactive documentation of the Quantum GraphQL type system (types, attributes, relationships)
+  note: >-
+    The Insights query builder is the only anonymous-adjacent path to the GraphQL schema — direct introspection
+    against /api/graphql returns 401 without credentials.
+signup:
+  self_serve: true
+  url: https://quantumalliance.org/app/login/
+  flow: Sign in -> Sign up -> confirm email -> sign in
+  cost: not stated
+demo_datasets:
+- name: Warehouse Building in San Leandro
+  location: San Leandro, CA
+  size: ~55,000 sq ft
+  description: >-
+    Four spaces — two office, two storage; one office on the second story. Storage spaces have dock doors and normal
+    doors along the ground level.
+  floor_to_ceiling: 14 ft offices / 28 ft storage
+  time_series: '2021, SI units'
+  zone_sensors: >-
+    One per zone, north-facing wall, modelled as Quantum equipment with three components — dry bulb temperature,
+    dew point temperature, relative humidity
+  weather_data: Oakland, CA
+  mechanical_equipment: none
+- name: Customer Warehouse 1 in Chicago
+  location: Chicago, IL
+  size: 454,000 sq ft
+  description: >-
+    Box-shaped warehouse with trailer docks on the long sides, a dedicated temperature-sensitive inventory zone on
+    the south-west corner, office space and cafeteria on the north-east corner, 36 dock doors (20 south, 16 north).
+  floor_to_ceiling: 40 ft
+  time_series: '2021, SI units'
+  zone_sensors: One per zone, north-facing wall, three air-property components each
+  weather_data: Chicago, IL
+  mechanical_equipment: none
+- name: Customer Warehouse 2 in Atlanta
+  location: Atlanta, GA
+  size: ~253,000 sq ft
+  description: >-
+    L-shaped design with goods flowing from one leg of the L to the other; partitioned into six spaces — Inbound
+    Loading, Receiving, Shipping and Outbound Loading zones of roughly equal size.
+  time_series: '2021, SI units'
+  weather_data: Atlanta, GA
+sample_queries:
+- question: How many floors exist in each building in the demonstration dataset?
+  traversal: [Building, Floor]
+- question: How many zones exist in each building?
+  traversal: [Building, Zone]
+- question: Which zones have properties that are unlocked?
+  traversal: [Zone, Property]
+  filter: Property.Locked equals false
+- question: Where are the sites located?
+  traversal: [Site]
+- question: What surfaces are associated with each zone, organised by floor?
+  traversal: [Building, Floor, Zone, Surface]
+test_clocks: null
+fixtures: null
+gaps:
+  - No test-mode credentials, no sandbox host, no seeded fixtures a CI job could call.
+  - The demo datasets are reachable only through an authenticated account; there is no anonymous read.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://quantumalliance.org/documentation/
+    http_status: 200
+  - url: https://quantumalliance.org/insights/
+    http_status: 200
+  - url: https://quantumalliance.org/app/login/
+    http_status: 200

@@ -1,0 +1,72 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the PassiveLogic REST API
+  version: 1.0.0
+extends: openapi/passivelogic-rest-api-openapi.yml
+x-apievangelist:
+  generated: '2026-08-04'
+  method: generated
+  source: openapi/passivelogic-rest-api-openapi.yml
+  rationale: >-
+    The harvested spec is real and rich in operations, but is missing three things a machine consumer needs: a
+    servers[] block (there is none, so no generated client knows where to send a request), any 4xx/5xx response
+    (all 134 documented responses are 200), and a document version (info.version is hard-coded to 0.0.0 while the
+    running build reports v12.5.0 / Quantum Schema 0.28.0). This overlay records those corrections without mutating
+    the harvested document. Values used here were observed on live anonymous probes on 2026-08-04.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/providers/passivelogic
+    x-apievangelist-harvested: '2026-08-04'
+    x-apievangelist-source: https://passivelogic.com/api/doc
+    x-quantum-schema-version: 0.28.0
+    x-build: v12.5.0
+    x-build-datetime: '2026-06-24T16:08:45+00:00'
+- target: $
+  update:
+    servers:
+    - url: https://passivelogic.com
+      description: PassiveLogic cloud (production). Observed serving this spec at /api/doc.
+    - url: https://quantumalliance.org
+      description: Quantum Alliance deployment of the same server image (smaller build of this spec).
+    - url: https://{hiveHost}
+      description: >-
+        On-premises PassiveLogic Hive controller running the same server image. GET /api/util/pl-hardware-info
+        returns runningOnHive true on such a host.
+      variables:
+        hiveHost:
+          default: hive.local
+          description: Hostname or IP of the Hive controller on the local network.
+- target: $.components
+  update:
+    schemas:
+      PassiveLogicError:
+        type: object
+        description: >-
+          Failure envelope observed on live probes of the PassiveLogic API. Not declared in the published spec.
+        properties:
+          error:
+            type: boolean
+            description: Always true on a failure response.
+          reason:
+            type: string
+            description: Human-readable failure reason. No machine-readable code accompanies it.
+        required: [error, reason]
+        example:
+          error: true
+          reason: Unauthorized
+- target: $.paths['/api/graphql'].post
+  update:
+    x-apievangelist-notes: >-
+      Anonymous introspection returns 401 {"error":true,"reason":"Could not find hive or user."}. The GraphQL type
+      system is the real data model; the REST schemas cover only the identity perimeter.
+    x-graphql-endpoint: true
+- target: $.paths['/api/util/quantumversion'].get
+  update:
+    x-apievangelist-notes: >-
+      Anonymous. Returns the Quantum ontology schema version as bare text (observed 0.28.0), not JSON.
+- target: $.paths['/api/auth/keys'].get
+  update:
+    x-apievangelist-notes: >-
+      Anonymous JWKS for PassiveLogic-signed JWTs (ES384 over P-384). Distinct from the Keycloak realm JWKS at
+      https://login.passivelogic.com/realms/prod/protocol/openid-connect/certs.

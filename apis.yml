@@ -1,23 +1,158 @@
 aid: passivelogic
 name: PassiveLogic
-description: 'PassiveLogic is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  PassiveLogic builds a physics-based autonomy platform for buildings and industrial systems — the Hive, Hive Mini and
+  Cell edge controllers, the Sense wireless sensor line, and the Autonomy Suite design/operate applications (Blueprint,
+  Creator, Lens, Live, Portfolio, Qortex). Its software core is Quantum, an open physics-based digital twin ontology
+  and data model for autonomous systems, developed with the U.S. Department of Energy and the Quantum Alliance
+  consortium. The Quantum API is exposed as a GraphQL query and subscription surface over the digital twin graph, sat
+  behind a documented HTTP REST API covering authentication, API-key issuance, organizations, auth groups, images,
+  bindings, device registration, CSV property-history export and QuantumSync WebSocket data sync. Authentication is
+  handled by an external Keycloak identity provider (OpenID Connect) with JWT, XSRF-protected session tokens and
+  long-lived PL API keys.
+image: https://framerusercontent.com/assets/L5gk3b8Fq6q5IinWJOFtKMlivU.png
 url: https://raw.githubusercontent.com/api-evangelist/passivelogic/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.21'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
-apis: []
+- digital-twin
+- building-automation
+- hvac
+- smart-buildings
+- autonomous-systems
+- graphql
+- ontology
+- iot
+- edge-computing
+- physical-ai
+- energy
+apis:
+- name: PassiveLogic REST API
+  description: >-
+    HTTP REST API documenting authentication (JWT login, magic link, Keycloak-backed flows), API key generation,
+    account and organization management, auth groups, image and binding upload, PassiveLogic device login and
+    registration, Tailscale tunnel auth, CSV property-history export, health checks and GraphQL access. Versioned in
+    the URI path (unversioned alias plus /api/v0.19 and /api/v0.20 trains). Published as OpenAPI 3.0.1 at
+    https://passivelogic.com/api/doc and rendered in a PassiveLogic-branded Swagger UI.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - building-automation
+  - digital-twin
+  - authentication
+  - device-management
+  - smart-buildings
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-rest-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Overlay
+    url: overlays/passivelogic-rest-api-overlay.yaml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- name: Quantum GraphQL API
+  description: >-
+    The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting clients query buildings,
+    floors, zones, surfaces, equipment, components, properties and time-series data from the physics-based ontology.
+    Supports GET and POST, plus GraphQL subscriptions over WebSocket at /api/graphqlSubscribe and QuantumSync
+    real-time data sync at /api/quantumsync. Authenticated with a JWT bearer or a PL-API-KEY header; schema
+    introspection is available to authenticated clients and through the Quantum Insights query builder.
+  humanURL: https://quantumalliance.org/documentation/
+  baseURL: https://passivelogic.com/api/graphql
+  tags:
+  - graphql
+  - digital-twin
+  - ontology
+  - smart-buildings
+  - autonomous-systems
+  properties:
+  - type: GraphQL
+    url: https://passivelogic.com/api/graphql
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Sandbox
+    url: sandbox/passivelogic-sandbox.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/passivelogic-agentic-access.yml
+- type: DomainSecurity
+  url: security/passivelogic-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/passivelogic_stock/
+  url: https://passivelogic.com/
+- type: Documentation
+  url: https://quantumalliance.org/documentation/
+- type: APIReference
+  url: https://passivelogic.com/app/swagger/
+- type: Support
+  url: https://support.passivelogic.com/hc/en-us
+- type: Blog
+  url: https://passivelogic.com/newsroom
+- type: GitHubOrganization
+  url: https://github.com/PassiveLogic
+- type: SignUp
+  url: https://passivelogic.com/app/login/signUp
+- type: Login
+  url: https://passivelogic.com/app/login
+- type: TermsOfService
+  url: https://passivelogic.com/footer/terms-of-use
+- type: PrivacyPolicy
+  url: https://passivelogic.com/footer/privacy-policy
+- type: StatusPage
+  url: https://status.passivelogic.com/
+- type: ChangeLog
+  url: changelog/passivelogic-changelog.yml
+- type: Sandbox
+  url: sandbox/passivelogic-sandbox.yml
+- type: WellKnown
+  url: well-known/passivelogic-well-known.yml
+- type: Authentication
+  url: authentication/passivelogic-authentication.yml
+- type: OAuthScopes
+  url: scopes/passivelogic-scopes.yml
+- type: Conventions
+  url: conventions/passivelogic-conventions.yml
+- type: Lifecycle
+  url: lifecycle/passivelogic-lifecycle.yml
+- type: Conformance
+  url: conformance/passivelogic-conformance.yml
+- type: ErrorCatalog
+  url: errors/passivelogic-problem-types.yml
+- type: DataModel
+  url: data-model/passivelogic-data-model.yml
+- type: Vocabulary
+  url: vocabulary/passivelogic-quantum-object-types.yml
+- type: Overlay
+  url: overlays/passivelogic-rest-api-overlay.yaml
+- type: LLMsTxt
+  url: llms/passivelogic-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 25
+  pass: local-v1

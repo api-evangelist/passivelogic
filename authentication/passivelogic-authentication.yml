@@ -1,0 +1,81 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/passivelogic-rest-api-openapi.yml
+docs: https://quantumalliance.org/documentation/
+summary:
+  types:
+  - apiKey
+  - http
+  - openIdConnect
+  api_key_in:
+  - header
+  identity_provider: Keycloak (external), realm "prod"
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+  - deviceCode
+schemes:
+- name: XSRF header
+  type: apiKey
+  in: header
+  parameter: X-PL-AUTH
+  description: Authentication using an XSRF protected JWT
+  sources:
+  - openapi/passivelogic-rest-api-openapi.yml
+- name: Basic Auth - login
+  type: http
+  scheme: basic
+  description: >-
+    Basic authentication used only at login. The Quantum documentation shows a GET with basic auth against
+    /api/auth/login returning a JSON object with authorization and refresh tokens.
+  sources:
+  - openapi/passivelogic-rest-api-openapi.yml
+  - https://quantumalliance.org/documentation/
+- name: PL API Key
+  type: apiKey
+  in: header
+  parameter: PL-API-KEY
+  description: >-
+    Long-lived API key issued to a user by GET /api/auth/api-key/generate. Per the Quantum documentation an API key
+    "acts with the same permissions as a JWT for the user who generated them" and is intended for command-line and
+    scripting use. Keys are revoked with DELETE /api/auth/api-key.
+  sources:
+  - openapi/passivelogic-rest-api-openapi.yml
+  - https://quantumalliance.org/documentation/
+- name: 'DEPRECATED - PL API Key'
+  type: apiKey
+  in: header
+  parameter: 'Authorization: PL-API-KEY'
+  description: DEPRECATED - PL API Key in Bearer header
+  deprecated: true
+  sources:
+  - openapi/passivelogic-rest-api-openapi.yml
+- name: Keycloak OpenID Connect
+  type: openIdConnect
+  openIdConnectUrl: https://login.passivelogic.com/realms/prod/.well-known/openid-configuration
+  description: >-
+    Not declared in the OpenAPI, but the actual interactive login path. Every /app/login/* operation in the spec is
+    documented as "Redirects to external authentication provider (Keycloak)", and the public
+    GET /api/util/externalauthconfig endpoint returns the issuer, authorization endpoint and account-management URI
+    for the login.passivelogic.com "prod" realm. Supports authorization_code (PKCE S256), client_credentials,
+    device_code, refresh_token, token-exchange and CIBA; DPoP and mTLS-bound access tokens are advertised.
+  sources:
+  - well-known/passivelogic-openid-configuration.json
+  - https://passivelogic.com/api/util/externalauthconfig
+token_signing:
+  jwks_endpoint: https://passivelogic.com/api/auth/keys
+  note: >-
+    PassiveLogic publishes the public keys used to sign its own JSON Web Tokens at GET /api/auth/keys (anonymous,
+    ES384 over P-384). The Keycloak realm publishes a separate JWKS at
+    https://login.passivelogic.com/realms/prod/protocol/openid-connect/certs.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://passivelogic.com/api/doc
+    http_status: 200
+  - url: https://passivelogic.com/api/util/externalauthconfig
+    http_status: 200
+  - url: https://passivelogic.com/api/auth/keys
+    http_status: 200
+  - url: https://login.passivelogic.com/realms/prod/.well-known/openid-configuration
+    http_status: 200

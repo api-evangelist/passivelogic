@@ -1,0 +1,28 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: passivelogic.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 13 09:03:09 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: quantumalliance.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  3 03:01:39 2026 GMT
+  hsts: false
+domains:
+- domain: passivelogic.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: quantumalliance.org
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

@@ -1,0 +1,65 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/passivelogic-rest-api-openapi.yml
+docs: https://quantumalliance.org/documentation/
+spec_type: none-published
+summary: >-
+  PassiveLogic has a real, first-class event surface — the Quantum graph is a live, replicating model and the
+  platform ships three WebSocket channels for it — but publishes no AsyncAPI document and no webhook catalog. This
+  file records the event surface that exists so it is not silently dropped; it is NOT an AsyncAPI specification and
+  is deliberately not wired as one in apis.yml.
+channels:
+- name: graphqlSubscribe
+  protocol: wss
+  url: wss://passivelogic.com/api/graphqlSubscribe
+  versioned_aliases:
+  - /api/v0.19/graphqlSubscribe
+  - /api/v0.20/graphqlSubscribe
+  operation_ids: [getApiGraphqlSubscribe, getApiV0.19GraphqlSubscribe, getApiV0.20GraphqlSubscribe]
+  summary: GraphQL API over websocket.
+  subprotocols_observed:
+  - graphql-ws
+  - graphql-transport-ws
+  subprotocol_evidence: >-
+    The PassiveLogic GitHub organisation publishes Swift implementations of both WebSocket subprotocols
+    (github.com/PassiveLogic/GraphQLWS and github.com/PassiveLogic/GraphQLTransportWS-DataSync), and the web
+    application bundle references GRAPHQL_WS_PROTOCOL and GRAPHQL_TRANSPORT_WS_PROTOCOL.
+  message_schemas: not-published
+- name: quantumsync
+  protocol: wss
+  url: wss://passivelogic.com/api/quantumsync
+  versioned_aliases:
+  - /api/v0.19/quantumsync
+  - /api/v0.20/quantumsync
+  operation_ids: [getApiQuantumsync, getApiV0.19Quantumsync, getApiV0.20Quantumsync]
+  summary: QuantumSync API over websockets
+  purpose: real-time data sync and collaboration on the Quantum graph
+  message_schemas: not-published
+- name: datasync
+  protocol: wss
+  url: wss://passivelogic.com/api/datasync
+  operation_ids: [getApiDatasync, getApiV0.19Datasync, getApiV0.20Datasync]
+  summary: QuantumSync API Legacy Route. Use /api/quantumsync instead.
+  deprecated: true
+  message_schemas: not-published
+webhooks:
+  published: false
+  note: No outbound webhook catalog, subscription endpoint or event-type registry is documented.
+event_types_in_ontology:
+  source: openapi/passivelogic-rest-api-openapi.yml#/components/schemas/QuantumObjectType
+  terms: [Event, EventClass, EventType, EventRelation, EventHistory, EscalationGroup, SessionEvent]
+  note: >-
+    The Quantum ontology models events as first-class node types, but their schemas live in the authenticated
+    GraphQL type system, not in any published event contract.
+gaps:
+  - No AsyncAPI document for three live WebSocket channels.
+  - No message payload schemas published for subscriptions or QuantumSync frames.
+  - No webhooks, so integrators cannot receive events without holding a socket open.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://passivelogic.com/api/doc
+    http_status: 200
+  - url: https://passivelogic.com/asyncapi.yaml
+    http_status: 301
+    note: Framer SPA catch-all, not an AsyncAPI document

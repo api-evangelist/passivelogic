@@ -1,0 +1,111 @@
+generated: '2026-08-04'
+method: searched
+source: openapi/passivelogic-rest-api-openapi.yml
+docs: https://quantumalliance.org/documentation/
+summary: >-
+  PassiveLogic runs one HTTP service that fronts three different contracts: a small REST surface for identity,
+  account, organization and device management; a GraphQL endpoint that is the real data plane over the Quantum
+  digital twin; and two WebSocket channels for subscriptions and QuantumSync replication. The REST layer is
+  URI-path versioned and header-authenticated; the GraphQL layer carries all query semantics (selection,
+  filtering, traversal) in the query document itself, which is why the REST spec declares no pagination,
+  filtering or sorting parameters.
+authentication:
+  style: header
+  headers:
+  - name: PL-API-KEY
+    use: long-lived API key, same permissions as the issuing user
+  - name: X-PL-AUTH
+    use: XSRF-protected JWT used by the browser app
+  - name: Authorization
+    use: 'deprecated PL-API-KEY bearer form'
+  login: GET /api/auth/login with HTTP basic; returns authorization + refresh tokens
+  external_idp: Keycloak — https://login.passivelogic.com/realms/prod
+  reference: authentication/passivelogic-authentication.yml
+versioning:
+  scheme: uri-path
+  trains:
+  - path: /api/
+    note: unversioned alias, currently tracking the newest train
+  - path: /api/v0.19/
+  - path: /api/v0.20/
+  current: v0.20
+  schema_version_endpoint: GET /api/util/quantumversion
+  schema_version_observed: 0.28.0
+  build_metadata_endpoint: GET /api/meta.json
+  note: >-
+    Every operation is published three times — once unversioned and once under each supported version train — so the
+    177-path spec is really ~66 distinct operations. The Quantum ontology carries its own schema version (0.28.0 when
+    probed), independent of the HTTP API version train.
+pagination:
+  supported: false
+  note: >-
+    No cursor, page, limit or offset parameters appear anywhere in the OpenAPI. Result shaping and traversal are the
+    GraphQL layer's job; the REST layer returns whole documents.
+idempotency:
+  supported: false
+  note: >-
+    No Idempotency-Key header, parameter or documented replay semantics anywhere in the spec or the Quantum
+    documentation. Retrying a POST (invite, organization delete, image upload, EULA accept) is not protected.
+    This is a real gap for agent-driven callers.
+request_tracing:
+  request_id_header: null
+  note: No X-Request-Id / correlation-id header is documented or declared.
+rate_limiting:
+  documented: false
+  headers: []
+  note: No RateLimit-*, X-RateLimit-* or Retry-After semantics are documented.
+error_envelope:
+  format: custom
+  shape:
+    error: boolean
+    reason: string
+  example_observed: '{"error":true,"reason":"Unauthorized"}'
+  content_type: application/json; charset=utf-8
+  graphql_errors:
+    schema: GraphQLError
+    fields: [message, locations, path]
+    note: GraphQL responses use the standard GraphQL errors[] array, not the REST envelope.
+  reference: errors/passivelogic-problem-types.yml
+content_types:
+  request: [application/json, multipart/form-data]
+  response: [application/json, text/csv, text/plain]
+  note: >-
+    GET /api/export/property/history returns CSV. GET /api/util/quantumversion and GET /api/util/ping return bare
+    text (0.28.0 / pong) rather than JSON.
+graphql:
+  endpoint: https://passivelogic.com/api/graphql
+  methods: [GET, POST]
+  introspection: authenticated-only
+  subscriptions: wss://passivelogic.com/api/graphqlSubscribe
+  sync_channel: wss://passivelogic.com/api/quantumsync
+  legacy_sync_channel: wss://passivelogic.com/api/datasync
+  note: >-
+    Anonymous POST of an introspection query to /api/graphql returns HTTP 401
+    {"error":true,"reason":"Could not find hive or user."} — the schema is real but gated. The public exploration
+    path is the Quantum Insights query builder and its embedded GraphiQL.
+deployment_topology:
+  note: >-
+    The same server image runs in the PassiveLogic cloud, on Hive edge controllers, and on the Quantum Alliance
+    deployment. GET /api/util/pl-hardware-info returns {"runningOnHive":false} in the cloud and identifies an
+    on-premises Hive otherwise, and /api/tunnel/{serialNumber}/** proxies calls through to a specific device.
+    quantumalliance.org/api/doc serves a smaller build of the same spec.
+cross_links:
+  authentication: authentication/passivelogic-authentication.yml
+  scopes: scopes/passivelogic-scopes.yml
+  errors: errors/passivelogic-problem-types.yml
+  lifecycle: lifecycle/passivelogic-lifecycle.yml
+  data_model: data-model/passivelogic-data-model.yml
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://passivelogic.com/api/doc
+    http_status: 200
+  - url: https://passivelogic.com/api/graphql
+    http_status: 401
+    note: anonymous introspection POST
+  - url: https://passivelogic.com/api/util/quantumversion
+    http_status: 200
+  - url: https://passivelogic.com/api/meta.json
+    http_status: 200
+  - url: https://passivelogic.com/api/util/pl-hardware-info
+    http_status: 200

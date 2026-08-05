@@ -1,0 +1,71 @@
+generated: '2026-08-04'
+method: probed
+source: https://login.passivelogic.com/realms/prod/.well-known/openid-configuration
+docs: https://quantumalliance.org/documentation/
+note: >-
+  The PassiveLogic OpenAPI declares no oauth2 securityScheme — the REST API is protected by JWT/API-key headers. The
+  OAuth 2.0 / OpenID Connect surface lives one layer down, on the external Keycloak identity provider that the app
+  redirects to (GET /app/login and GET /api/util/externalauthconfig both point at it). The scopes below are the
+  realm's advertised scopes_supported, read from the anonymous discovery document — they are Keycloak defaults plus
+  the realm-specific "service_account" and "organization" scopes, not a published PassiveLogic permission model.
+  PassiveLogic publishes no per-resource scope reference; API keys "act with the same permissions as a JWT for the
+  user who generated them" (Quantum documentation), so authorization is role-based, not scope-based.
+issuer: https://login.passivelogic.com/realms/prod
+schemes:
+- name: Keycloak OpenID Connect (realm "prod")
+  source: well-known/passivelogic-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.passivelogic.com/realms/prod/protocol/openid-connect/auth
+    tokenUrl: https://login.passivelogic.com/realms/prod/protocol/openid-connect/token
+  - flow: clientCredentials
+    tokenUrl: https://login.passivelogic.com/realms/prod/protocol/openid-connect/token
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://login.passivelogic.com/realms/prod/protocol/openid-connect/auth/device
+    tokenUrl: https://login.passivelogic.com/realms/prod/protocol/openid-connect/token
+  pkce: [plain, S256]
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; returns an ID token.
+  flows: [authorizationCode]
+- scope: profile
+  description: Basic profile claims (name, given_name, family_name, preferred_username).
+  flows: [authorizationCode]
+- scope: email
+  description: Email address and email_verified claim.
+  flows: [authorizationCode]
+- scope: address
+  description: Address claim.
+  flows: [authorizationCode]
+- scope: phone
+  description: Phone number claims.
+  flows: [authorizationCode]
+- scope: roles
+  description: Realm and client role claims used for PassiveLogic authorization decisions.
+  flows: [authorizationCode]
+- scope: offline_access
+  description: Issues an offline refresh token for long-lived, unattended access.
+  flows: [authorizationCode]
+- scope: organization
+  description: Organization membership claim — maps to the PassiveLogic organization/auth-group model.
+  flows: [authorizationCode]
+- scope: service_account
+  description: Service-account claims for client-credentials (machine) clients.
+  flows: [clientCredentials]
+- scope: microprofile-jwt
+  description: MicroProfile JWT claims (upn, groups).
+  flows: [authorizationCode]
+- scope: basic
+  description: Keycloak "basic" scope — sub, auth_time claims.
+  flows: [authorizationCode]
+- scope: acr
+  description: Authentication Context Class Reference claim.
+  flows: [authorizationCode]
+- scope: web-origins
+  description: CORS allowed-origins claim used by browser clients.
+  flows: [authorizationCode]
+x-evidence:
+  fetched: '2026-08-04'
+  url: https://login.passivelogic.com/realms/prod/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json

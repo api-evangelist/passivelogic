@@ -1,0 +1,136 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/passivelogic-rest-api-openapi.yml
+docs: https://quantumalliance.org/documentation/
+summary: >-
+  Two distinct data models sit behind one host. The REST layer's 50 component schemas describe only the identity and
+  tenancy perimeter — users, organizations, auth groups, API keys, invites, images, bindings, devices. The real
+  domain model is the Quantum graph, reachable through GraphQL, whose node types are enumerated by
+  QuantumObjectType (89 terms, captured in vocabulary/passivelogic-quantum-object-types.yml) but whose attributes
+  and edges require an authenticated introspection query. Everything below the "quantum_graph" key is therefore
+  recorded at the level PassiveLogic actually publishes anonymously — node types and the documented traversal
+  pattern — and no field-level relationships are asserted.
+identifiers:
+  primary_format: uuid
+  shape:
+    Identifier: {id: string, type: QuantumObjectType}
+  note: >-
+    Every Quantum node is addressed by a (uuid, QuantumObjectType) pair. ObjectPair/ObjectIdentifiers carry
+    old-ID → new-ID remaps returned by POST /api/site/copy when a project is cloned into another organization.
+entities:
+- name: User
+  source: '#/components/schemas/WhoAmIResponse'
+  id_field: userID
+  id_format: uuid
+  fields: [userID, firstName, lastName, emailVerified, eulaAccepted]
+  operations: [getApiAuthWhoami, deleteApiAccountUserDelete, postApiImageUser-avatar]
+- name: KeycloakUserInfo
+  source: '#/components/schemas/KeycloakUserInfo'
+  fields: [email, firstName, lastName, emailVerified, roles, requiredActions]
+  note: projection of the same user from the external Keycloak identity provider
+  operations: [getApiAuthKcByUser, postApiAuthKcByUser]
+- name: Organization
+  id_field: orgID
+  id_format: uuid
+  operations: [postApiOrganizationInvite, postApiOrganizationJoin, postApiOrganizationDecline, postApiOrganizationDelete, postApiOrganizationUpdate-image, postApiOrganizationUpdate-logo]
+- name: AuthGroup
+  id_field: authGroupID
+  id_format: uuid
+  operations: [postApiAuthgroupInvite, getApiAuthgroupJoin, postApiAuthgroupDecline, postApiAuthgroupRemoveByAuthGroupIDByUserID]
+- name: ApiKey
+  source: '#/components/schemas/GenerateApiKeyResponse'
+  fields: [key, expiration]
+  operations: [getApiAuthApi-keyGenerate, deleteApiAuthApi-key]
+- name: Session
+  source: '#/components/schemas/LoginResponse'
+  fields: [token, refresh, whoAmI]
+  operations: [getApiAuthLogin, postApiAuthLogout]
+- name: Image
+  source: '#/components/schemas/ImageData'
+  id_field: imageID
+  fields: [image, fileType]
+  operations: [postApiImage, deleteApiImageByImageID]
+- name: Binding
+  source: '#/components/schemas/UploadFileData'
+  id_field: ID
+  fields: [ID, file, fileType, filePath]
+  operations: [postApiBinding]
+  note: ID is the UUID of the Quantum binding node the uploaded file attaches to
+- name: Device
+  source: '#/components/schemas/DeviceLoginResponse'
+  id_field: serialNumber
+  operations: [getApiDeviceLogin, getApiDeviceTailscaleAuthToken]
+  note: PassiveLogic Hive/Cell hardware; /api/tunnel/{serialNumber}/** proxies calls to a specific device
+- name: Site
+  operations: [postApiSiteCopy]
+  note: a Site is a Quantum graph root; copying one across organizations returns an ObjectIdentifiers remap
+relationships:
+- from: Session
+  to: User
+  kind: has_one
+  via: whoAmI
+  evidence: LoginResponse.whoAmI $ref WhoAmIResponse
+- from: ObjectIdentifiers
+  to: ObjectPair
+  kind: has_many
+  via: objectIdentifierMap
+  evidence: array $ref
+- from: ObjectPair
+  to: QuantumObjectType
+  kind: has_one
+  via: type
+  evidence: $ref
+- from: Identifier
+  to: QuantumObjectType
+  kind: has_one
+  via: type
+  evidence: $ref
+- from: User
+  to: AuthGroup
+  kind: has_many
+  via: authGroupID
+  evidence: postApiAuthgroupRemoveByAuthGroupIDByUserID path parameters {authGroupID}/{userID}
+- from: Organization
+  to: AuthGroup
+  kind: has_many
+  via: OrganizationAuthGroupPermission
+  evidence: QuantumObjectType enum member OrganizationAuthGroupPermission
+- from: Binding
+  to: Quantum node
+  kind: belongs_to
+  via: ID
+  evidence: UploadFileData.ID description names the quantum binding node UUID
+- from: JWKS
+  to: JWK
+  kind: has_many
+  via: keys
+  evidence: $ref
+quantum_graph:
+  reachable_via: https://passivelogic.com/api/graphql
+  introspection: authenticated-only
+  node_types: 89
+  node_type_registry: vocabulary/passivelogic-quantum-object-types.yml
+  documented_traversal: >-
+    The Quantum documentation demonstrates traversal as From → To object pairs with optional chaining —
+    Building → Floor → Zone → Surface, and Zone → Property with a Where filter — via the Insights query builder.
+    Those edges are documented in prose and are recorded here as the published traversal example, not as a
+    field-level schema assertion.
+  documented_paths:
+  - [Building, Floor]
+  - [Building, Zone]
+  - [Building, Floor, Zone, Surface]
+  - [Zone, Property]
+  - [Site, Building]
+gaps:
+  - The GraphQL type system is not published anonymously; field-level attributes and edges cannot be captured.
+  - The REST schemas describe no domain object — every building/equipment entity lives only in GraphQL.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://passivelogic.com/api/doc
+    http_status: 200
+  - url: https://passivelogic.com/api/graphql
+    http_status: 401
+    note: anonymous introspection refused
+  - url: https://quantumalliance.org/documentation/
+    http_status: 200

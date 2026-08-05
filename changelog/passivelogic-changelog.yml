@@ -1,0 +1,47 @@
+generated: '2026-08-04'
+method: searched
+source: https://support.passivelogic.com/hc/en-us/articles/25211549694875-Release-Notes
+summary: >-
+  PassiveLogic keeps release notes in its Zendesk help centre, not on a public developer changelog page. The article
+  URL below is not guesswork — it is hard-coded in PassiveLogic's own production web application bundle
+  (/app/lp/portfolio_*.js), alongside the Desktop community forum link. The help centre sits behind a Cloudflare bot
+  challenge, so the entries themselves could not be read by an automated client and no releases are transcribed
+  here. What IS machine-readable is the running build and schema version, captured below from anonymous endpoints.
+changelog:
+  url: https://support.passivelogic.com/hc/en-us/articles/25211549694875-Release-Notes
+  host: support.passivelogic.com
+  platform: Zendesk Help Center
+  http_status: 403
+  block: cloudflare-bot-challenge
+  machine_readable: false
+scheme:
+  api_versioning: uri-path (/api, /api/v0.19, /api/v0.20)
+  schema_versioning: Quantum Schema semantic version, independent of the HTTP API train
+current:
+  quantum_schema_version: 0.28.0
+  quantum_schema_source: https://passivelogic.com/api/util/quantumversion
+  build: v12.5.0
+  build_commit: 77590e1
+  build_datetime: '2026-06-24T16:08:45+00:00'
+  build_source: https://passivelogic.com/api/meta.json
+entries: []
+related:
+  community_forum: https://support.passivelogic.com/hc/en-us/community/topics/18427716054939-PassiveLogic-Desktop-Forum
+  newsroom: https://passivelogic.com/newsroom
+gaps:
+  - Release notes are gated behind a bot challenge, so no agent or crawler can read them.
+  - No dated, machine-readable changelog (RSS, JSON, or a public /changelog page) is published.
+  - The OpenAPI info.version is hard-coded to 0.0.0 and does not track the release train.
+x-evidence:
+  fetched: '2026-08-04'
+  probes:
+  - url: https://support.passivelogic.com/hc/en-us/articles/25211549694875-Release-Notes
+    http_status: 403
+    note: Cloudflare "Just a moment..." interstitial
+  - url: https://support.passivelogic.com/
+    http_status: 403
+    note: redirects to /hc/en-us then challenges
+  - url: https://passivelogic.com/api/meta.json
+    http_status: 200
+  - url: https://passivelogic.com/api/util/quantumversion
+    http_status: 200

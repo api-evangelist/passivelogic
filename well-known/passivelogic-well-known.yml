@@ -1,0 +1,82 @@
+generated: '2026-08-04'
+method: probed
+source: live probes of every PassiveLogic host found in apis.yml and the OpenAPI
+notes: >-
+  passivelogic.com is a Framer-hosted single-page site that answers HTTP 200 with the same HTML shell for every
+  /.well-known/* path (and for /robots.txt and /llms.txt). Those 200s are NOT documents and are recorded as
+  html-catch-all, not as hits. The only real discovery documents PassiveLogic publishes sit on the Keycloak identity
+  provider at login.passivelogic.com under the "prod" realm.
+hosts:
+- host: https://login.passivelogic.com
+  documents:
+  - path: /realms/prod/.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: passivelogic-openid-configuration.json
+  - path: /realms/prod/.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: passivelogic-oauth-authorization-server.json
+  - path: /realms/prod/.well-known/uma2-configuration
+    status: 200
+    content_type: application/json
+    file: null
+    note: UMA 2.0 configuration; identical Keycloak realm metadata, not saved separately
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://passivelogic.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/openid-configuration
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/api-catalog
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/ai-plugin.json
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/agent-card.json
+    status: 301
+    result: html-catch-all
+  - path: /.well-known/agent.json
+    status: 301
+    result: html-catch-all
+  - path: /llms.txt
+    status: 200
+    result: html-catch-all
+  - path: /robots.txt
+    status: 200
+    result: html-catch-all
+- host: https://quantumalliance.org
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://status.passivelogic.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: html-catch-all
+    note: PagerDuty-hosted status page answers 200 with HTML for every /.well-known/* path
+x-evidence:
+  fetched: '2026-08-04'
+  agent_card_found: false
+  security_txt_found: false
