@@ -31,49 +31,14 @@ tags:
 - physical-ai
 - energy
 apis:
-- name: PassiveLogic REST API
-  description: >-
-    HTTP REST API documenting authentication (JWT login, magic link, Keycloak-backed flows), API key generation,
-    account and organization management, auth groups, image and binding upload, PassiveLogic device login and
-    registration, Tailscale tunnel auth, CSV property-history export, health checks and GraphQL access. Versioned in
-    the URI path (unversioned alias plus /api/v0.19 and /api/v0.20 trains). Published as OpenAPI 3.0.1 at
-    https://passivelogic.com/api/doc and rendered in a PassiveLogic-branded Swagger UI.
-  humanURL: https://passivelogic.com/app/swagger/
-  baseURL: https://passivelogic.com/api/
-  tags:
-  - building-automation
-  - digital-twin
-  - authentication
-  - device-management
-  - smart-buildings
-  properties:
-  - type: OpenAPI
-    url: openapi/passivelogic-rest-api-openapi.yml
-  - type: Swagger
-    url: https://passivelogic.com/api/doc
-  - type: APIReference
-    url: https://passivelogic.com/app/swagger/
-  - type: Documentation
-    url: https://quantumalliance.org/documentation/
-  - type: Authentication
-    url: authentication/passivelogic-authentication.yml
-  - type: Conventions
-    url: conventions/passivelogic-conventions.yml
-  - type: ErrorCatalog
-    url: errors/passivelogic-problem-types.yml
-  - type: DataModel
-    url: data-model/passivelogic-data-model.yml
-  - type: Overlay
-    url: overlays/passivelogic-rest-api-overlay.yaml
-  - type: Lifecycle
-    url: lifecycle/passivelogic-lifecycle.yml
 - name: Quantum GraphQL API
   description: >-
-    The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting clients query buildings,
-    floors, zones, surfaces, equipment, components, properties and time-series data from the physics-based ontology.
-    Supports GET and POST, plus GraphQL subscriptions over WebSocket at /api/graphqlSubscribe and QuantumSync
-    real-time data sync at /api/quantumsync. Authenticated with a JWT bearer or a PL-API-KEY header; schema
-    introspection is available to authenticated clients and through the Quantum Insights query builder.
+    The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting clients query
+    buildings, floors, zones, surfaces, equipment, components, properties and time-series data from the
+    physics-based ontology. Supports GET and POST, plus GraphQL subscriptions over WebSocket at /api/graphqlSubscribe
+    and QuantumSync real-time data sync at /api/quantumsync. Authenticated with a JWT bearer or a PL-API-KEY
+    header; schema introspection is available to authenticated clients and through the Quantum Insights
+    query builder.
   humanURL: https://quantumalliance.org/documentation/
   baseURL: https://passivelogic.com/api/graphql
   tags:
@@ -91,6 +56,448 @@ apis:
     url: authentication/passivelogic-authentication.yml
   - type: Sandbox
     url: sandbox/passivelogic-sandbox.yml
+- aid: passivelogic:passivelogic-account-api
+  name: PassiveLogic Account API
+  description: Routes related to user account management.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-account-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-api-api
+  name: PassiveLogic API
+  description: The api API from PassiveLogic — 2 operation(s) for api.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - api
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-api-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-app-api
+  name: PassiveLogic App API
+  description: The app API from PassiveLogic — 20 operation(s) for app.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - app
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-app-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-auth-groups-api
+  name: PassiveLogic Auth Groups API
+  description: Routes related to AuthGroup management.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Auth Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-auth-groups-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-authentication-api
+  name: PassiveLogic Authentication API
+  description: Routes related to user auth
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-authentication-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-bindings-api
+  name: PassiveLogic Bindings API
+  description: Routes related to Binding management.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Bindings
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-bindings-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-default-api
+  name: PassiveLogic Default API
+  description: The Default API from PassiveLogic — 1 operation(s) for default.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Default
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-default-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-export-api
+  name: PassiveLogic Export API
+  description: Routes related to exporting objects and history
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Export
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-export-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-graphql-api
+  name: PassiveLogic Graph QL API
+  description: Routes related to the GraphQL API
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - GraphQL
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-graphql-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-health-api
+  name: PassiveLogic Health API
+  description: Routes related to server health checks
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-health-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-images-api
+  name: PassiveLogic Images API
+  description: Routes related to Image management
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Images
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-images-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-organization-api
+  name: PassiveLogic Organization API
+  description: Routes related to organization management
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Organization
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-organization-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-passivelogic-device-api
+  name: PassiveLogic PassiveLogic Device API
+  description: Routes related to PassiveLogic devices
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - PassiveLogic Device
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-passivelogic-device-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-quantum-sync-api
+  name: PassiveLogic Quantum Sync API
+  description: Routes related to quantum sync
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Quantum Sync
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-quantum-sync-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-site-api
+  name: PassiveLogic Site API
+  description: Routes related to site objects
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Site
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-site-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-tunnel-api
+  name: PassiveLogic Tunnel API
+  description: The tunnel API from PassiveLogic — 2 operation(s) for tunnel.
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - tunnel
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-tunnel-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-utility-api
+  name: PassiveLogic Utility API
+  description: Routes related to server metadata/utility
+  humanURL: https://passivelogic.com/app/swagger/
+  baseURL: https://passivelogic.com/api/
+  tags:
+  - Utility
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-utility-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
