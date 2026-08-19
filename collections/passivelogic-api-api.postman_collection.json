@@ -1,0 +1,90 @@
+{
+  "item": [
+    {
+      "id": "8ddcb2f6-25c6-463e-832d-ab4dab1c2314",
+      "name": "api",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "272f9d7b-b737-4579-ae9b-e68f57e0ffc3",
+          "name": "GET /api/meta.json",
+          "request": {
+            "name": "GET /api/meta.json",
+            "description": {
+              "content": "GET /api/meta.json",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "meta.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92b8b906-7bf6-4a0a-a96c-660048fea508",
+          "name": "GET /api/metrics",
+          "request": {
+            "name": "GET /api/metrics",
+            "description": {
+              "content": "GET /api/metrics",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "634fc8a5-7bee-463c-8d63-d206160a952b",
+    "name": "PassiveLogic REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,340 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Images API
+tags:
+- description: Routes related to Image management
+  name: Images
+paths:
+  /api/image/user-avatar:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageData'
+            examples:
+              ImageData:
+                $ref: '#/components/examples/ImageData'
+        required: true
+      summary: Update user avatar image
+      description: Uploads and updates the avatar image URL with the new image URL.
+      tags:
+      - Images
+      operationId: postApiImageUser-avatar
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageUploadResponse'
+              examples:
+                ImageUploadResponse:
+                  $ref: '#/components/examples/ImageUploadResponse'
+          description: OK
+  /api/v0.20/image:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          multipart/form-data:
+            examples:
+              UploadImageData:
+                $ref: '#/components/examples/UploadImageData'
+            schema:
+              $ref: '#/components/schemas/UploadImageData'
+          application/json:
+            examples:
+              UploadImageData:
+                $ref: '#/components/examples/UploadImageData'
+            schema:
+              $ref: '#/components/schemas/UploadImageData'
+        required: true
+      summary: Uploads an image.
+      tags:
+      - Images
+      description: 'Uploads an image to the server, setting its new stored url & checksum in the database.
+        If an existing ID is given, this will
+
+        attempt an update of the image data. The data may be sent in either multipart/form-data or JSON
+        format. If using JSON, the
+
+        image file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient
+        way to transmit binary
+
+        data.
+
+
+        This endpoint is intended for associating image file data with an existing `Image` node in the
+        Quantum schema.'
+      operationId: postApiV0.20Image
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageUploadResponse'
+              examples:
+                ImageUploadResponse:
+                  $ref: '#/components/examples/ImageUploadResponse'
+  /api/image:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            examples:
+              UploadImageData:
+                $ref: '#/components/examples/UploadImageData'
+            schema:
+              $ref: '#/components/schemas/UploadImageData'
+          application/json:
+            examples:
+              UploadImageData:
+                $ref: '#/components/examples/UploadImageData'
+            schema:
+              $ref: '#/components/schemas/UploadImageData'
+      summary: Uploads an image.
+      description: 'Uploads an image to the server, setting its new stored url & checksum in the database.
+        If an existing ID is given, this will
+
+        attempt an update of the image data. The data may be sent in either multipart/form-data or JSON
+        format. If using JSON, the
+
+        image file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient
+        way to transmit binary
+
+        data.
+
+
+        This endpoint is intended for associating image file data with an existing `Image` node in the
+        Quantum schema.'
+      tags:
+      - Images
+      operationId: postApiImage
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                ImageUploadResponse:
+                  $ref: '#/components/examples/ImageUploadResponse'
+              schema:
+                $ref: '#/components/schemas/ImageUploadResponse'
+  /api/v0.20/image/{imageID}:
+    delete:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a
+        QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.'
+      description: 'Delete the image with the given quantum node ID.
+
+        If authorized and the given image is found, it will be deleted from the file store and the database.
+
+        The ID provided must be the ID of the `Image` Quantum node, NOT the name of the image.'
+      tags:
+      - Images
+      operationId: deleteApiV0.20ImageByImageID
+      parameters:
+      - required: true
+        name: imageID
+        in: path
+        schema:
+          type: string
+  /api/v0.20/image/user-avatar:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageData'
+            examples:
+              ImageData:
+                $ref: '#/components/examples/ImageData'
+        required: true
+      summary: Update user avatar image
+      description: Uploads and updates the avatar image URL with the new image URL.
+      tags:
+      - Images
+      operationId: postApiV0.20ImageUser-avatar
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                ImageUploadResponse:
+                  $ref: '#/components/examples/ImageUploadResponse'
+              schema:
+                $ref: '#/components/schemas/ImageUploadResponse'
+          description: OK
+  /api/image/{imageID}:
+    delete:
+      parameters:
+      - schema:
+          type: string
+        required: true
+        in: path
+        name: imageID
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a
+        QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.'
+      description: 'Delete the image with the given quantum node ID.
+
+        If authorized and the given image is found, it will be deleted from the file store and the database.
+
+        The ID provided must be the ID of the `Image` Quantum node, NOT the name of the image.'
+      tags:
+      - Images
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      operationId: deleteApiImageByImageID
+components:
+  schemas:
+    ImageUploadResponse:
+      properties:
+        url:
+          type:
+          - string
+          - 'null'
+        message:
+          type: string
+          description: Informative message relating to image upload. Updated image url with cache bust.
+      required:
+      - message
+      description: Image response definition
+      type: object
+    ImageData:
+      properties:
+        fileType:
+          type: string
+          description: The type of file the given data represents, from a list of allowed files.
+        image:
+          type: string
+          description: File data to write to the server. Must be Base64-encoded if sending as JSON.
+          format: byte
+      required:
+      - fileType
+      - image
+      description: Data required to upload image without using an image model.
+      type: object
+    UploadImageData:
+      properties:
+        fileType:
+          description: The type of file the given data represents, from a list of allowed files.
+          type: string
+        ID:
+          format: uuid
+          description: UUID of the quantum image node that you want to associate this image file with.
+          type: string
+        filePath:
+          type:
+          - string
+          - 'null'
+        image:
+          format: byte
+          description: File data to write to the server. Must be Base64-encoded if sending as JSON.
+          type: string
+      required:
+      - ID
+      - fileType
+      - image
+      description: Data required to upload an image.
+      type: object
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+  examples:
+    ImageUploadResponse:
+      value:
+        message: Image was succefully updated.
+        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+    UploadImageData:
+      value:
+        fileType: svg
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+        ID: 268C8D05-1BB8-4D48-8C70-AA01A7990A21
+    ImageData:
+      value:
+        fileType: svg
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

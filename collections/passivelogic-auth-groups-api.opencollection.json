@@ -1,0 +1,184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Auth Groups API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Declines an AuthGroup invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects an invitation based on AuthGroup invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Removes user from Auth Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/remove/:authGroupID/:userID",
+            "params": [
+              {
+                "name": "authGroupID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions to remove another user.\nUser can only remove other users with permissions less than or equal to their own permissions. For example: PrivilegedUsers\ncannot remove SuperUsers."
+        },
+        {
+          "info": {
+            "name": "Declines an AuthGroup invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects an invitation based on AuthGroup invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Sends an AuthGroup invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given Site or View (AuthGroup) to the given user email."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation by clicking directly in an email.\nAccepting invitations is now handled by the /app/login/post-auth route provided by the front end, which calls POST\n/api/authgroup/join. This can be removed when any invitations linked to in this way have expired."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Used by the front end `/app/login/post-auth` route to accept project (auth group) invitations. The role the user receives in the\nreferenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Removes user from Auth Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/remove/:authGroupID/:userID",
+            "params": [
+              {
+                "name": "authGroupID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions to remove another user.\nUser can only remove other users with permissions less than or equal to their own permissions. For example: PrivilegedUsers\ncannot remove SuperUsers."
+        },
+        {
+          "info": {
+            "name": "Sends an AuthGroup invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given Site or View (AuthGroup) to the given user email."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation by clicking directly in an email.\nAccepting invitations is now handled by the /app/login/post-auth route provided by the front end, which calls POST\n/api/authgroup/join. This can be removed when any invitations linked to in this way have expired."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Used by the front end `/app/login/post-auth` route to accept project (auth group) invitations. The role the user receives in the\nreferenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default to read-only user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

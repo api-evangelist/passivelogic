@@ -1,0 +1,59 @@
+{
+  "item": [
+    {
+      "id": "5e84c465-969c-4a81-98f4-bff0820ce45c",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ee267e4-659a-4d5e-9655-472636402443",
+          "name": "GET /",
+          "request": {
+            "name": "GET /",
+            "description": {
+              "content": "GET /",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bf7f20ef-0cb7-4ce4-9ee6-1ef5bca39f3f",
+    "name": "PassiveLogic REST  API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

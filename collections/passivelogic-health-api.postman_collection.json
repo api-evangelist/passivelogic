@@ -1,0 +1,210 @@
+{
+  "item": [
+    {
+      "id": "50267a4f-7ea8-45ed-b30d-3d5a4567cfde",
+      "name": "Health",
+      "description": {
+        "content": "Routes related to server health checks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e2593e0-b21f-4e2f-acba-759ae7f4533c",
+          "name": "Liveness check used to determine when webserver should be restarted",
+          "request": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "description": {
+              "content": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "health",
+                "liveness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d346ca77-e4f2-4439-a721-9cba09eb0e22",
+          "name": "Liveness check used to determine when webserver should be restarted",
+          "request": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "description": {
+              "content": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "health",
+                "liveness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a9dc71c-7ce8-45d1-b00f-70396a46a11b",
+          "name": "Readiness check used to determine if webserver is ready to accept traffic",
+          "request": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "description": {
+              "content": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "health",
+                "readiness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb5fcc9e-6dd9-4a48-8566-0af5e9a6264e",
+          "name": "Liveness check used to determine when webserver should be restarted",
+          "request": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "description": {
+              "content": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "health",
+                "liveness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b29acb21-f77f-451d-9921-c4749bb8df9d",
+          "name": "Readiness check used to determine if webserver is ready to accept traffic",
+          "request": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "description": {
+              "content": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "health",
+                "readiness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7be70e95-8f53-4f32-ae94-52a4480f8cab",
+          "name": "Readiness check used to determine if webserver is ready to accept traffic",
+          "request": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "description": {
+              "content": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "health",
+                "readiness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "81f5000f-6867-4e72-881c-3a889ce9514c",
+    "name": "PassiveLogic REST Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

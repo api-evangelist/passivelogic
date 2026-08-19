@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "582965eb-c834-4093-a438-788cba41c725",
+      "name": "Site",
+      "description": {
+        "content": "Routes related to site objects",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45c5e6f7-ef5c-4468-9853-06ba6bac694a",
+          "name": "Copy Project from one organization to another",
+          "request": {
+            "name": "Copy Project from one organization to another",
+            "description": {
+              "content": "Copies Project from one organization to a target organization given a project Identifier.\nAll UUID's are created new for the copied project.\nReturns a mapping of old identifiers and new identifiers of the given project.\nHistory data is NOT copied unless startDate and endDate are provided.\nHistory copy will take time to complete in the background and there will be no indication of success.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "site",
+                "copy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "targetOrganizationID",
+                  "value": "<uuid>",
+                  "description": "(Required) Organization to copy the given site into."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteID",
+                  "value": "<uuid>",
+                  "description": "(Required) Site to copy."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteName",
+                  "value": "<string,null>",
+                  "description": "Optionally change the copied site name."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteDirectory",
+                  "value": "<string,null>",
+                  "description": "Optionally change the copied site directory."
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string,null>",
+                  "description": "Date to start copying history from. Required to export all history."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string,null>",
+                  "description": "Date to end copying history at. Required to export all history."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "b878b93c-da65-4dad-8786-f4b2a329fb07",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "site",
+                    "copy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "targetOrganizationID",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "siteID",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "siteName",
+                      "value": "<string,null>"
+                    },
+                    {
+                      "key": "siteDirectory",
+                      "value": "<string,null>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string,null>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string,null>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectIdentifierMap\": [\n    {\n      \"newID\": \"be883542-f5c5-79e7-ef33-2ef2ee593218\",\n      \"oldID\": \"5f27eae1-da1b-3990-dccc-7529ba87a27a\",\n      \"type\": \"Media\"\n    },\n    {\n      \"newID\": \"c7c23249-c7ea-b5a7-17f9-3481b498ac02\",\n      \"oldID\": \"245ad9b4-a53a-a81d-b771-c6752eb847a8\",\n      \"type\": \"Tag\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12953f24-2c6e-46c5-9e54-f908d973bdbf",
+          "name": "Copy Project from one organization to another",
+          "request": {
+            "name": "Copy Project from one organization to another",
+            "description": {
+              "content": "Copies Project from one organization to a target organization given a project Identifier.\nAll UUID's are created new for the copied project.\nReturns a mapping of old identifiers and new identifiers of the given project.\nHistory data is NOT copied unless startDate and endDate are provided.\nHistory copy will take time to complete in the background and there will be no indication of success.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "site",
+                "copy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "targetOrganizationID",
+                  "value": "<uuid>",
+                  "description": "(Required) Organization to copy the given site into."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteID",
+                  "value": "<uuid>",
+                  "description": "(Required) Site to copy."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteName",
+                  "value": "<string,null>",
+                  "description": "Optionally change the copied site name."
+                },
+                {
+                  "disabled": false,
+                  "key": "siteDirectory",
+                  "value": "<string,null>",
+                  "description": "Optionally change the copied site directory."
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string,null>",
+                  "description": "Date to start copying history from. Required to export all history."
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string,null>",
+                  "description": "Date to end copying history at. Required to export all history."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "18d0f4fe-e0f8-4a0e-8c68-b7de15edd2b4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "site",
+                    "copy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "targetOrganizationID",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "siteID",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "siteName",
+                      "value": "<string,null>"
+                    },
+                    {
+                      "key": "siteDirectory",
+                      "value": "<string,null>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string,null>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string,null>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectIdentifierMap\": [\n    {\n      \"newID\": \"8a1ec91e-6c23-b505-e297-223cfdf10c51\",\n      \"oldID\": \"06a9a4a2-2682-f796-8c03-424bae5fd153\",\n      \"type\": \"Floor\"\n    },\n    {\n      \"newID\": \"64049aaf-249d-47e0-363b-bd0d464f2b69\",\n      \"oldID\": \"f3d58510-6ef3-441c-77cc-7a4ae24c8647\",\n      \"type\": \"CompatibleQuanta\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f66f9414-ab68-41b7-bb09-73bc397e6337",
+    "name": "PassiveLogic REST Site API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

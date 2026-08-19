@@ -1,0 +1,105 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Health API
+tags:
+- description: Routes related to server health checks
+  name: Health
+paths:
+  /api/v0.19/health/liveness:
+    get:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe
+      operationId: getApiV0.19HealthLiveness
+      summary: Liveness check used to determine when webserver should be restarted
+      tags:
+      - Health
+  /api/health/liveness:
+    get:
+      description: See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe
+      tags:
+      - Health
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Liveness check used to determine when webserver should be restarted
+      operationId: getApiHealthLiveness
+  /api/health/readiness:
+    get:
+      summary: Readiness check used to determine if webserver is ready to accept traffic
+      description: See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe
+      operationId: getApiHealthReadiness
+      tags:
+      - Health
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.20/health/liveness:
+    get:
+      operationId: getApiV0.20HealthLiveness
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Health
+      description: See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe
+      summary: Liveness check used to determine when webserver should be restarted
+  /api/v0.20/health/readiness:
+    get:
+      summary: Readiness check used to determine if webserver is ready to accept traffic
+      description: See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Health
+      operationId: getApiV0.20HealthReadiness
+  /api/v0.19/health/readiness:
+    get:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Health
+      summary: Readiness check used to determine if webserver is ready to accept traffic
+      description: See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe
+      operationId: getApiV0.19HealthReadiness
+components:
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

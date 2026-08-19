@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "865ce33a-7028-4f97-b7f5-5f6060c3e6e0",
+      "name": "Export",
+      "description": {
+        "content": "Routes related to exporting objects and history",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "546918c9-7ef9-4af9-89e5-20de49896df1",
+          "name": "Exports CSV formatted property history data",
+          "request": {
+            "name": "Exports CSV formatted property history data",
+            "description": {
+              "content": "Returns a string representation of property history values in CSV format from the given properties.\nreturns in the following headers:\nTime,Equipment name,Property name,Unit,Value\n\nTime returned in ISO8601 string format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "export",
+                "property",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5c959e47-5232-4abe-9740-a21683a97f43",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "export",
+                    "property",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b7544f9-3458-42cc-9498-3936d1862552",
+          "name": "Exports CSV formatted property history data",
+          "request": {
+            "name": "Exports CSV formatted property history data",
+            "description": {
+              "content": "Returns a string representation of property history values in CSV format from the given properties.\nreturns in the following headers:\nTime,Equipment name,Property name,Unit,Value\n\nTime returned in ISO8601 string format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "export",
+                "property",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "6b81c2dd-bbf2-4e06-97a0-b0cf176d3244",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "export",
+                    "property",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bafac28a-4f8b-4b13-a5db-dd9b5e0e8adb",
+    "name": "PassiveLogic REST Export API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Export API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exports CSV formatted property history data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/export/property/history"
+          },
+          "docs": "Returns a string representation of property history values in CSV format from the given properties.\nreturns in the following headers:\nTime,Equipment name,Property name,Unit,Value\n\nTime returned in ISO8601 string format"
+        },
+        {
+          "info": {
+            "name": "Exports CSV formatted property history data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/export/property/history"
+          },
+          "docs": "Returns a string representation of property history values in CSV format from the given properties.\nreturns in the following headers:\nTime,Equipment name,Property name,Unit,Value\n\nTime returned in ISO8601 string format"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

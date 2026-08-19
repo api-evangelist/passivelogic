@@ -1,0 +1,502 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Auth Groups API
+tags:
+- description: Routes related to AuthGroup management.
+  name: Auth Groups
+paths:
+  /api/v0.20/authgroup/decline:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              DeclineOrganizationInvite:
+                $ref: '#/components/examples/DeclineOrganizationInvite'
+            schema:
+              $ref: '#/components/schemas/DeclineOrganizationInvite'
+        required: true
+      summary: Declines an AuthGroup invitation
+      tags:
+      - Auth Groups
+      description: 'Rejects an invitation based on AuthGroup invite ID.
+
+        Invitation is deleted.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+      operationId: postApiV0.20AuthgroupDecline
+  /api/authgroup/remove/{authGroupID}/{userID}:
+    post:
+      parameters:
+      - schema:
+          type: string
+        name: authGroupID
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: userID
+        in: path
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Removes user from Auth Group
+      description: 'Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions
+        to remove another user.
+
+        User can only remove other users with permissions less than or equal to their own permissions.
+        For example: PrivilegedUsers
+
+        cannot remove SuperUsers.'
+      tags:
+      - Auth Groups
+      operationId: postApiAuthgroupRemoveByAuthGroupIDByUserID
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                AuthGroupRemovalResponse:
+                  $ref: '#/components/examples/AuthGroupRemovalResponse'
+              schema:
+                $ref: '#/components/schemas/AuthGroupRemovalResponse'
+          description: OK
+  /api/authgroup/decline:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              DeclineOrganizationInvite:
+                $ref: '#/components/examples/DeclineOrganizationInvite'
+            schema:
+              $ref: '#/components/schemas/DeclineOrganizationInvite'
+      summary: Declines an AuthGroup invitation
+      description: 'Rejects an invitation based on AuthGroup invite ID.
+
+        Invitation is deleted.'
+      tags:
+      - Auth Groups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+      operationId: postApiAuthgroupDecline
+  /api/authgroup/invite:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              InviteUserToAuthGroupData:
+                $ref: '#/components/examples/InviteUserToAuthGroupData'
+            schema:
+              $ref: '#/components/schemas/InviteUserToAuthGroupData'
+        required: true
+      summary: Sends an AuthGroup invite to the given email.
+      description: Generates and sends an invitation link for the given Site or View (AuthGroup) to the
+        given user email.
+      tags:
+      - Auth Groups
+      operationId: postApiAuthgroupInvite
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthGroupInviteResponse'
+              examples:
+                AuthGroupInviteResponse:
+                  $ref: '#/components/examples/AuthGroupInviteResponse'
+  /api/v0.20/authgroup/join:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              AcceptOrganizationInvite:
+                $ref: '#/components/examples/AcceptOrganizationInvite'
+            schema:
+              $ref: '#/components/schemas/AcceptOrganizationInvite'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Accepts an AuthGroup Invitation
+      description: 'Used by the front end `/app/login/post-auth` route to accept project (auth group)
+        invitations. The role the user receives in the
+
+        referenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default
+        to read-only user.'
+      tags:
+      - Auth Groups
+      operationId: postApiV0.20AuthgroupJoin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+    get:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcceptOrganizationInvite'
+            examples:
+              AcceptOrganizationInvite:
+                $ref: '#/components/examples/AcceptOrganizationInvite'
+      summary: Accepts an AuthGroup Invitation
+      description: 'DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation
+        by clicking directly in an email.
+
+        Accepting invitations is now handled by the /app/login/post-auth route provided by the front end,
+        which calls POST
+
+        /api/authgroup/join. This can be removed when any invitations linked to in this way have expired.'
+      tags:
+      - Auth Groups
+      operationId: getApiV0.20AuthgroupJoin
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+  /api/v0.20/authgroup/remove/{authGroupID}/{userID}:
+    post:
+      parameters:
+      - name: authGroupID
+        required: true
+        schema:
+          type: string
+        in: path
+      - name: userID
+        required: true
+        schema:
+          type: string
+        in: path
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Removes user from Auth Group
+      description: 'Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions
+        to remove another user.
+
+        User can only remove other users with permissions less than or equal to their own permissions.
+        For example: PrivilegedUsers
+
+        cannot remove SuperUsers.'
+      tags:
+      - Auth Groups
+      operationId: postApiV0.20AuthgroupRemoveByAuthGroupIDByUserID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                AuthGroupRemovalResponse:
+                  $ref: '#/components/examples/AuthGroupRemovalResponse'
+              schema:
+                $ref: '#/components/schemas/AuthGroupRemovalResponse'
+  /api/v0.20/authgroup/invite:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InviteUserToAuthGroupData'
+            examples:
+              InviteUserToAuthGroupData:
+                $ref: '#/components/examples/InviteUserToAuthGroupData'
+      summary: Sends an AuthGroup invite to the given email.
+      description: Generates and sends an invitation link for the given Site or View (AuthGroup) to the
+        given user email.
+      tags:
+      - Auth Groups
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthGroupInviteResponse'
+              examples:
+                AuthGroupInviteResponse:
+                  $ref: '#/components/examples/AuthGroupInviteResponse'
+          description: OK
+      operationId: postApiV0.20AuthgroupInvite
+  /api/authgroup/join:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcceptOrganizationInvite'
+            examples:
+              AcceptOrganizationInvite:
+                $ref: '#/components/examples/AcceptOrganizationInvite'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Accepts an AuthGroup Invitation
+      tags:
+      - Auth Groups
+      description: 'Used by the front end `/app/login/post-auth` route to accept project (auth group)
+        invitations. The role the user receives in the
+
+        referenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default
+        to read-only user.'
+      operationId: postApiAuthgroupJoin
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+    get:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcceptOrganizationInvite'
+            examples:
+              AcceptOrganizationInvite:
+                $ref: '#/components/examples/AcceptOrganizationInvite'
+      summary: Accepts an AuthGroup Invitation
+      tags:
+      - Auth Groups
+      description: 'DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation
+        by clicking directly in an email.
+
+        Accepting invitations is now handled by the /app/login/post-auth route provided by the front end,
+        which calls POST
+
+        /api/authgroup/join. This can be removed when any invitations linked to in this way have expired.'
+      operationId: getApiAuthgroupJoin
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+components:
+  examples:
+    AcceptOrganizationInvite:
+      value:
+        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
+    AuthGroupInviteResponse:
+      value:
+        inviteID: 7AAB23B4-6EA1-431C-867B-011004EE6074
+        message: Invitation sent.
+    DeclineOrganizationInvite:
+      value:
+        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
+    InviteUserToAuthGroupData:
+      value:
+        expiration: '2027-08-04T18:39:54Z'
+        inviteEmail: mithrawnuruodo@galactic-empire.com
+        authGroupID: E91394B2-549E-4D03-8502-4801065B138C
+        role: StandardUser
+    AuthGroupRemovalResponse:
+      value:
+        message: User has been successfully removed!
+        authGroupID: E2FA0E97-22E2-4996-84BD-74AC09DB973D
+        userID: BF33C269-8FAB-48A5-BF13-CB2052070CFE
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+  schemas:
+    AcceptOrganizationInvite:
+      properties:
+        inviteID:
+          description: ID of the invitation being accepted.
+          type: string
+          format: uuid
+      required:
+      - inviteID
+      description: Parameters required to accept an organization invite
+      type: object
+    QuantumRole:
+      enum:
+      - PrivilegedUser
+      - ReadOnlyUser
+      - StandardUser
+      - SuperUser
+      type: string
+    AuthGroupRemovalResponse:
+      properties:
+        userID:
+          type: string
+          description: ID of the User who has been removed
+          format: uuid
+        authGroupID:
+          type: string
+          description: ID of the Authgroup the user has been removed from.
+          format: uuid
+        message:
+          type: string
+          description: Message with additional information
+      required:
+      - authGroupID
+      - message
+      - userID
+      description: Response indicating that a User has been removed from an AuthGroup.
+      type: object
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+    AuthGroupInviteResponse:
+      properties:
+        message:
+          description: Message with additional information
+          type: string
+        inviteID:
+          description: ID of the invitation generated/sent
+          type: string
+          format: uuid
+      required:
+      - inviteID
+      - message
+      description: Response indicating that an AuthGroup invitation was successfully sent.
+      type: object
+    DeclineOrganizationInvite:
+      properties:
+        inviteID:
+          description: ID of the invitation being declined.
+          format: uuid
+          type: string
+      required:
+      - inviteID
+      description: Parameters required to decline an organization invite
+      type: object
+    InviteUserToAuthGroupData:
+      properties:
+        inviteEmail:
+          description: Email to send the invite to
+          type: string
+        authGroupID:
+          description: ID of the AuthGroup to which this invite pertains
+          type: string
+          format: uuid
+        expiration:
+          description: Timestamp at which this invitation will no longer be valid
+          type:
+          - string
+          - 'null'
+          format: date-time
+        role:
+          $ref: '#/components/schemas/QuantumRole'
+      required:
+      - authGroupID
+      - inviteEmail
+      description: Parameters required to invite a user to an organization
+      type: object
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

@@ -1,0 +1,3563 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "app",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /app/lp/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/lp/**"
+          },
+          "docs": "GET /app/lp/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/qs/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/qs/**"
+          },
+          "docs": "GET /app/qs/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/qe/*",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/qe/*"
+          },
+          "docs": "GET /app/qe/*"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/userAuth"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/password"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/bs/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/bs/**"
+          },
+          "docs": "GET /app/bs/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/eula"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/as/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/as/**"
+          },
+          "docs": "GET /app/as/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/al/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/al/**"
+          },
+          "docs": "GET /app/al/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/verify"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/devtools/*",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/devtools/*"
+          },
+          "docs": "GET /app/devtools/*"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/reset"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/qc/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/qc/**"
+          },
+          "docs": "GET /app/qc/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/signUp"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/finish"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/signIn"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/**"
+          },
+          "docs": "GET /app/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/login/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/**"
+          },
+          "docs": "GET /app/login/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/az/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/az/**"
+          },
+          "docs": "GET /app/az/**"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verifies and updates new user email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/email/change/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/v0.20/auth/email/change."
+        },
+        {
+          "info": {
+            "name": "Generates a Magic Link to be used to login.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/magic-link-generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-log"
+        },
+        {
+          "info": {
+            "name": "Verifies and updates new user email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/email/change/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/v0.19/auth/email/change."
+        },
+        {
+          "info": {
+            "name": "Verifies and updates new user email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/email/change/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/auth/email/change."
+        },
+        {
+          "info": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/password/change",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirects the user to the change password flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/password/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value."
+        },
+        {
+          "info": {
+            "name": "Initiates a password reset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only."
+        },
+        {
+          "info": {
+            "name": "Logs in a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required."
+        },
+        {
+          "info": {
+            "name": "Logs in a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Registers a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint"
+        },
+        {
+          "info": {
+            "name": "Logs in a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required."
+        },
+        {
+          "info": {
+            "name": "Logs out a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/logout",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint."
+        },
+        {
+          "info": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/zendesk"
+          },
+          "docs": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles."
+        },
+        {
+          "info": {
+            "name": "Redirects user to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/verify",
+            "params": [
+              {
+                "name": "email",
+                "value": "darthvader@galactic-empire.com",
+                "type": "query",
+                "description": "User's email to confirm as verified"
+              }
+            ]
+          },
+          "docs": "Redirects user to `/api/v0.19/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility."
+        },
+        {
+          "info": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/keys"
+          },
+          "docs": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517"
+        },
+        {
+          "info": {
+            "name": "Initiates a password reset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/password/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only."
+        },
+        {
+          "info": {
+            "name": "Returns information about the currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/whoami",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Useful to check if a user is authenticated."
+        },
+        {
+          "info": {
+            "name": "Redirects user to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/verify",
+            "params": [
+              {
+                "name": "email",
+                "value": "darthvader@galactic-empire.com",
+                "type": "query",
+                "description": "User's email to confirm as verified"
+              }
+            ]
+          },
+          "docs": "Redirects user to `/api/v0.20/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility."
+        },
+        {
+          "info": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/magic-link-login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production."
+        },
+        {
+          "info": {
+            "name": "Registers a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/v0.19/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint"
+        },
+        {
+          "info": {
+            "name": "Generates an API key for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/api-key/generate",
+            "params": [
+              {
+                "name": "expireSeconds",
+                "value": "2678400",
+                "type": "query",
+                "description": "Number of seconds until the key expires."
+              },
+              {
+                "name": "role",
+                "value": "ReadOnlyUser",
+                "type": "query",
+                "description": "Role of the new key."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header."
+        },
+        {
+          "info": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/keys"
+          },
+          "docs": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517"
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password from the password reset flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/password/reset/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation."
+        },
+        {
+          "info": {
+            "name": "GET /api/auth/offline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/offline",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "GET /auth/offline"
+        },
+        {
+          "info": {
+            "name": "Sends an email to begin email verification and registration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registrat"
+        },
+        {
+          "info": {
+            "name": "Redirects user to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/verify",
+            "params": [
+              {
+                "name": "email",
+                "value": "darthvader@galactic-empire.com",
+                "type": "query",
+                "description": "User's email to confirm as verified"
+              }
+            ]
+          },
+          "docs": "Redirects user to `/api/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Logs out a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/logout",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint."
+        },
+        {
+          "info": {
+            "name": "Registers a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/v0.20/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint"
+        },
+        {
+          "info": {
+            "name": "GET /api/v0.19/auth/offline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/offline",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "GET /auth/offline"
+        },
+        {
+          "info": {
+            "name": "Generates a Magic Link to be used to login.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/magic-link-generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-log"
+        },
+        {
+          "info": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/change",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirects the user to the change password flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/auth/api-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/keys"
+          },
+          "docs": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517"
+        },
+        {
+          "info": {
+            "name": "Initiates a password reset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only."
+        },
+        {
+          "info": {
+            "name": "Initiates an email change for the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/email/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address."
+        },
+        {
+          "info": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/profile/change",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirects the user the change profile flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/profile/change",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirects the user the change profile flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password from the password reset flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/reset/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation."
+        },
+        {
+          "info": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/magic-link-login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production."
+        },
+        {
+          "info": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/magic-link-login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production."
+        },
+        {
+          "info": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/zendesk"
+          },
+          "docs": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password from the password reset flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/reset/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation."
+        },
+        {
+          "info": {
+            "name": "Initiates an email change for the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/email/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address."
+        },
+        {
+          "info": {
+            "name": "Retrieves user information for Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database."
+        },
+        {
+          "info": {
+            "name": "Validates a user's password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API."
+        },
+        {
+          "info": {
+            "name": "Returns information about the currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/whoami",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Useful to check if a user is authenticated."
+        },
+        {
+          "info": {
+            "name": "Retrieves user information for Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database."
+        },
+        {
+          "info": {
+            "name": "Validates a user's password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API."
+        },
+        {
+          "info": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/change",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirects the user to the change password flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Generates an API key for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key/generate",
+            "params": [
+              {
+                "name": "expireSeconds",
+                "value": "2678400",
+                "type": "query",
+                "description": "Number of seconds until the key expires."
+              },
+              {
+                "name": "role",
+                "value": "ReadOnlyUser",
+                "type": "query",
+                "description": "Role of the new key."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header."
+        },
+        {
+          "info": {
+            "name": "Generates a Magic Link to be used to login.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/magic-link-generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-log"
+        },
+        {
+          "info": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/zendesk"
+          },
+          "docs": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles."
+        },
+        {
+          "info": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/profile/change",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Redirects the user the change profile flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Generates an API key for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key/generate",
+            "params": [
+              {
+                "name": "expireSeconds",
+                "value": "2678400",
+                "type": "query",
+                "description": "Number of seconds until the key expires."
+              },
+              {
+                "name": "role",
+                "value": "ReadOnlyUser",
+                "type": "query",
+                "description": "Role of the new key."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header."
+        },
+        {
+          "info": {
+            "name": "Logs out a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/logout",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint."
+        },
+        {
+          "info": {
+            "name": "Retrieves user information for Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database."
+        },
+        {
+          "info": {
+            "name": "Validates a user's password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API."
+        },
+        {
+          "info": {
+            "name": "Returns information about the currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/whoami",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Useful to check if a user is authenticated."
+        },
+        {
+          "info": {
+            "name": "Sends an email to begin email verification and registration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/register/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registrat"
+        },
+        {
+          "info": {
+            "name": "Initiates an email change for the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/email/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address."
+        },
+        {
+          "info": {
+            "name": "Sends an email to begin email verification and registration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/register/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registrat"
+        },
+        {
+          "info": {
+            "name": "GET /api/v0.20/auth/offline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/offline",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "GET /auth/offline"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Utility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provides information about the external auth configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/externalauthconfig"
+          },
+          "docs": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are."
+        },
+        {
+          "info": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/util/quantumlens",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing."
+        },
+        {
+          "info": {
+            "name": "Provides information about the external auth configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/externalauthconfig"
+          },
+          "docs": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are."
+        },
+        {
+          "info": {
+            "name": "Keep-alive ping/pong route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/ping"
+          },
+          "docs": "Use to check webserver health or keep connection alive. Returns pong message."
+        },
+        {
+          "info": {
+            "name": "Returns the Quantum Schema version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/quantumversion"
+          },
+          "docs": "Returns the current version of the Quantum schema in use by this webserver as a semantic version."
+        },
+        {
+          "info": {
+            "name": "Returns the Quantum Schema version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/quantumversion"
+          },
+          "docs": "Returns the current version of the Quantum schema in use by this webserver as a semantic version."
+        },
+        {
+          "info": {
+            "name": "Provides information about the external auth configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/externalauthconfig"
+          },
+          "docs": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are."
+        },
+        {
+          "info": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/util/quantumlens",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing."
+        },
+        {
+          "info": {
+            "name": "Returns version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/version"
+          },
+          "docs": "Returns commit hashes & build times for the running build of the webserver and all apps."
+        },
+        {
+          "info": {
+            "name": "Returns version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/version"
+          },
+          "docs": "Returns commit hashes & build times for the running build of the webserver and all apps."
+        },
+        {
+          "info": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/pl-hardware-info"
+          },
+          "docs": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero."
+        },
+        {
+          "info": {
+            "name": "Returns the Quantum Schema version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/quantumversion"
+          },
+          "docs": "Returns the current version of the Quantum schema in use by this webserver as a semantic version."
+        },
+        {
+          "info": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/util/quantumlens",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing."
+        },
+        {
+          "info": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/pl-hardware-info"
+          },
+          "docs": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero."
+        },
+        {
+          "info": {
+            "name": "Keep-alive ping/pong route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/ping"
+          },
+          "docs": "Use to check webserver health or keep connection alive. Returns pong message."
+        },
+        {
+          "info": {
+            "name": "Keep-alive ping/pong route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/ping"
+          },
+          "docs": "Use to check webserver health or keep connection alive. Returns pong message."
+        },
+        {
+          "info": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/pl-hardware-info"
+          },
+          "docs": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero."
+        },
+        {
+          "info": {
+            "name": "Returns version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/version"
+          },
+          "docs": "Returns commit hashes & build times for the running build of the webserver and all apps."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Auth Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Declines an AuthGroup invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Rejects an invitation based on AuthGroup invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Removes user from Auth Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/remove/:authGroupID/:userID",
+            "params": [
+              {
+                "name": "authGroupID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions to remove another user.\nUser can only remove other users with permissions less than or equal to their own permissions. For example: PrivilegedUsers\ncannot remove SuperUsers."
+        },
+        {
+          "info": {
+            "name": "Declines an AuthGroup invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Rejects an invitation based on AuthGroup invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Sends an AuthGroup invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given Site or View (AuthGroup) to the given user email."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation by clicking directly in an email.\nAccepting invitations is now handled by the /app/login/post-auth route provided by the front end, which calls POST\n/api/authgroup/join. This can be removed when any invitations linked to in this way have expired."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Used by the front end `/app/login/post-auth` route to accept project (auth group) invitations. The role the user receives in the\nreferenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Removes user from Auth Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/remove/:authGroupID/:userID",
+            "params": [
+              {
+                "name": "authGroupID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "userID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions to remove another user.\nUser can only remove other users with permissions less than or equal to their own permissions. For example: PrivilegedUsers\ncannot remove SuperUsers."
+        },
+        {
+          "info": {
+            "name": "Sends an AuthGroup invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/authgroup/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given Site or View (AuthGroup) to the given user email."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation by clicking directly in an email.\nAccepting invitations is now handled by the /app/login/post-auth route provided by the front end, which calls POST\n/api/authgroup/join. This can be removed when any invitations linked to in this way have expired."
+        },
+        {
+          "info": {
+            "name": "Accepts an AuthGroup Invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/authgroup/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Used by the front end `/app/login/post-auth` route to accept project (auth group) invitations. The role the user receives in the\nreferenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default to read-only user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Quantum Sync",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "QuantumSync API over websockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/quantumsync",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n### `start`: authenticates and specifies an initial context. note: the id for start and updateContext is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n        \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n       "
+        },
+        {
+          "info": {
+            "name": "QuantumSync API Legacy Route. Use /api/quantumsync instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/datasync",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Refer to the /api/quantumsync route documentation for full details. This route will be removed in the next major version."
+        },
+        {
+          "info": {
+            "name": "QuantumSync API Legacy Route. Use /api/v0.19/quantumsync instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/datasync",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Refer to the /api/v0.19/quantumsync route documentation for full details. This route will be removed in the next major version."
+        },
+        {
+          "info": {
+            "name": "QuantumSync API over websockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/quantumsync",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n### `start`: authenticates and specifies an initial context. note: the id for start and updateContext is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n        \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n       "
+        },
+        {
+          "info": {
+            "name": "QuantumSync API Legacy Route. Use /api/v0.20/quantumsync instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/datasync",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Refer to the /api/v0.20/quantumsync route documentation for full details. This route will be removed in the next major version."
+        },
+        {
+          "info": {
+            "name": "QuantumSync API over websockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/quantumsync",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n### `start`: authenticates and specifies an initial context. note: the id for start and updateContext is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n        \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n       "
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PassiveLogic Device",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Logs in a PassiveLogic device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/device/login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Logs in a PassiveLogic device, responding with the authentication token.\n\nmTLS authentication required."
+        },
+        {
+          "info": {
+            "name": "Logs in a PassiveLogic device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/device/login",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Logs in a PassiveLogic device, responding with the authentication token.\n\nmTLS authentication required."
+        },
+        {
+          "info": {
+            "name": "Generates an OAuth token for Tailscale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/device/tailscale/authToken",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "AutToken generated allowing hive's to enroll in our tailnet.\n\nmTLS authentication required."
+        },
+        {
+          "info": {
+            "name": "POST /api/v0.20/device/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/device/register",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /device/register"
+        },
+        {
+          "info": {
+            "name": "POST /api/device/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/device/register",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /device/register"
+        },
+        {
+          "info": {
+            "name": "Generates an OAuth token for Tailscale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/device/tailscale/authToken",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "AutToken generated allowing hive's to enroll in our tailnet.\n\nmTLS authentication required."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api/meta.json",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/meta.json"
+          },
+          "docs": "GET /api/meta.json"
+        },
+        {
+          "info": {
+            "name": "GET /api/metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/metrics"
+          },
+          "docs": "GET /api/metrics"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Organization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sends an organization invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given organization to the given user email."
+        },
+        {
+          "info": {
+            "name": "Deletes specified organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Completely deletes an organization, after verifying that the user making this request has permission to do so.\nSends an email to all other members of the organization informing them that it has been deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/update-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the logo for the organization.\nTakes in a new image as the organization's logo. Creates or replaces the previous stored logo."
+        },
+        {
+          "info": {
+            "name": "Declines an organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Rejects an invitation based on Organization invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/update-image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the image for the organization.\nTakes in a new image as the new organization image. Creates or replaces the previously stored image."
+        },
+        {
+          "info": {
+            "name": "Declines an organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Rejects an invitation based on Organization invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/update-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the logo for the organization.\nTakes in a new image as the organization's logo. Creates or replaces the previous stored logo."
+        },
+        {
+          "info": {
+            "name": "Sends an organization invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given organization to the given user email."
+        },
+        {
+          "info": {
+            "name": "Declines an organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Rejects an invitation based on Organization invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Adds a user to an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Adds user to organization based on Organization invite ID.\nRole in organization is determined through Organization invite role, if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/update-image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the image for the organization.\nTakes in a new image as the new organization image. Creates or replaces the previously stored image."
+        },
+        {
+          "info": {
+            "name": "Adds a user to an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Adds user to organization based on Organization invite ID.\nRole in organization is determined through Organization invite role, if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/update-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the logo for the organization.\nTakes in a new image as the organization's logo. Creates or replaces the previous stored logo."
+        },
+        {
+          "info": {
+            "name": "Deletes specified organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Completely deletes an organization, after verifying that the user making this request has permission to do so.\nSends an email to all other members of the organization informing them that it has been deleted."
+        },
+        {
+          "info": {
+            "name": "Sends an organization invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given organization to the given user email."
+        },
+        {
+          "info": {
+            "name": "Adds a user to an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Adds user to organization based on Organization invite ID.\nRole in organization is determined through Organization invite role, if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Deletes specified organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Completely deletes an organization, after verifying that the user making this request has permission to do so.\nSends an email to all other members of the organization informing them that it has been deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/update-image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the image for the organization.\nTakes in a new image as the new organization image. Creates or replaces the previously stored image."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accepts EULA for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/account/eula/accept",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens."
+        },
+        {
+          "info": {
+            "name": "Deletes the user making this request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/account/user/delete",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request."
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/account/credentials",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT."
+        },
+        {
+          "info": {
+            "name": "Deletes the user making this request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.19/account/user/delete",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request."
+        },
+        {
+          "info": {
+            "name": "Accepts EULA for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/account/eula/accept",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens."
+        },
+        {
+          "info": {
+            "name": "Deletes the user making this request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/account/user/delete",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request."
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/account/credentials",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT."
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/account/credentials",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT."
+        },
+        {
+          "info": {
+            "name": "Accepts EULA for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/account/eula/accept",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update user avatar image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/image/user-avatar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Uploads and updates the avatar image URL with the new image URL."
+        },
+        {
+          "info": {
+            "name": "Uploads an image.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Uploads an image to the server, setting its new stored url & checksum in the database. If an existing ID is given, this will\nattempt an update of the image data. The data may be sent in either multipart/form-data or JSON format. If using JSON, the\nimage file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary\ndata.\n\nThis endpoint is intended for associating image file data with an existing `Image` node in the Quantum schema."
+        },
+        {
+          "info": {
+            "name": "Uploads an image.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Uploads an image to the server, setting its new stored url & checksum in the database. If an existing ID is given, this will\nattempt an update of the image data. The data may be sent in either multipart/form-data or JSON format. If using JSON, the\nimage file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary\ndata.\n\nThis endpoint is intended for associating image file data with an existing `Image` node in the Quantum schema."
+        },
+        {
+          "info": {
+            "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/image/:imageID",
+            "params": [
+              {
+                "name": "imageID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete the image with the given quantum node ID.\nIf authorized and the given image is found, it will be deleted from the file store and the database.\nThe ID provided must be the ID of the `Image` Quantum node, NOT the name of the image."
+        },
+        {
+          "info": {
+            "name": "Update user avatar image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/image/user-avatar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Uploads and updates the avatar image URL with the new image URL."
+        },
+        {
+          "info": {
+            "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/image/:imageID",
+            "params": [
+              {
+                "name": "imageID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete the image with the given quantum node ID.\nIf authorized and the given image is found, it will be deleted from the file store and the database.\nThe ID provided must be the ID of the `Image` Quantum node, NOT the name of the image."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/health/liveness",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe"
+        },
+        {
+          "info": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/health/liveness",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe"
+        },
+        {
+          "info": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/health/readiness",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe"
+        },
+        {
+          "info": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/health/liveness",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe"
+        },
+        {
+          "info": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/health/readiness",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe"
+        },
+        {
+          "info": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/health/readiness",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "GraphQL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GraphQL API over websocket.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/graphqlSubscribe",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API over websockets to support streaming results like subscriptions.\n\nThe following sub-protocols are supported:\n- [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)\n- [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API over websocket.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/graphqlSubscribe",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API over websockets to support streaming results like subscriptions.\n\nThe following sub-protocols are supported:\n- [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)\n- [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "variables",
+                "value": "[object Object]",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "variables",
+                "value": "[object Object]",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "variables",
+                "value": "[object Object]",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API over websocket.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/graphqlSubscribe",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Serves the GraphQL API over websockets to support streaming results like subscriptions.\n\nThe following sub-protocols are supported:\n- [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)\n- [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Site",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Copy Project from one organization to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/site/copy",
+            "params": [
+              {
+                "name": "targetOrganizationID",
+                "value": "",
+                "type": "query",
+                "description": "Organization to copy the given site into."
+              },
+              {
+                "name": "siteID",
+                "value": "",
+                "type": "query",
+                "description": "Site to copy."
+              },
+              {
+                "name": "siteName",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site name."
+              },
+              {
+                "name": "siteDirectory",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site directory."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to start copying history from. Required to export all history."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to end copying history at. Required to export all history."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Copies Project from one organization to a target organization given a project Identifier.\nAll UUID's are created new for the copied project.\nReturns a mapping of old identifiers and new identifiers of the given project.\nHistory data is NOT copied unless startDate and endDate are provided.\nHistory copy will take time to complete in the background and there will be no indication of success."
+        },
+        {
+          "info": {
+            "name": "Copy Project from one organization to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/site/copy",
+            "params": [
+              {
+                "name": "targetOrganizationID",
+                "value": "",
+                "type": "query",
+                "description": "Organization to copy the given site into."
+              },
+              {
+                "name": "siteID",
+                "value": "",
+                "type": "query",
+                "description": "Site to copy."
+              },
+              {
+                "name": "siteName",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site name."
+              },
+              {
+                "name": "siteDirectory",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site directory."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to start copying history from. Required to export all history."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to end copying history at. Required to export all history."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Copies Project from one organization to a target organization given a project Identifier.\nAll UUID's are created new for the copied project.\nReturns a mapping of old identifiers and new identifiers of the given project.\nHistory data is NOT copied unless startDate and endDate are provided.\nHistory copy will take time to complete in the background and there will be no indication of success."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "tunnel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "GET /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "POST /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "PUT /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "DELETE /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "GET /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "GET /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "POST /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "POST /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "PUT /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "PUT /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "DELETE /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "DELETE /tunnel/:serialNumber/**"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Export",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exports CSV formatted property history data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/export/property/history",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns a string representation of property history values in CSV format from the given properties.\nreturns in the following headers:\nTime,Equipment name,Property name,Unit,Value\n\nTime returned in ISO8601 string format"
+        },
+        {
+          "info": {
+            "name": "Exports CSV formatted property history data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/export/property/history",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns a string representation of property history values in CSV format from the given properties.\nreturns in the following headers:\nTime,Equipment name,Property name,Unit,Value\n\nTime returned in ISO8601 string format"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/"
+          },
+          "docs": "GET /"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bindings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Uploads a file associated with a binding.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/binding",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Uploads a file to the server and associates that file with a binding node, setting its new stored URL & checksum in the\ndatabase. The data may be sent in either multipart/form-data or JSON format. If using JSON, the image file must be\nBase64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary data."
+        },
+        {
+          "info": {
+            "name": "Uploads a file associated with a binding.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/binding",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Uploads a file to the server and associates that file with a binding node, setting its new stored URL & checksum in the\ndatabase. The data may be sent in either multipart/form-data or JSON format. If using JSON, the image file must be\nBase64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

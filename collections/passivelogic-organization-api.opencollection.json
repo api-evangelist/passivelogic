@@ -1,0 +1,288 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Organization API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sends an organization invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given organization to the given user email."
+        },
+        {
+          "info": {
+            "name": "Deletes specified organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Completely deletes an organization, after verifying that the user making this request has permission to do so.\nSends an email to all other members of the organization informing them that it has been deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/update-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the logo for the organization.\nTakes in a new image as the organization's logo. Creates or replaces the previous stored logo."
+        },
+        {
+          "info": {
+            "name": "Declines an organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects an invitation based on Organization invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/update-image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the image for the organization.\nTakes in a new image as the new organization image. Creates or replaces the previously stored image."
+        },
+        {
+          "info": {
+            "name": "Declines an organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects an invitation based on Organization invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/update-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the logo for the organization.\nTakes in a new image as the organization's logo. Creates or replaces the previous stored logo."
+        },
+        {
+          "info": {
+            "name": "Sends an organization invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given organization to the given user email."
+        },
+        {
+          "info": {
+            "name": "Declines an organization invitation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/decline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rejects an invitation based on Organization invite ID.\nInvitation is deleted."
+        },
+        {
+          "info": {
+            "name": "Adds a user to an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds user to organization based on Organization invite ID.\nRole in organization is determined through Organization invite role, if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/update-image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the image for the organization.\nTakes in a new image as the new organization image. Creates or replaces the previously stored image."
+        },
+        {
+          "info": {
+            "name": "Adds a user to an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds user to organization based on Organization invite ID.\nRole in organization is determined through Organization invite role, if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's logo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/update-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the logo for the organization.\nTakes in a new image as the organization's logo. Creates or replaces the previous stored logo."
+        },
+        {
+          "info": {
+            "name": "Deletes specified organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Completely deletes an organization, after verifying that the user making this request has permission to do so.\nSends an email to all other members of the organization informing them that it has been deleted."
+        },
+        {
+          "info": {
+            "name": "Sends an organization invite to the given email.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates and sends an invitation link for the given organization to the given user email."
+        },
+        {
+          "info": {
+            "name": "Adds a user to an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/organization/join",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds user to organization based on Organization invite ID.\nRole in organization is determined through Organization invite role, if no role is defined, we default to read-only user."
+        },
+        {
+          "info": {
+            "name": "Deletes specified organization.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/organization/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Completely deletes an organization, after verifying that the user making this request has permission to do so.\nSends an email to all other members of the organization informing them that it has been deleted."
+        },
+        {
+          "info": {
+            "name": "Updates the organization's image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/organization/update-image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verifies that the user making the request has sufficient permissions to change the image for the organization.\nTakes in a new image as the new organization image. Creates or replaces the previously stored image."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

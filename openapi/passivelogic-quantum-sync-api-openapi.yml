@@ -1,0 +1,276 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Quantum Sync API
+tags:
+- description: Routes related to quantum sync
+  name: Quantum Sync
+paths:
+  /api/v0.19/quantumsync:
+    get:
+      tags:
+      - Quantum Sync
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: QuantumSync API over websockets
+      operationId: getApiV0.19Quantumsync
+      description: "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n\
+        ### `start`: authenticates and specifies an initial context. note: the id for start and updateContext\
+        \ is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"\
+        start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n    \
+        \    \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n\
+        \        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n            \"Building\"\
+        ,\n            \"Floor\",\n            \"Zone\"\n    ]\n    }\n}\n```\n\n### `updateContext`:\
+        \ change the current context / graph in memory.\nnote: the previous graph/context can be returned\
+        \ from memory by using updateContext id: <previous id used in start or updateContext>.\nUp to\
+        \ 5 contexts can be loaded before prevention (error) or deleteContext message needed to free up\
+        \ loaded count to load a new context.\n\nex)\n```json\n{\n    \"type\": \"updateContext\",\n \
+        \   \"id\": \"building\",\n    \"payload\": {\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\"\
+        ,\n        \"from\": \"Building\",\n        \"include\": [\n            \"Site\",\n          \
+        \  \"Floor\",\n            \"Zone\",\n            \"Image\",\n            \"Surface\",\n     \
+        \       \"Adjacency\",\n            \"System\",\n            \"Quanta\",\n            \"Manufacturer\"\
+        ,\n            \"Equipment\",\n            \"Property\",\n            \"Location\"\n        ]\n\
+        \    }\n}\n```\n\n### `deleteContext`: delete/clear the context out of memory.\nex)\n```json\n\
+        {\n    \"type\": \"deleteContext\",\n    \"id\": \"building\",\n    \"payload\": {}\n}\n```\n\n\
+        ### `sync`: create/update/delete QuantumObjects via a FlatGraphDiff as the payload.\n\nExecuting\
+        \ concurrent sync's is not allowed. If there is a sync already processing and another sync is\
+        \ requested before the response of the first sync is sent, then the 2nd symc will return an error\
+        \ saying there is a sync currently processing, and to wait until its finished before requesting\
+        \ another sync.\n\nex)\n```json\n{\n    \"type\": \"sync\",\n    \"id\": \"F5B6BC51-B991-440C-8ACB-B55C65FD7C24\"\
+        ,\n    \"payload\": {\n        \"added\": [],\n        \"updated\": [\n            {\n       \
+        \         \"description\": null,\n                \"ID\": \"80187B0B-CEEB-488A-A9B7-06784CFB0464\"\
+        ,\n                \"longitude\": null,\n                \"locationPropertyID\": null,\n     \
+        \           \"elevation\": null,\n                \"latitude\": null,\n                \"address\"\
+        : null,\n                \"timeZone\": null,\n                \"siteIDs\": [\n               \
+        \     \"7E7E04B4-8F32-4585-839D-E0EFC7BB3544\"\n                ],\n                \"weatherSourceIDs\"\
+        : [],\n                \"locked\": false,\n                \"authGroupID\": \"A1EBEC59-D887-473F-A5C5-7CBD4ADB2556\"\
+        ,\n                \"__typename\": \"Location\",\n                \"name\": \"foo\"\n        \
+        \    }\n        ],\n        \"removed\": []\n    }\n}\n```\n\n### `syncEphemeral`: create/update/delete\
+        \ QuantumObjects via a FlatGraphDiff as the payload, do not write them to the database,\nand discard\
+        \ them at the end of the websocket session.\nex)\n```json\n{\n    \"type\": \"syncEphemeral\"\
+        ,\n    \"id\": \"F5B6BC51-B991-440C-8ACB-B55C65FD7C24\",\n    \"payload\": {\n        \"added\"\
+        : [],\n        \"updated\": [\n            {\n                \"description\": null,\n       \
+        \         \"ID\": \"80187B0B-CEEB-488A-A9B7-06784CFB0464\",\n                \"longitude\": null,\n\
+        \                \"locationPropertyID\": null,\n                \"elevation\": null,\n       \
+        \         \"latitude\": null,\n                \"address\": null,\n                \"timeZone\"\
+        : null,\n                \"siteIDs\": [\n                    \"7E7E04B4-8F32-4585-839D-E0EFC7BB3544\"\
+        \n                ],\n                \"weatherSourceIDs\": [],\n                \"locked\": false,\n\
+        \                \"authGroupID\": \"A1EBEC59-D887-473F-A5C5-7CBD4ADB2556\",\n                \"\
+        __typename\": \"Location\",\n                \"name\": \"foo\"\n            }\n        ],\n  \
+        \      \"removed\": []\n    }\n}\n```\n\n### `propertyHistory`: Get history data for a property\
+        \ & listen for updates.\nex)\n```json\n{\n    \"type\": \"propertyHistory\",\n    \"id\": \"propertyHistory1\"\
+        ,\n    \"payload\": {\n        \"propertyIDs\": [\"E585C3B8-F1E5-40D0-83A7-658B248DF103\"],\n\
+        \        \"startAt\": \"2024-01-01T00:00:00Z\",\n        \"endAt\": \"2024-01-01T01:00:00Z\",\n\
+        \        \"resample\": {\n            \"interval\": {\n                \"to\": \"minutely\",\n\
+        \                \"reduceUsing\": \"avg\",\n                \"fillUsing\": \"interpolate\"\n \
+        \       },\n        \"pollIntervalSec\": 60\n    }\n}\n\n### `propertyHistoryStop`: Stop listening\
+        \ for property history updates\nex)\n```json\n{\n    \"type\": \"propertyHistoryStop\",\n    \"\
+        id\": \"propertyHistory1\"\n}\n```\n\n### `writeHistory`: Write historical data to a property\n\
+        ex)\n```json\n{\n    \"type\": \"writeHistory\",\n    \"id\": \"writeHistory\",\n    \"payload\"\
+        : {\n        \"histories\": [\n            {\n                \"propertyID\": \"E585C3B8-F1E5-40D0-83A7-658B248DF103\"\
+        ,\n                \"time\": \"2024-01-01T00:00:00Z\",\n                \"value\": 5.0\n     \
+        \       }\n        ]\n    }\n}\n```"
+  /api/datasync:
+    get:
+      summary: QuantumSync API Legacy Route. Use /api/quantumsync instead.
+      operationId: getApiDatasync
+      deprecated: true
+      description: Refer to the /api/quantumsync route documentation for full details. This route will
+        be removed in the next major version.
+      tags:
+      - Quantum Sync
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.19/datasync:
+    get:
+      operationId: getApiV0.19Datasync
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: QuantumSync API Legacy Route. Use /api/v0.19/quantumsync instead.
+      deprecated: true
+      description: Refer to the /api/v0.19/quantumsync route documentation for full details. This route
+        will be removed in the next major version.
+      tags:
+      - Quantum Sync
+  /api/v0.20/quantumsync:
+    get:
+      summary: QuantumSync API over websockets
+      operationId: getApiV0.20Quantumsync
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n\
+        ### `start`: authenticates and specifies an initial context. note: the id for start and updateContext\
+        \ is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"\
+        start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n    \
+        \    \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n\
+        \        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n            \"Building\"\
+        ,\n            \"Floor\",\n            \"Zone\"\n    ]\n    }\n}\n```\n\n### `updateContext`:\
+        \ change the current context / graph in memory.\nnote: the previous graph/context can be returned\
+        \ from memory by using updateContext id: <previous id used in start or updateContext>.\nUp to\
+        \ 5 contexts can be loaded before prevention (error) or deleteContext message needed to free up\
+        \ loaded count to load a new context.\n\nex)\n```json\n{\n    \"type\": \"updateContext\",\n \
+        \   \"id\": \"building\",\n    \"payload\": {\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\"\
+        ,\n        \"from\": \"Building\",\n        \"include\": [\n            \"Site\",\n          \
+        \  \"Floor\",\n            \"Zone\",\n            \"Image\",\n            \"Surface\",\n     \
+        \       \"Adjacency\",\n            \"System\",\n            \"Quanta\",\n            \"Manufacturer\"\
+        ,\n            \"Equipment\",\n            \"Property\",\n            \"Location\"\n        ]\n\
+        \    }\n}\n```\n\n### `deleteContext`: delete/clear the context out of memory.\nex)\n```json\n\
+        {\n    \"type\": \"deleteContext\",\n    \"id\": \"building\",\n    \"payload\": {}\n}\n```\n\n\
+        ### `sync`: create/update/delete QuantumObjects via a FlatGraphDiff as the payload.\n\nExecuting\
+        \ concurrent sync's is not allowed. If there is a sync already processing and another sync is\
+        \ requested before the response of the first sync is sent, then the 2nd symc will return an error\
+        \ saying there is a sync currently processing, and to wait until its finished before requesting\
+        \ another sync.\n\nex)\n```json\n{\n    \"type\": \"sync\",\n    \"id\": \"F5B6BC51-B991-440C-8ACB-B55C65FD7C24\"\
+        ,\n    \"payload\": {\n        \"added\": [],\n        \"updated\": [\n            {\n       \
+        \         \"description\": null,\n                \"ID\": \"80187B0B-CEEB-488A-A9B7-06784CFB0464\"\
+        ,\n                \"longitude\": null,\n                \"locationPropertyID\": null,\n     \
+        \           \"elevation\": null,\n                \"latitude\": null,\n                \"address\"\
+        : null,\n                \"timeZone\": null,\n                \"siteIDs\": [\n               \
+        \     \"7E7E04B4-8F32-4585-839D-E0EFC7BB3544\"\n                ],\n                \"weatherSourceIDs\"\
+        : [],\n                \"locked\": false,\n                \"authGroupID\": \"A1EBEC59-D887-473F-A5C5-7CBD4ADB2556\"\
+        ,\n                \"__typename\": \"Location\",\n                \"name\": \"foo\"\n        \
+        \    }\n        ],\n        \"removed\": []\n    }\n}\n```\n\n### `syncEphemeral`: create/update/delete\
+        \ QuantumObjects via a FlatGraphDiff as the payload, do not write them to the database,\nand discard\
+        \ them at the end of the websocket session.\nex)\n```json\n{\n    \"type\": \"syncEphemeral\"\
+        ,\n    \"id\": \"F5B6BC51-B991-440C-8ACB-B55C65FD7C24\",\n    \"payload\": {\n        \"added\"\
+        : [],\n        \"updated\": [\n            {\n                \"description\": null,\n       \
+        \         \"ID\": \"80187B0B-CEEB-488A-A9B7-06784CFB0464\",\n                \"longitude\": null,\n\
+        \                \"locationPropertyID\": null,\n                \"elevation\": null,\n       \
+        \         \"latitude\": null,\n                \"address\": null,\n                \"timeZone\"\
+        : null,\n                \"siteIDs\": [\n                    \"7E7E04B4-8F32-4585-839D-E0EFC7BB3544\"\
+        \n                ],\n                \"weatherSourceIDs\": [],\n                \"locked\": false,\n\
+        \                \"authGroupID\": \"A1EBEC59-D887-473F-A5C5-7CBD4ADB2556\",\n                \"\
+        __typename\": \"Location\",\n                \"name\": \"foo\"\n            }\n        ],\n  \
+        \      \"removed\": []\n    }\n}\n```\n\n### `propertyHistory`: Get history data for a property\
+        \ & listen for updates.\nex)\n```json\n{\n    \"type\": \"propertyHistory\",\n    \"id\": \"propertyHistory1\"\
+        ,\n    \"payload\": {\n        \"propertyIDs\": [\"E585C3B8-F1E5-40D0-83A7-658B248DF103\"],\n\
+        \        \"startAt\": \"2024-01-01T00:00:00Z\",\n        \"endAt\": \"2024-01-01T01:00:00Z\",\n\
+        \        \"resample\": {\n            \"interval\": {\n                \"to\": \"minutely\",\n\
+        \                \"reduceUsing\": \"avg\",\n                \"fillUsing\": \"interpolate\"\n \
+        \       },\n        \"pollIntervalSec\": 60\n    }\n}\n\n### `propertyHistoryStop`: Stop listening\
+        \ for property history updates\nex)\n```json\n{\n    \"type\": \"propertyHistoryStop\",\n    \"\
+        id\": \"propertyHistory1\"\n}\n```\n\n### `writeHistory`: Write historical data to a property\n\
+        ex)\n```json\n{\n    \"type\": \"writeHistory\",\n    \"id\": \"writeHistory\",\n    \"payload\"\
+        : {\n        \"histories\": [\n            {\n                \"propertyID\": \"E585C3B8-F1E5-40D0-83A7-658B248DF103\"\
+        ,\n                \"time\": \"2024-01-01T00:00:00Z\",\n                \"value\": 5.0\n     \
+        \       }\n        ]\n    }\n}\n```"
+      tags:
+      - Quantum Sync
+  /api/v0.20/datasync:
+    get:
+      summary: QuantumSync API Legacy Route. Use /api/v0.20/quantumsync instead.
+      operationId: getApiV0.20Datasync
+      tags:
+      - Quantum Sync
+      description: Refer to the /api/v0.20/quantumsync route documentation for full details. This route
+        will be removed in the next major version.
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/quantumsync:
+    get:
+      description: "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n\
+        ### `start`: authenticates and specifies an initial context. note: the id for start and updateContext\
+        \ is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"\
+        start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n    \
+        \    \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n\
+        \        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n            \"Building\"\
+        ,\n            \"Floor\",\n            \"Zone\"\n    ]\n    }\n}\n```\n\n### `updateContext`:\
+        \ change the current context / graph in memory.\nnote: the previous graph/context can be returned\
+        \ from memory by using updateContext id: <previous id used in start or updateContext>.\nUp to\
+        \ 5 contexts can be loaded before prevention (error) or deleteContext message needed to free up\
+        \ loaded count to load a new context.\n\nex)\n```json\n{\n    \"type\": \"updateContext\",\n \
+        \   \"id\": \"building\",\n    \"payload\": {\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\"\
+        ,\n        \"from\": \"Building\",\n        \"include\": [\n            \"Site\",\n          \
+        \  \"Floor\",\n            \"Zone\",\n            \"Image\",\n            \"Surface\",\n     \
+        \       \"Adjacency\",\n            \"System\",\n            \"Quanta\",\n            \"Manufacturer\"\
+        ,\n            \"Equipment\",\n            \"Property\",\n            \"Location\"\n        ]\n\
+        \    }\n}\n```\n\n### `deleteContext`: delete/clear the context out of memory.\nex)\n```json\n\
+        {\n    \"type\": \"deleteContext\",\n    \"id\": \"building\",\n    \"payload\": {}\n}\n```\n\n\
+        ### `sync`: create/update/delete QuantumObjects via a FlatGraphDiff as the payload.\n\nExecuting\
+        \ concurrent sync's is not allowed. If there is a sync already processing and another sync is\
+        \ requested before the response of the first sync is sent, then the 2nd symc will return an error\
+        \ saying there is a sync currently processing, and to wait until its finished before requesting\
+        \ another sync.\n\nex)\n```json\n{\n    \"type\": \"sync\",\n    \"id\": \"F5B6BC51-B991-440C-8ACB-B55C65FD7C24\"\
+        ,\n    \"payload\": {\n        \"added\": [],\n        \"updated\": [\n            {\n       \
+        \         \"description\": null,\n                \"ID\": \"80187B0B-CEEB-488A-A9B7-06784CFB0464\"\
+        ,\n                \"longitude\": null,\n                \"locationPropertyID\": null,\n     \
+        \           \"elevation\": null,\n                \"latitude\": null,\n                \"address\"\
+        : null,\n                \"timeZone\": null,\n                \"siteIDs\": [\n               \
+        \     \"7E7E04B4-8F32-4585-839D-E0EFC7BB3544\"\n                ],\n                \"weatherSourceIDs\"\
+        : [],\n                \"locked\": false,\n                \"authGroupID\": \"A1EBEC59-D887-473F-A5C5-7CBD4ADB2556\"\
+        ,\n                \"__typename\": \"Location\",\n                \"name\": \"foo\"\n        \
+        \    }\n        ],\n        \"removed\": []\n    }\n}\n```\n\n### `syncEphemeral`: create/update/delete\
+        \ QuantumObjects via a FlatGraphDiff as the payload, do not write them to the database,\nand discard\
+        \ them at the end of the websocket session.\nex)\n```json\n{\n    \"type\": \"syncEphemeral\"\
+        ,\n    \"id\": \"F5B6BC51-B991-440C-8ACB-B55C65FD7C24\",\n    \"payload\": {\n        \"added\"\
+        : [],\n        \"updated\": [\n            {\n                \"description\": null,\n       \
+        \         \"ID\": \"80187B0B-CEEB-488A-A9B7-06784CFB0464\",\n                \"longitude\": null,\n\
+        \                \"locationPropertyID\": null,\n                \"elevation\": null,\n       \
+        \         \"latitude\": null,\n                \"address\": null,\n                \"timeZone\"\
+        : null,\n                \"siteIDs\": [\n                    \"7E7E04B4-8F32-4585-839D-E0EFC7BB3544\"\
+        \n                ],\n                \"weatherSourceIDs\": [],\n                \"locked\": false,\n\
+        \                \"authGroupID\": \"A1EBEC59-D887-473F-A5C5-7CBD4ADB2556\",\n                \"\
+        __typename\": \"Location\",\n                \"name\": \"foo\"\n            }\n        ],\n  \
+        \      \"removed\": []\n    }\n}\n```\n\n### `propertyHistory`: Get history data for a property\
+        \ & listen for updates.\nex)\n```json\n{\n    \"type\": \"propertyHistory\",\n    \"id\": \"propertyHistory1\"\
+        ,\n    \"payload\": {\n        \"propertyIDs\": [\"E585C3B8-F1E5-40D0-83A7-658B248DF103\"],\n\
+        \        \"startAt\": \"2024-01-01T00:00:00Z\",\n        \"endAt\": \"2024-01-01T01:00:00Z\",\n\
+        \        \"resample\": {\n            \"interval\": {\n                \"to\": \"minutely\",\n\
+        \                \"reduceUsing\": \"avg\",\n                \"fillUsing\": \"interpolate\"\n \
+        \       },\n        \"pollIntervalSec\": 60\n    }\n}\n\n### `propertyHistoryStop`: Stop listening\
+        \ for property history updates\nex)\n```json\n{\n    \"type\": \"propertyHistoryStop\",\n    \"\
+        id\": \"propertyHistory1\"\n}\n```\n\n### `writeHistory`: Write historical data to a property\n\
+        ex)\n```json\n{\n    \"type\": \"writeHistory\",\n    \"id\": \"writeHistory\",\n    \"payload\"\
+        : {\n        \"histories\": [\n            {\n                \"propertyID\": \"E585C3B8-F1E5-40D0-83A7-658B248DF103\"\
+        ,\n                \"time\": \"2024-01-01T00:00:00Z\",\n                \"value\": 5.0\n     \
+        \       }\n        ]\n    }\n}\n```"
+      summary: QuantumSync API over websockets
+      operationId: getApiQuantumsync
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Quantum Sync
+components:
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

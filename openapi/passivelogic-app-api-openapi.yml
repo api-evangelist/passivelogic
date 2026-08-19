@@ -1,0 +1,150 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST App API
+tags:
+- name: app
+paths:
+  /app/lp/**:
+    get:
+      tags:
+      - app
+      description: GET /app/lp/**
+  /app/qs/**:
+    get:
+      tags:
+      - app
+      description: GET /app/qs/**
+  /app/qe/*:
+    get:
+      tags:
+      - app
+      description: GET /app/qe/*
+  /app/login/userAuth:
+    get:
+      summary: Redirects to external authentication provider (Keycloak).
+      description: ''
+      tags:
+      - app
+      operationId: getAppLoginUserAuth
+  /app/login/password:
+    get:
+      summary: Redirects to external authentication provider (Keycloak).
+      operationId: getAppLoginPassword
+      description: ''
+      tags:
+      - app
+  /app/bs/**:
+    get:
+      description: GET /app/bs/**
+      tags:
+      - app
+  /app/login/eula:
+    get:
+      tags:
+      - app
+      summary: Redirects to external authentication provider (Keycloak).
+      description: ''
+      operationId: getAppLoginEula
+  /app/as/**:
+    get:
+      tags:
+      - app
+      description: GET /app/as/**
+  /app/al/**:
+    get:
+      tags:
+      - app
+      description: GET /app/al/**
+  /app/login/verify:
+    get:
+      tags:
+      - app
+      description: ''
+      operationId: getAppLoginVerify
+      summary: Redirects to external authentication provider (Keycloak).
+  /app/devtools/*:
+    get:
+      tags:
+      - app
+      description: GET /app/devtools/*
+  /app/login/reset:
+    get:
+      tags:
+      - app
+      operationId: getAppLoginReset
+      summary: Redirects to external authentication provider (Keycloak).
+      description: ''
+  /app/qc/**:
+    get:
+      description: GET /app/qc/**
+      tags:
+      - app
+  /app/login/signUp:
+    get:
+      tags:
+      - app
+      operationId: getAppLoginSignUp
+      description: ''
+      summary: Redirects to external authentication provider (Keycloak).
+  /app/login/finish:
+    get:
+      tags:
+      - app
+      description: ''
+      summary: Redirects to external authentication provider (Keycloak).
+      operationId: getAppLoginFinish
+  /app/login/signIn:
+    get:
+      description: ''
+      summary: Redirects to external authentication provider (Keycloak).
+      operationId: getAppLoginSignIn
+      tags:
+      - app
+  /app/**:
+    get:
+      description: GET /app/**
+      tags:
+      - app
+  /app/login:
+    get:
+      operationId: getAppLogin
+      tags:
+      - app
+      summary: Redirects to external authentication provider (Keycloak).
+      description: ''
+  /app/login/**:
+    get:
+      tags:
+      - app
+      description: GET /app/login/**
+  /app/az/**:
+    get:
+      tags:
+      - app
+      description: GET /app/az/**
+components:
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

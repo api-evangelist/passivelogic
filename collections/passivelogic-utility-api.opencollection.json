@@ -1,0 +1,216 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Utility API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Utility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provides information about the external auth configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/externalauthconfig"
+          },
+          "docs": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are."
+        },
+        {
+          "info": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/util/quantumlens"
+          },
+          "docs": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing."
+        },
+        {
+          "info": {
+            "name": "Provides information about the external auth configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/externalauthconfig"
+          },
+          "docs": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are."
+        },
+        {
+          "info": {
+            "name": "Keep-alive ping/pong route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/ping"
+          },
+          "docs": "Use to check webserver health or keep connection alive. Returns pong message."
+        },
+        {
+          "info": {
+            "name": "Returns the Quantum Schema version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/quantumversion"
+          },
+          "docs": "Returns the current version of the Quantum schema in use by this webserver as a semantic version."
+        },
+        {
+          "info": {
+            "name": "Returns the Quantum Schema version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/quantumversion"
+          },
+          "docs": "Returns the current version of the Quantum schema in use by this webserver as a semantic version."
+        },
+        {
+          "info": {
+            "name": "Provides information about the external auth configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/externalauthconfig"
+          },
+          "docs": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are."
+        },
+        {
+          "info": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/util/quantumlens"
+          },
+          "docs": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing."
+        },
+        {
+          "info": {
+            "name": "Returns version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/version"
+          },
+          "docs": "Returns commit hashes & build times for the running build of the webserver and all apps."
+        },
+        {
+          "info": {
+            "name": "Returns version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/version"
+          },
+          "docs": "Returns commit hashes & build times for the running build of the webserver and all apps."
+        },
+        {
+          "info": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/pl-hardware-info"
+          },
+          "docs": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero."
+        },
+        {
+          "info": {
+            "name": "Returns the Quantum Schema version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/quantumversion"
+          },
+          "docs": "Returns the current version of the Quantum schema in use by this webserver as a semantic version."
+        },
+        {
+          "info": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/util/quantumlens"
+          },
+          "docs": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing."
+        },
+        {
+          "info": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/pl-hardware-info"
+          },
+          "docs": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero."
+        },
+        {
+          "info": {
+            "name": "Keep-alive ping/pong route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/util/ping"
+          },
+          "docs": "Use to check webserver health or keep connection alive. Returns pong message."
+        },
+        {
+          "info": {
+            "name": "Keep-alive ping/pong route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/ping"
+          },
+          "docs": "Use to check webserver health or keep connection alive. Returns pong message."
+        },
+        {
+          "info": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/util/pl-hardware-info"
+          },
+          "docs": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero."
+        },
+        {
+          "info": {
+            "name": "Returns version information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/util/version"
+          },
+          "docs": "Returns commit hashes & build times for the running build of the webserver and all apps."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

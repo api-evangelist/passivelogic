@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST PassiveLogic Device API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PassiveLogic Device",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Logs in a PassiveLogic device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/device/login"
+          },
+          "docs": "Logs in a PassiveLogic device, responding with the authentication token.\n\nmTLS authentication required."
+        },
+        {
+          "info": {
+            "name": "Logs in a PassiveLogic device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/device/login"
+          },
+          "docs": "Logs in a PassiveLogic device, responding with the authentication token.\n\nmTLS authentication required."
+        },
+        {
+          "info": {
+            "name": "Generates an OAuth token for Tailscale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/device/tailscale/authToken"
+          },
+          "docs": "AutToken generated allowing hive's to enroll in our tailnet.\n\nmTLS authentication required."
+        },
+        {
+          "info": {
+            "name": "POST /api/v0.20/device/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/device/register"
+          },
+          "docs": "POST /device/register"
+        },
+        {
+          "info": {
+            "name": "POST /api/device/register",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/device/register"
+          },
+          "docs": "POST /device/register"
+        },
+        {
+          "info": {
+            "name": "Generates an OAuth token for Tailscale",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/device/tailscale/authToken"
+          },
+          "docs": "AutToken generated allowing hive's to enroll in our tailnet.\n\nmTLS authentication required."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

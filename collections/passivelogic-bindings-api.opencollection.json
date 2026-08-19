@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Bindings API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bindings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Uploads a file associated with a binding.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/binding",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads a file to the server and associates that file with a binding node, setting its new stored URL & checksum in the\ndatabase. The data may be sent in either multipart/form-data or JSON format. If using JSON, the image file must be\nBase64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary data."
+        },
+        {
+          "info": {
+            "name": "Uploads a file associated with a binding.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/binding",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads a file to the server and associates that file with a binding node, setting its new stored URL & checksum in the\ndatabase. The data may be sent in either multipart/form-data or JSON format. If using JSON, the image file must be\nBase64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

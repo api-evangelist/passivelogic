@@ -1,0 +1,630 @@
+{
+  "item": [
+    {
+      "id": "d9eb73aa-f7ee-43e1-b4b2-19a8c501020a",
+      "name": "app",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22773e26-dc4d-46f2-b48b-b3655d618bc3",
+          "name": "GET /app/lp/**",
+          "request": {
+            "name": "GET /app/lp/**",
+            "description": {
+              "content": "GET /app/lp/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "lp",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f0cb407-dba3-436c-a684-8d57afb0ebd0",
+          "name": "GET /app/qs/**",
+          "request": {
+            "name": "GET /app/qs/**",
+            "description": {
+              "content": "GET /app/qs/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "qs",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db23143c-ad23-4aec-a2f2-aa69cb452d08",
+          "name": "GET /app/qe/*",
+          "request": {
+            "name": "GET /app/qe/*",
+            "description": {
+              "content": "GET /app/qe/*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "qe",
+                "*"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c50b922d-8cc4-4bd7-9eb7-7115ca74e285",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "userAuth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff77e9ad-be7e-41f8-9b10-63ade3740d75",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "password"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90231195-4e1c-4950-a05f-6247f615701d",
+          "name": "GET /app/bs/**",
+          "request": {
+            "name": "GET /app/bs/**",
+            "description": {
+              "content": "GET /app/bs/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "bs",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0922c7f-ad26-4c25-acd7-c541f25feae9",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "eula"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdc8adb1-0f67-4a67-a12a-efa8740168ed",
+          "name": "GET /app/as/**",
+          "request": {
+            "name": "GET /app/as/**",
+            "description": {
+              "content": "GET /app/as/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "as",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "773274cf-9e85-4529-9492-cacc256b0425",
+          "name": "GET /app/al/**",
+          "request": {
+            "name": "GET /app/al/**",
+            "description": {
+              "content": "GET /app/al/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "al",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0a6fbf4-c53c-45dc-a940-78c7ff1e0c09",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee50d1a8-7c01-4e15-9aa1-e5b69f353a2b",
+          "name": "GET /app/devtools/*",
+          "request": {
+            "name": "GET /app/devtools/*",
+            "description": {
+              "content": "GET /app/devtools/*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "devtools",
+                "*"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e49f81b-ae9e-4141-b810-8f7fad1fb096",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dbd14164-48a9-4932-b1b0-a03b86100d0a",
+          "name": "GET /app/qc/**",
+          "request": {
+            "name": "GET /app/qc/**",
+            "description": {
+              "content": "GET /app/qc/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "qc",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c30f384-f4ca-46f2-9f69-e8a3f0dbf879",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "signUp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b01b7b9d-a72d-450c-8c3d-a117422e17c3",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "finish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef15b496-bc2b-4d60-9237-1c045555a401",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "signIn"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56bb8a2b-80c5-418c-844b-bd9435503270",
+          "name": "GET /app/**",
+          "request": {
+            "name": "GET /app/**",
+            "description": {
+              "content": "GET /app/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c46171bc-7b3f-43b2-8e12-d7b9d8601969",
+          "name": "Redirects to external authentication provider (Keycloak).",
+          "request": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0976fa4e-b53f-44fd-8bf8-5b67596251cf",
+          "name": "GET /app/login/**",
+          "request": {
+            "name": "GET /app/login/**",
+            "description": {
+              "content": "GET /app/login/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "login",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6e8e765-3275-48f3-becf-62e96d0961c7",
+          "name": "GET /app/az/**",
+          "request": {
+            "name": "GET /app/az/**",
+            "description": {
+              "content": "GET /app/az/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "app",
+                "az",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d2e3129f-e2a3-4ff6-a810-6c227edc5173",
+    "name": "PassiveLogic REST App API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

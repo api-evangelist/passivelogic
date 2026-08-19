@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Account API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Accepts EULA for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/account/eula/accept"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens."
+        },
+        {
+          "info": {
+            "name": "Deletes the user making this request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/account/user/delete"
+          },
+          "docs": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request."
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/account/credentials"
+          },
+          "docs": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT."
+        },
+        {
+          "info": {
+            "name": "Deletes the user making this request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.19/account/user/delete"
+          },
+          "docs": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request."
+        },
+        {
+          "info": {
+            "name": "Accepts EULA for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/account/eula/accept"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens."
+        },
+        {
+          "info": {
+            "name": "Deletes the user making this request.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/account/user/delete"
+          },
+          "docs": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request."
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/account/credentials"
+          },
+          "docs": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT."
+        },
+        {
+          "info": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/account/credentials"
+          },
+          "docs": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT."
+        },
+        {
+          "info": {
+            "name": "Accepts EULA for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/account/eula/accept"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

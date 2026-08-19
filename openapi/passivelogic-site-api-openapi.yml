@@ -1,0 +1,298 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Site API
+tags:
+- description: Routes related to site objects
+  name: Site
+paths:
+  /api/v0.20/site/copy:
+    post:
+      parameters:
+      - description: Organization to copy the given site into.
+        in: query
+        name: targetOrganizationID
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - description: Site to copy.
+        in: query
+        name: siteID
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - description: Optionally change the copied site name.
+        in: query
+        name: siteName
+        schema:
+          type:
+          - string
+          - 'null'
+        required: false
+      - description: Optionally change the copied site directory.
+        in: query
+        name: siteDirectory
+        schema:
+          type:
+          - string
+          - 'null'
+        required: false
+      - description: Date to start copying history from. Required to export all history.
+        in: query
+        name: startDate
+        schema:
+          type:
+          - string
+          - 'null'
+        required: false
+      - description: Date to end copying history at. Required to export all history.
+        in: query
+        name: endDate
+        schema:
+          type:
+          - string
+          - 'null'
+        required: false
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Copy Project from one organization to another
+      tags:
+      - Site
+      description: 'Copies Project from one organization to a target organization given a project Identifier.
+
+        All UUID''s are created new for the copied project.
+
+        Returns a mapping of old identifiers and new identifiers of the given project.
+
+        History data is NOT copied unless startDate and endDate are provided.
+
+        History copy will take time to complete in the background and there will be no indication of success.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIdentifiers'
+          description: OK
+      operationId: postApiV0.20SiteCopy
+  /api/site/copy:
+    post:
+      operationId: postApiSiteCopy
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Copy Project from one organization to another
+      description: 'Copies Project from one organization to a target organization given a project Identifier.
+
+        All UUID''s are created new for the copied project.
+
+        Returns a mapping of old identifiers and new identifiers of the given project.
+
+        History data is NOT copied unless startDate and endDate are provided.
+
+        History copy will take time to complete in the background and there will be no indication of success.'
+      tags:
+      - Site
+      parameters:
+      - name: targetOrganizationID
+        required: true
+        description: Organization to copy the given site into.
+        in: query
+        schema:
+          format: uuid
+          type: string
+      - name: siteID
+        required: true
+        description: Site to copy.
+        in: query
+        schema:
+          format: uuid
+          type: string
+      - name: siteName
+        required: false
+        description: Optionally change the copied site name.
+        in: query
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: siteDirectory
+        required: false
+        description: Optionally change the copied site directory.
+        in: query
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: startDate
+        required: false
+        description: Date to start copying history from. Required to export all history.
+        in: query
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: endDate
+        required: false
+        description: Date to end copying history at. Required to export all history.
+        in: query
+        schema:
+          type:
+          - string
+          - 'null'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectIdentifiers'
+          description: OK
+components:
+  schemas:
+    ObjectPair:
+      properties:
+        newID:
+          type: string
+          format: uuid
+        oldID:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/QuantumObjectType'
+      required:
+      - newID
+      - oldID
+      - type
+      type: object
+    QuantumObjectType:
+      enum:
+      - Adjacency
+      - AllowedQuanta
+      - Analysis
+      - Animation
+      - ApiKey
+      - Artifact
+      - Asset
+      - AuthGroup
+      - Behavior
+      - Binding
+      - Building
+      - Campus
+      - CampusDirectory
+      - CompatibleQuanta
+      - ConnectionNet
+      - ConnectionNode
+      - ConstructionCategory
+      - ControlKnot
+      - Device
+      - DisplayRule
+      - EmailVerification
+      - Equation
+      - Equipment
+      - EquipmentComponent
+      - EquipmentComponentPropertyRouter
+      - EscalationGroup
+      - Event
+      - EventClass
+      - EventHistory
+      - EventRelation
+      - EventType
+      - Floor
+      - GraphVersion
+      - History
+      - Image
+      - ImportedModel
+      - InterfaceAlternate
+      - Invite
+      - Layer
+      - LayerSet
+      - LayerSetJoin
+      - Library
+      - Location
+      - LocationProperty
+      - Manufacturer
+      - Media
+      - MediaComponent
+      - Model
+      - MultifactorAuthentication
+      - NodeSet
+      - NodeSetConnectionNodeJoin
+      - Organization
+      - OrganizationAuthGroupPermission
+      - Prediction
+      - PredictionGroup
+      - Preference
+      - PreferenceGroup
+      - PrivilegeJoin
+      - Procedure
+      - Property
+      - PropertyTagRouter
+      - Quanta
+      - RefreshToken
+      - Relationship
+      - SelectedModel
+      - SessionBinding
+      - SessionEvent
+      - Shape
+      - Site
+      - Subsystem
+      - SubsystemCapability
+      - SubsystemSet
+      - Surface
+      - System
+      - Tag
+      - TagFamily
+      - TypicalConstruction
+      - UnitLookup
+      - UnitPreference
+      - User
+      - UserSession
+      - UserSessionHistory
+      - Vertex
+      - View
+      - WeatherSource
+      - Zone
+      - ZoneGroup
+      - ZoneSubsystem
+      - ZoneSubsystemSet
+      type: string
+    ObjectIdentifiers:
+      properties:
+        objectIdentifierMap:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectPair'
+      required:
+      - objectIdentifierMap
+      type: object
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

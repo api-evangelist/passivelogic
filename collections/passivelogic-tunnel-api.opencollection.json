@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Tunnel API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "tunnel",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**"
+          },
+          "docs": "GET /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "POST /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**"
+          },
+          "docs": "POST /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "PUT /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**"
+          },
+          "docs": "PUT /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "DELETE /api/v0.20/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/tunnel/:serialNumber/**"
+          },
+          "docs": "DELETE /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "GET /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**"
+          },
+          "docs": "GET /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "POST /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**"
+          },
+          "docs": "POST /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "PUT /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**"
+          },
+          "docs": "PUT /tunnel/:serialNumber/**"
+        },
+        {
+          "info": {
+            "name": "DELETE /api/tunnel/{serialNumber}/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/tunnel/:serialNumber/**"
+          },
+          "docs": "DELETE /tunnel/:serialNumber/**"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

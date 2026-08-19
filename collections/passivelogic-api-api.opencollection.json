@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /api/meta.json",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/meta.json"
+          },
+          "docs": "GET /api/meta.json"
+        },
+        {
+          "info": {
+            "name": "GET /api/metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/metrics"
+          },
+          "docs": "GET /api/metrics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

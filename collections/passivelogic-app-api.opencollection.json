@@ -1,0 +1,238 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST App API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "app",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /app/lp/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/lp/**"
+          },
+          "docs": "GET /app/lp/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/qs/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/qs/**"
+          },
+          "docs": "GET /app/qs/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/qe/*",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/qe/*"
+          },
+          "docs": "GET /app/qe/*"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/userAuth"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/password"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/bs/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/bs/**"
+          },
+          "docs": "GET /app/bs/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/eula"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/as/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/as/**"
+          },
+          "docs": "GET /app/as/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/al/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/al/**"
+          },
+          "docs": "GET /app/al/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/verify"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/devtools/*",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/devtools/*"
+          },
+          "docs": "GET /app/devtools/*"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/reset"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/qc/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/qc/**"
+          },
+          "docs": "GET /app/qc/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/signUp"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/finish"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/signIn"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/**"
+          },
+          "docs": "GET /app/**"
+        },
+        {
+          "info": {
+            "name": "Redirects to external authentication provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login"
+          },
+          "docs": "Redirects to external authentication provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "GET /app/login/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/login/**"
+          },
+          "docs": "GET /app/login/**"
+        },
+        {
+          "info": {
+            "name": "GET /app/az/**",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/app/az/**"
+          },
+          "docs": "GET /app/az/**"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

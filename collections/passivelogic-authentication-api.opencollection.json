@@ -1,0 +1,1050 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Authentication API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verifies and updates new user email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/email/change/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/v0.20/auth/email/change."
+        },
+        {
+          "info": {
+            "name": "Generates a Magic Link to be used to login.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/magic-link-generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-log"
+        },
+        {
+          "info": {
+            "name": "Verifies and updates new user email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/email/change/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/v0.19/auth/email/change."
+        },
+        {
+          "info": {
+            "name": "Verifies and updates new user email",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/email/change/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/auth/email/change."
+        },
+        {
+          "info": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/password/change"
+          },
+          "docs": "Redirects the user to the change password flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/password/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value."
+        },
+        {
+          "info": {
+            "name": "Initiates a password reset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only."
+        },
+        {
+          "info": {
+            "name": "Logs in a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/login"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required."
+        },
+        {
+          "info": {
+            "name": "Logs in a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/login"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Registers a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint"
+        },
+        {
+          "info": {
+            "name": "Logs in a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/login"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required."
+        },
+        {
+          "info": {
+            "name": "Logs out a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/logout"
+          },
+          "docs": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint."
+        },
+        {
+          "info": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/zendesk"
+          },
+          "docs": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles."
+        },
+        {
+          "info": {
+            "name": "Redirects user to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/verify",
+            "params": [
+              {
+                "name": "email",
+                "value": "darthvader@galactic-empire.com",
+                "type": "query",
+                "description": "User's email to confirm as verified"
+              }
+            ]
+          },
+          "docs": "Redirects user to `/api/v0.19/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility."
+        },
+        {
+          "info": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/keys"
+          },
+          "docs": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517"
+        },
+        {
+          "info": {
+            "name": "Initiates a password reset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/password/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only."
+        },
+        {
+          "info": {
+            "name": "Returns information about the currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/whoami"
+          },
+          "docs": "Useful to check if a user is authenticated."
+        },
+        {
+          "info": {
+            "name": "Redirects user to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/verify",
+            "params": [
+              {
+                "name": "email",
+                "value": "darthvader@galactic-empire.com",
+                "type": "query",
+                "description": "User's email to confirm as verified"
+              }
+            ]
+          },
+          "docs": "Redirects user to `/api/v0.20/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility."
+        },
+        {
+          "info": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/magic-link-login"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production."
+        },
+        {
+          "info": {
+            "name": "Registers a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/v0.19/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint"
+        },
+        {
+          "info": {
+            "name": "Generates an API key for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/api-key/generate",
+            "params": [
+              {
+                "name": "expireSeconds",
+                "value": "2678400",
+                "type": "query",
+                "description": "Number of seconds until the key expires."
+              },
+              {
+                "name": "role",
+                "value": "ReadOnlyUser",
+                "type": "query",
+                "description": "Role of the new key."
+              }
+            ]
+          },
+          "docs": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header."
+        },
+        {
+          "info": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/keys"
+          },
+          "docs": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517"
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password from the password reset flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/password/reset/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation."
+        },
+        {
+          "info": {
+            "name": "GET /api/auth/offline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/offline"
+          },
+          "docs": "GET /auth/offline"
+        },
+        {
+          "info": {
+            "name": "Sends an email to begin email verification and registration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registrat"
+        },
+        {
+          "info": {
+            "name": "Redirects user to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/verify",
+            "params": [
+              {
+                "name": "email",
+                "value": "darthvader@galactic-empire.com",
+                "type": "query",
+                "description": "User's email to confirm as verified"
+              }
+            ]
+          },
+          "docs": "Redirects user to `/api/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Logs out a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/logout"
+          },
+          "docs": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint."
+        },
+        {
+          "info": {
+            "name": "Registers a new user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/v0.20/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint"
+        },
+        {
+          "info": {
+            "name": "GET /api/v0.19/auth/offline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/offline"
+          },
+          "docs": "GET /auth/offline"
+        },
+        {
+          "info": {
+            "name": "Generates a Magic Link to be used to login.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/magic-link-generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-log"
+        },
+        {
+          "info": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/change"
+          },
+          "docs": "Redirects the user to the change password flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/auth/api-key",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/keys"
+          },
+          "docs": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517"
+        },
+        {
+          "info": {
+            "name": "Initiates a password reset.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only."
+        },
+        {
+          "info": {
+            "name": "Initiates an email change for the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/email/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address."
+        },
+        {
+          "info": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/profile/change"
+          },
+          "docs": "Redirects the user the change profile flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/profile/change"
+          },
+          "docs": "Redirects the user the change profile flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password from the password reset flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/password/reset/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation."
+        },
+        {
+          "info": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/magic-link-login"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production."
+        },
+        {
+          "info": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/magic-link-login"
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production."
+        },
+        {
+          "info": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/zendesk"
+          },
+          "docs": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password from the password reset flow.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/reset/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation."
+        },
+        {
+          "info": {
+            "name": "Initiates an email change for the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/email/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address."
+        },
+        {
+          "info": {
+            "name": "Retrieves user information for Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database."
+        },
+        {
+          "info": {
+            "name": "Validates a user's password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API."
+        },
+        {
+          "info": {
+            "name": "Returns information about the currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/whoami"
+          },
+          "docs": "Useful to check if a user is authenticated."
+        },
+        {
+          "info": {
+            "name": "Retrieves user information for Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database."
+        },
+        {
+          "info": {
+            "name": "Validates a user's password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API."
+        },
+        {
+          "info": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/change"
+          },
+          "docs": "Redirects the user to the change password flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/password/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key/remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validates that the given token is linked to the currently authenticated user and removes it if so."
+        },
+        {
+          "info": {
+            "name": "Generates an API key for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/api-key/generate",
+            "params": [
+              {
+                "name": "expireSeconds",
+                "value": "2678400",
+                "type": "query",
+                "description": "Number of seconds until the key expires."
+              },
+              {
+                "name": "role",
+                "value": "ReadOnlyUser",
+                "type": "query",
+                "description": "Role of the new key."
+              }
+            ]
+          },
+          "docs": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header."
+        },
+        {
+          "info": {
+            "name": "Generates a Magic Link to be used to login.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/magic-link-generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-log"
+        },
+        {
+          "info": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/auth/zendesk"
+          },
+          "docs": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles."
+        },
+        {
+          "info": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/profile/change"
+          },
+          "docs": "Redirects the user the change profile flow in the external auth provider (Keycloak)."
+        },
+        {
+          "info": {
+            "name": "Generates an API key for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/api-key/generate",
+            "params": [
+              {
+                "name": "expireSeconds",
+                "value": "2678400",
+                "type": "query",
+                "description": "Number of seconds until the key expires."
+              },
+              {
+                "name": "role",
+                "value": "ReadOnlyUser",
+                "type": "query",
+                "description": "Role of the new key."
+              }
+            ]
+          },
+          "docs": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header."
+        },
+        {
+          "info": {
+            "name": "Logs out a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/logout"
+          },
+          "docs": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint."
+        },
+        {
+          "info": {
+            "name": "Retrieves user information for Keycloak",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database."
+        },
+        {
+          "info": {
+            "name": "Validates a user's password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/kc/:user",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API."
+        },
+        {
+          "info": {
+            "name": "Returns information about the currently logged in user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/auth/whoami"
+          },
+          "docs": "Useful to check if a user is authenticated."
+        },
+        {
+          "info": {
+            "name": "Sends an email to begin email verification and registration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/register/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registrat"
+        },
+        {
+          "info": {
+            "name": "Initiates an email change for the current user.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/auth/email/change",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address."
+        },
+        {
+          "info": {
+            "name": "Sends an email to begin email verification and registration.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/auth/register/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registrat"
+        },
+        {
+          "info": {
+            "name": "GET /api/v0.20/auth/offline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/auth/offline"
+          },
+          "docs": "GET /auth/offline"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

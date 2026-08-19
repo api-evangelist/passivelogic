@@ -1,0 +1,375 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Graph QL API
+tags:
+- description: Routes related to the GraphQL API
+  name: GraphQL
+paths:
+  /api/v0.19/graphqlSubscribe:
+    get:
+      tags:
+      - GraphQL
+      summary: GraphQL API over websocket.
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: 'Serves the GraphQL API over websockets to support streaming results like subscriptions.
+
+
+        The following sub-protocols are supported:
+
+        - [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+
+        - [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)'
+      operationId: getApiV0.19GraphqlSubscribe
+  /api/v0.20/graphqlSubscribe:
+    get:
+      tags:
+      - GraphQL
+      summary: GraphQL API over websocket.
+      description: 'Serves the GraphQL API over websockets to support streaming results like subscriptions.
+
+
+        The following sub-protocols are supported:
+
+        - [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+
+        - [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)'
+      operationId: getApiV0.20GraphqlSubscribe
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.20/graphql:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphQLRequest'
+      summary: GraphQL API
+      externalDocs:
+        url: https://graphql.org/learn/serving-over-http/#post-request
+        description: GraphQL documentation.
+      tags:
+      - GraphQL
+      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)
+      operationId: postApiV0.20Graphql
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResult'
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResult'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: GraphQL API
+      externalDocs:
+        description: GraphQL documentation.
+        url: https://graphql.org/learn/serving-over-http/#get-request
+      tags:
+      - GraphQL
+      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)
+      operationId: getApiV0.20Graphql
+      parameters:
+      - in: query
+        required: true
+        name: query
+        schema:
+          type: string
+      - in: query
+        required: false
+        name: operationName
+        schema:
+          type:
+          - string
+          - 'null'
+      - in: query
+        required: false
+        name: variables
+        example: {}
+        schema:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: boolean
+  /api/v0.19/graphql:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphQLRequest'
+        required: true
+      summary: GraphQL API
+      externalDocs:
+        description: GraphQL documentation.
+        url: https://graphql.org/learn/serving-over-http/#post-request
+      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)
+      tags:
+      - GraphQL
+      operationId: postApiV0.19Graphql
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResult'
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResult'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: GraphQL API
+      externalDocs:
+        description: GraphQL documentation.
+        url: https://graphql.org/learn/serving-over-http/#get-request
+      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)
+      tags:
+      - GraphQL
+      operationId: getApiV0.19Graphql
+      parameters:
+      - required: true
+        schema:
+          type: string
+        name: query
+        in: query
+      - required: false
+        schema:
+          type:
+          - string
+          - 'null'
+        name: operationName
+        in: query
+      - required: false
+        schema:
+          additionalProperties:
+            type: boolean
+          type:
+          - object
+          - 'null'
+        example: {}
+        name: variables
+        in: query
+  /api/graphql:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GraphQLRequest'
+        required: true
+      summary: GraphQL API
+      externalDocs:
+        description: GraphQL documentation.
+        url: https://graphql.org/learn/serving-over-http/#post-request
+      tags:
+      - GraphQL
+      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)
+      operationId: postApiGraphql
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResult'
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResult'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: GraphQL API
+      externalDocs:
+        url: https://graphql.org/learn/serving-over-http/#get-request
+        description: GraphQL documentation.
+      tags:
+      - GraphQL
+      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: operationName
+        in: query
+        required: false
+        schema:
+          type:
+          - string
+          - 'null'
+      - name: variables
+        in: query
+        example: {}
+        required: false
+        schema:
+          additionalProperties:
+            type: boolean
+          type:
+          - object
+          - 'null'
+      operationId: getApiGraphql
+  /api/graphqlSubscribe:
+    get:
+      operationId: getApiGraphqlSubscribe
+      summary: GraphQL API over websocket.
+      tags:
+      - GraphQL
+      description: 'Serves the GraphQL API over websockets to support streaming results like subscriptions.
+
+
+        The following sub-protocols are supported:
+
+        - [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+
+        - [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+components:
+  schemas:
+    SourceLocation:
+      properties:
+        column:
+          type: integer
+          format: int64
+        line:
+          type: integer
+          format: int64
+      required:
+      - column
+      - line
+      type: object
+    GraphQLError:
+      properties:
+        message:
+          type: string
+        extensions:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: boolean
+        locations:
+          items:
+            $ref: '#/components/schemas/SourceLocation'
+          type: array
+        path:
+          items:
+            items:
+              format: int64
+              type: integer
+            type: array
+          type: array
+      required:
+      - locations
+      - message
+      - path
+      type: object
+    GraphQLResult:
+      properties:
+        data:
+          type:
+          - boolean
+          - 'null'
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+      type: object
+    GraphQLRequest:
+      properties:
+        variables:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: boolean
+        operationName:
+          type:
+          - string
+          - 'null'
+        query:
+          type: string
+      required:
+      - query
+      type: object
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Health API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/health/liveness"
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe"
+        },
+        {
+          "info": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/health/liveness"
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe"
+        },
+        {
+          "info": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/health/readiness"
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe"
+        },
+        {
+          "info": {
+            "name": "Liveness check used to determine when webserver should be restarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/health/liveness"
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#liveness-probe"
+        },
+        {
+          "info": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/health/readiness"
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe"
+        },
+        {
+          "info": {
+            "name": "Readiness check used to determine if webserver is ready to accept traffic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/health/readiness"
+          },
+          "docs": "See https://kubernetes.io/docs/concepts/configuration/liveness-readiness-startup-probes/#readiness-probe"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

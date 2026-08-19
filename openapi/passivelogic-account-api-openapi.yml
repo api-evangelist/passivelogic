@@ -1,0 +1,321 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Account API
+tags:
+- description: Routes related to user account management.
+  name: Account
+paths:
+  /api/v0.19/account/eula/accept:
+    post:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Accepts EULA for the current user
+      tags:
+      - Account
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+        Denotes that the current user has accepted the EULA.
+
+        Returns updated access and refresh tokens.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      operationId: postApiV0.19AccountEulaAccept
+  /api/account/user/delete:
+    delete:
+      operationId: deleteApiAccountUserDelete
+      summary: Deletes the user making this request.
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Account
+      description: 'Deletes the requesting user if they are not a SuperUser within any organizations.
+
+        Otherwise prompts them to transfer ownership or delete the org before making this request.'
+  /api/v0.19/account/credentials:
+    get:
+      summary: Retrieves a list of the credentials the current user has enabled.
+      operationId: getApiV0.19AccountCredentials
+      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak.
+        Credential types include password,
+
+        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g.
+        2025-10-10T16:32:11Z). Also note
+
+        that this API must be called with a properly authenticated JWT.'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeycloakCredentialInfo'
+          description: OK
+      tags:
+      - Account
+  /api/v0.19/account/user/delete:
+    delete:
+      tags:
+      - Account
+      summary: Deletes the user making this request.
+      description: 'Deletes the requesting user if they are not a SuperUser within any organizations.
+
+        Otherwise prompts them to transfer ownership or delete the org before making this request.'
+      operationId: deleteApiV0.19AccountUserDelete
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/account/eula/accept:
+    post:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Accepts EULA for the current user
+      tags:
+      - Account
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+        Denotes that the current user has accepted the EULA.
+
+        Returns updated access and refresh tokens.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+      operationId: postApiAccountEulaAccept
+  /api/v0.20/account/user/delete:
+    delete:
+      description: 'Deletes the requesting user if they are not a SuperUser within any organizations.
+
+        Otherwise prompts them to transfer ownership or delete the org before making this request.'
+      tags:
+      - Account
+      operationId: deleteApiV0.20AccountUserDelete
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Deletes the user making this request.
+  /api/account/credentials:
+    get:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Account
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/KeycloakCredentialInfo'
+                type: array
+          description: OK
+      summary: Retrieves a list of the credentials the current user has enabled.
+      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak.
+        Credential types include password,
+
+        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g.
+        2025-10-10T16:32:11Z). Also note
+
+        that this API must be called with a properly authenticated JWT.'
+      operationId: getApiAccountCredentials
+  /api/v0.20/account/credentials:
+    get:
+      operationId: getApiV0.20AccountCredentials
+      summary: Retrieves a list of the credentials the current user has enabled.
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KeycloakCredentialInfo'
+          description: OK
+      tags:
+      - Account
+      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak.
+        Credential types include password,
+
+        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g.
+        2025-10-10T16:32:11Z). Also note
+
+        that this API must be called with a properly authenticated JWT.'
+  /api/v0.20/account/eula/accept:
+    post:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Accepts EULA for the current user
+      tags:
+      - Account
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+        Denotes that the current user has accepted the EULA.
+
+        Returns updated access and refresh tokens.'
+      operationId: postApiV0.20AccountEulaAccept
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+components:
+  schemas:
+    KeycloakCredentialInfo:
+      properties:
+        createdDate:
+          format: int64
+          type:
+          - integer
+          - 'null'
+        value:
+          type:
+          - string
+          - 'null'
+        userLabel:
+          type:
+          - string
+          - 'null'
+        temporary:
+          type:
+          - boolean
+          - 'null'
+        type:
+          type: string
+        device:
+          type:
+          - string
+          - 'null'
+        id:
+          format: uuid
+          type: string
+        priority:
+          format: int64
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      - type
+      type: object
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+  examples:
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

@@ -1,0 +1,252 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST PassiveLogic Device API
+tags:
+- description: Routes related to PassiveLogic devices
+  name: PassiveLogic Device
+paths:
+  /api/v0.20/device/login:
+    get:
+      operationId: getApiV0.20DeviceLogin
+      tags:
+      - PassiveLogic Device
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                DeviceLoginResponse:
+                  $ref: '#/components/examples/DeviceLoginResponse'
+              schema:
+                $ref: '#/components/schemas/DeviceLoginResponse'
+      summary: Logs in a PassiveLogic device
+      description: 'Logs in a PassiveLogic device, responding with the authentication token.
+
+
+        mTLS authentication required.'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/device/login:
+    get:
+      summary: Logs in a PassiveLogic device
+      tags:
+      - PassiveLogic Device
+      operationId: getApiDeviceLogin
+      description: 'Logs in a PassiveLogic device, responding with the authentication token.
+
+
+        mTLS authentication required.'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                DeviceLoginResponse:
+                  $ref: '#/components/examples/DeviceLoginResponse'
+              schema:
+                $ref: '#/components/schemas/DeviceLoginResponse'
+  /api/device/tailscale/authToken:
+    get:
+      summary: Generates an OAuth token for Tailscale
+      operationId: getApiDeviceTailscaleAuthToken
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TailscalePostTailnetKeyResponse'
+      description: 'AutToken generated allowing hive''s to enroll in our tailnet.
+
+
+        mTLS authentication required.'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - PassiveLogic Device
+  /api/v0.20/device/register:
+    post:
+      description: POST /device/register
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - PassiveLogic Device
+  /api/device/register:
+    post:
+      description: POST /device/register
+      tags:
+      - PassiveLogic Device
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.20/device/tailscale/authToken:
+    get:
+      summary: Generates an OAuth token for Tailscale
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TailscalePostTailnetKeyResponse'
+          description: OK
+      operationId: getApiV0.20DeviceTailscaleAuthToken
+      description: 'AutToken generated allowing hive''s to enroll in our tailnet.
+
+
+        mTLS authentication required.'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - PassiveLogic Device
+components:
+  schemas:
+    DeviceLoginResponse:
+      properties:
+        token:
+          type: string
+          description: Signed authentication JWT
+      required:
+      - token
+      description: Response to /api/device/login
+      type: object
+    TailscaleCapabilitiesDevices:
+      properties:
+        create:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevicesCreate'
+      required:
+      - create
+      type: object
+    TailscaleCapabilitiesDevicesCreate:
+      properties:
+        reusable:
+          type: boolean
+        preauthorized:
+          type: boolean
+        tags:
+          type: array
+          items:
+            type: string
+        ephemeral:
+          type: boolean
+      required:
+      - ephemeral
+      - preauthorized
+      - reusable
+      - tags
+      type: object
+    TailscalePostTailnetKeyResponse:
+      properties:
+        revoked:
+          format: date-time
+          type:
+          - string
+          - 'null'
+        key:
+          type: string
+        expires:
+          format: date-time
+          type:
+          - string
+          - 'null'
+        id:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        expirySeconds:
+          format: int64
+          type: integer
+        created:
+          format: date-time
+          type:
+          - string
+          - 'null'
+        invalid:
+          type:
+          - boolean
+          - 'null'
+        scopes:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        capabilities:
+          $ref: '#/components/schemas/TailscaleCapabilities'
+        tags:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        keyType:
+          type: string
+        userId:
+          type:
+          - string
+          - 'null'
+      required:
+      - capabilities
+      - expirySeconds
+      - id
+      - key
+      - keyType
+      type: object
+    TailscaleCapabilities:
+      properties:
+        devices:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
+      required:
+      - devices
+      type: object
+  examples:
+    DeviceLoginResponse:
+      value:
+        token: eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCIsImtpZCI6InBsLUUwOTk2NzlGLTQyNDQtNDA4Ni05NTZBLTg4OUM4QkVCQzg2QSJ9.eyJpc3N1ZXIiOiJQYXNzaXZlTG9naWMiLCJoaXZlSUQiOiJEMjU3M0M2Qy0wQjVBLTRCMzItQjM1Ni00OEEyOTlFRDE0OTMiLCJleHBpcmF0aW9uIjoxNzE0NDA2OTA3LjcyODE1Mywic3ViamVjdCI6IkhpdmUgQXV0aGVudGljYXRpb24iLCJoaXZlU2VyaWFsTnVtYmVyIjoiUTBSWFQyUE1HWCJ9.11Awfpm7Uo1LWBtZTCNn1pxUuliE3lcMF4bIqbJzX87u5zJRFRKqfNWdULlU7mmEq_Fes7CzEvSFmn7wlNLlZxY-T8NKhFq35raskqDW-ZdpXUKRk8aHyWfrCVeFcCZU
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

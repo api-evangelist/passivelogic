@@ -1,0 +1,1385 @@
+{
+  "item": [
+    {
+      "id": "1b342ef8-90aa-4d34-91e8-9aa1494d239e",
+      "name": "Utility",
+      "description": {
+        "content": "Routes related to server metadata/utility",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a39e05c4-28d5-431c-8f82-07d7ad8d1d2c",
+          "name": "Provides information about the external auth configuration",
+          "request": {
+            "name": "Provides information about the external auth configuration",
+            "description": {
+              "content": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "util",
+                "externalauthconfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c9e7275-fc70-4d90-ae8b-47f617ffa292",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "util",
+                    "externalauthconfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7395775-b3a4-4b31-89ea-a1c1b0e60173",
+          "name": "QuantumLens (iOS) update & compatibility check",
+          "request": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "description": {
+              "content": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "util",
+                "quantumlens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "c7f59141-75f4-49a0-919d-631648d4faf2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "util",
+                    "quantumlens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {\n    \"appUpdate\": true,\n    \"osUpdate\": true\n  },\n  \"user\": {\n    \"userID\": \"8e259fce-19c0-81d9-f419-c0ea14c910cb\",\n    \"lastName\": null,\n    \"firstName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02a90416-d35e-4496-83af-0375e5d16ff9",
+          "name": "Provides information about the external auth configuration",
+          "request": {
+            "name": "Provides information about the external auth configuration",
+            "description": {
+              "content": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "util",
+                "externalauthconfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "efc4b3fd-a365-4eb7-b084-3ea4471b0171",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "util",
+                    "externalauthconfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d143bc8c-39f9-4789-862f-ce65a5c1fdbb",
+          "name": "Keep-alive ping/pong route",
+          "request": {
+            "name": "Keep-alive ping/pong route",
+            "description": {
+              "content": "Use to check webserver health or keep connection alive. Returns pong message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "util",
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2d9dbb0-5b20-49f0-9721-3c112dcffb9e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "util",
+                    "ping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec15cdcb-1c97-4d36-a955-d663a147eab4",
+          "name": "Returns the Quantum Schema version",
+          "request": {
+            "name": "Returns the Quantum Schema version",
+            "description": {
+              "content": "Returns the current version of the Quantum schema in use by this webserver as a semantic version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "util",
+                "quantumversion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4839f9c5-6350-405c-9414-9526afc02323",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "util",
+                    "quantumversion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66fc138f-6beb-465d-bb88-85ac0991d566",
+          "name": "Returns the Quantum Schema version",
+          "request": {
+            "name": "Returns the Quantum Schema version",
+            "description": {
+              "content": "Returns the current version of the Quantum schema in use by this webserver as a semantic version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "util",
+                "quantumversion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fce33d58-e4a5-474c-8d18-e8f4969e1388",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "util",
+                    "quantumversion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c20c897f-9cf3-4ed4-9215-e39cf7c749c1",
+          "name": "Provides information about the external auth configuration",
+          "request": {
+            "name": "Provides information about the external auth configuration",
+            "description": {
+              "content": "Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "util",
+                "externalauthconfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "addbd994-884f-484e-8d2e-c1d3ec756da9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "util",
+                    "externalauthconfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19126c5d-5e13-4ffd-9314-4113d35df2b5",
+          "name": "QuantumLens (iOS) update & compatibility check",
+          "request": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "description": {
+              "content": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "util",
+                "quantumlens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "a3b4ff36-9a8e-48df-b501-94ece7759368",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "util",
+                    "quantumlens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {\n    \"appUpdate\": true,\n    \"osUpdate\": true\n  },\n  \"user\": {\n    \"userID\": \"8e259fce-19c0-81d9-f419-c0ea14c910cb\",\n    \"lastName\": null,\n    \"firstName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25651380-be12-4b2a-a3d0-b0b8b351a4fd",
+          "name": "Returns version information",
+          "request": {
+            "name": "Returns version information",
+            "description": {
+              "content": "Returns commit hashes & build times for the running build of the webserver and all apps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "util",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "40eef0d0-75ab-4969-a22e-5a17b5347eee",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "util",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3e3e2a4-0bc9-4c0e-86e6-858cf5dba881",
+          "name": "Returns version information",
+          "request": {
+            "name": "Returns version information",
+            "description": {
+              "content": "Returns commit hashes & build times for the running build of the webserver and all apps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "util",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ee6e7c5-46f1-40bc-ad4c-a7a0de40b1af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "util",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "526b23a1-9d17-4bf5-b39f-b77360ea33e5",
+          "name": "Indicates to clients whether or not they are hives serving a webserver.",
+          "request": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "description": {
+              "content": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "util",
+                "pl-hardware-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "790e7a0a-6a03-4a1a-80bf-ee45bcd9c273",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "util",
+                    "pl-hardware-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"runningOnHive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f51683ae-8f68-4f26-baea-b2d02f34f50c",
+          "name": "Returns the Quantum Schema version",
+          "request": {
+            "name": "Returns the Quantum Schema version",
+            "description": {
+              "content": "Returns the current version of the Quantum schema in use by this webserver as a semantic version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "util",
+                "quantumversion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66edb919-294d-44dc-a290-0e8b601b31ab",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "util",
+                    "quantumversion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3005f93d-a426-4ed6-9643-a2a193fdc879",
+          "name": "QuantumLens (iOS) update & compatibility check",
+          "request": {
+            "name": "QuantumLens (iOS) update & compatibility check",
+            "description": {
+              "content": "Returns the status of the QuantumLens application for the current user.\n\n- `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)\n- `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)\n- `user`: information about the current user\n\nThis response helps the client determine whether the app or iOS requires an update before continuing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "util",
+                "quantumlens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "3ba9cd90-d758-4754-8e54-f82fa4361ce9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "util",
+                    "quantumlens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": {\n    \"appUpdate\": true,\n    \"osUpdate\": true\n  },\n  \"user\": {\n    \"userID\": \"8e259fce-19c0-81d9-f419-c0ea14c910cb\",\n    \"lastName\": null,\n    \"firstName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7caad657-330b-42b8-bf38-8c5851091e61",
+          "name": "Indicates to clients whether or not they are hives serving a webserver.",
+          "request": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "description": {
+              "content": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "util",
+                "pl-hardware-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07e003c6-3276-4114-b61d-48f4a0d78cc1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "util",
+                    "pl-hardware-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"runningOnHive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d193114a-690f-4155-93c6-be0bfc97cc98",
+          "name": "Keep-alive ping/pong route",
+          "request": {
+            "name": "Keep-alive ping/pong route",
+            "description": {
+              "content": "Use to check webserver health or keep connection alive. Returns pong message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "util",
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62a15481-7b56-4253-b432-ac77cbfac9af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "util",
+                    "ping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88eb1aa5-a6a5-42bd-aa0e-dafcde16b414",
+          "name": "Keep-alive ping/pong route",
+          "request": {
+            "name": "Keep-alive ping/pong route",
+            "description": {
+              "content": "Use to check webserver health or keep connection alive. Returns pong message.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "util",
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "289409b0-ddf9-4c3a-88db-ac421bb42b49",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "util",
+                    "ping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37466dab-fa10-4052-80b5-bf4e591baad1",
+          "name": "Indicates to clients whether or not they are hives serving a webserver.",
+          "request": {
+            "name": "Indicates to clients whether or not they are hives serving a webserver.",
+            "description": {
+              "content": "Returns a JSON object where the field 'runningOnHive' will be true if, on the server, the PL_HIVE_REVISION environment variable\nis set to a number greater than or equal to zero.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "util",
+                "pl-hardware-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2751715c-c87b-4fa2-ba26-c306d4919085",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "util",
+                    "pl-hardware-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"runningOnHive\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a0139db-44c6-4b99-8dce-5cc75cf90aeb",
+          "name": "Returns version information",
+          "request": {
+            "name": "Returns version information",
+            "description": {
+              "content": "Returns commit hashes & build times for the running build of the webserver and all apps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "util",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "954a2ff3-1c50-47f3-997f-f50ae7a6eb5b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "util",
+                    "version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "some string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c7e1c958-07c0-497a-8ddf-c826201d1288",
+    "name": "PassiveLogic REST Utility API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

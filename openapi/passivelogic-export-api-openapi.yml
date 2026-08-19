@@ -1,0 +1,96 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Export API
+tags:
+- description: Routes related to exporting objects and history
+  name: Export
+paths:
+  /api/export/property/history:
+    get:
+      tags:
+      - Export
+      summary: Exports CSV formatted property history data
+      responses:
+        '200':
+          content:
+            text/plain:
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+              schema:
+                type: string
+          description: OK
+      description: 'Returns a string representation of property history values in CSV format from the
+        given properties.
+
+        returns in the following headers:
+
+        Time,Equipment name,Property name,Unit,Value
+
+
+        Time returned in ISO8601 string format'
+      operationId: getApiExportPropertyHistory
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.20/export/property/history:
+    get:
+      tags:
+      - Export
+      operationId: getApiV0.20ExportPropertyHistory
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+          description: OK
+      summary: Exports CSV formatted property history data
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: 'Returns a string representation of property history values in CSV format from the
+        given properties.
+
+        returns in the following headers:
+
+        Time,Equipment name,Property name,Unit,Value
+
+
+        Time returned in ISO8601 string format'
+components:
+  examples:
+    String:
+      value: some string
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

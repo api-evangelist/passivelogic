@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "1dcd688b-6155-4ad6-afe9-de095ec6d814",
+      "name": "Bindings",
+      "description": {
+        "content": "Routes related to Binding management.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "71b035e8-1a01-4144-ba26-198d8c2c3b97",
+          "name": "Uploads a file associated with a binding.",
+          "request": {
+            "name": "Uploads a file associated with a binding.",
+            "description": {
+              "content": "Uploads a file to the server and associates that file with a binding node, setting its new stored URL & checksum in the\ndatabase. The data may be sent in either multipart/form-data or JSON format. If using JSON, the image file must be\nBase64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "binding"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ID",
+                  "value": "<uuid>",
+                  "type": "text",
+                  "description": "(Required) UUID of the quantum binding node that you want to associate this file with."
+                },
+                {
+                  "key": "file",
+                  "value": "<byte>",
+                  "type": "text",
+                  "description": "(Required) File data to write to the server."
+                },
+                {
+                  "key": "fileType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The type of file the given data represents."
+                },
+                {
+                  "key": "filePath",
+                  "value": "<string,null>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f48954f2-ff8c-40c2-818a-726cb6728853",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "binding"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) File data to write to the server.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) UUID of the quantum binding node that you want to associate this file with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "FF5BFAAC-B65A-443D-8A0C-904A38C904E9",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The type of file the given data represents.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileType",
+                      "value": "svg",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Binding object was successfully updated.\",\n  \"url\": \"https://passivelogic.com/binding/497E362B-AB0B-4013-AE38-86DB09A013AA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65595b02-46b1-45df-a486-3bd46a11b213",
+          "name": "Uploads a file associated with a binding.",
+          "request": {
+            "name": "Uploads a file associated with a binding.",
+            "description": {
+              "content": "Uploads a file to the server and associates that file with a binding node, setting its new stored URL & checksum in the\ndatabase. The data may be sent in either multipart/form-data or JSON format. If using JSON, the image file must be\nBase64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "binding"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ID",
+                  "value": "<uuid>",
+                  "type": "text",
+                  "description": "(Required) UUID of the quantum binding node that you want to associate this file with."
+                },
+                {
+                  "key": "file",
+                  "value": "<byte>",
+                  "type": "text",
+                  "description": "(Required) File data to write to the server."
+                },
+                {
+                  "key": "fileType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The type of file the given data represents."
+                },
+                {
+                  "key": "filePath",
+                  "value": "<string,null>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71588a23-0bd5-4378-8728-8b185b968ab1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "binding"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) File data to write to the server.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) UUID of the quantum binding node that you want to associate this file with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "FF5BFAAC-B65A-443D-8A0C-904A38C904E9",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The type of file the given data represents.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileType",
+                      "value": "svg",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Binding object was successfully updated.\",\n  \"url\": \"https://passivelogic.com/binding/497E362B-AB0B-4013-AE38-86DB09A013AA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8b779744-50d8-470a-aa92-272b508441f9",
+    "name": "PassiveLogic REST Bindings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

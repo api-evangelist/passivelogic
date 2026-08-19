@@ -1,0 +1,438 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Utility API
+tags:
+- description: Routes related to server metadata/utility
+  name: Utility
+paths:
+  /api/v0.19/util/externalauthconfig:
+    get:
+      operationId: getApiV0.19UtilExternalauthconfig
+      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what
+        the public settings are.
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+      tags:
+      - Utility
+      summary: Provides information about the external auth configuration
+  /api/v0.19/util/quantumlens:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      operationId: postApiV0.19UtilQuantumlens
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuantumLensResponse'
+      description: 'Returns the status of the QuantumLens application for the current user.
+
+
+        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil =
+        no update)
+
+        - `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)
+
+        - `user`: information about the current user
+
+
+        This response helps the client determine whether the app or iOS requires an update before continuing.'
+      tags:
+      - Utility
+      summary: QuantumLens (iOS) update & compatibility check
+  /api/v0.20/util/externalauthconfig:
+    get:
+      summary: Provides information about the external auth configuration
+      tags:
+      - Utility
+      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what
+        the public settings are.
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+      operationId: getApiV0.20UtilExternalauthconfig
+  /api/v0.19/util/ping:
+    get:
+      summary: Keep-alive ping/pong route
+      operationId: getApiV0.19UtilPing
+      responses:
+        '200':
+          content:
+            text/plain:
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+              schema:
+                type: string
+          description: OK
+      tags:
+      - Utility
+      description: Use to check webserver health or keep connection alive. Returns pong message.
+  /api/v0.20/util/quantumversion:
+    get:
+      tags:
+      - Utility
+      operationId: getApiV0.20UtilQuantumversion
+      summary: Returns the Quantum Schema version
+      description: Returns the current version of the Quantum schema in use by this webserver as a semantic
+        version.
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+          description: OK
+  /api/util/quantumversion:
+    get:
+      description: Returns the current version of the Quantum schema in use by this webserver as a semantic
+        version.
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+          description: OK
+      tags:
+      - Utility
+      summary: Returns the Quantum Schema version
+      operationId: getApiUtilQuantumversion
+  /api/util/externalauthconfig:
+    get:
+      operationId: getApiUtilExternalauthconfig
+      tags:
+      - Utility
+      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what
+        the public settings are.
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+      summary: Provides information about the external auth configuration
+  /api/util/quantumlens:
+    post:
+      tags:
+      - Utility
+      operationId: postApiUtilQuantumlens
+      summary: QuantumLens (iOS) update & compatibility check
+      description: 'Returns the status of the QuantumLens application for the current user.
+
+
+        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil =
+        no update)
+
+        - `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)
+
+        - `user`: information about the current user
+
+
+        This response helps the client determine whether the app or iOS requires an update before continuing.'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuantumLensResponse'
+  /api/util/version:
+    get:
+      tags:
+      - Utility
+      description: Returns commit hashes & build times for the running build of the webserver and all
+        apps.
+      operationId: getApiUtilVersion
+      summary: Returns version information
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+      deprecated: true
+  /api/v0.20/util/version:
+    get:
+      summary: Returns version information
+      operationId: getApiV0.20UtilVersion
+      description: Returns commit hashes & build times for the running build of the webserver and all
+        apps.
+      tags:
+      - Utility
+      responses:
+        '200':
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+          description: OK
+      deprecated: true
+  /api/v0.19/util/pl-hardware-info:
+    get:
+      summary: Indicates to clients whether or not they are hives serving a webserver.
+      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server,
+        the PL_HIVE_REVISION environment variable
+
+        is set to a number greater than or equal to zero.'
+      operationId: getApiV0.19UtilPl-hardware-info
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployedOnHiveResponse'
+          description: OK
+      tags:
+      - Utility
+  /api/v0.19/util/quantumversion:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+      operationId: getApiV0.19UtilQuantumversion
+      summary: Returns the Quantum Schema version
+      tags:
+      - Utility
+      description: Returns the current version of the Quantum schema in use by this webserver as a semantic
+        version.
+  /api/v0.20/util/quantumlens:
+    post:
+      operationId: postApiV0.20UtilQuantumlens
+      tags:
+      - Utility
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuantumLensResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: QuantumLens (iOS) update & compatibility check
+      description: 'Returns the status of the QuantumLens application for the current user.
+
+
+        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil =
+        no update)
+
+        - `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)
+
+        - `user`: information about the current user
+
+
+        This response helps the client determine whether the app or iOS requires an update before continuing.'
+  /api/v0.20/util/pl-hardware-info:
+    get:
+      operationId: getApiV0.20UtilPl-hardware-info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployedOnHiveResponse'
+      summary: Indicates to clients whether or not they are hives serving a webserver.
+      tags:
+      - Utility
+      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server,
+        the PL_HIVE_REVISION environment variable
+
+        is set to a number greater than or equal to zero.'
+  /api/v0.20/util/ping:
+    get:
+      tags:
+      - Utility
+      summary: Keep-alive ping/pong route
+      description: Use to check webserver health or keep connection alive. Returns pong message.
+      operationId: getApiV0.20UtilPing
+      responses:
+        '200':
+          content:
+            text/plain:
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+              schema:
+                type: string
+          description: OK
+  /api/util/ping:
+    get:
+      summary: Keep-alive ping/pong route
+      tags:
+      - Utility
+      description: Use to check webserver health or keep connection alive. Returns pong message.
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+      operationId: getApiUtilPing
+  /api/util/pl-hardware-info:
+    get:
+      operationId: getApiUtilPl-hardware-info
+      tags:
+      - Utility
+      summary: Indicates to clients whether or not they are hives serving a webserver.
+      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server,
+        the PL_HIVE_REVISION environment variable
+
+        is set to a number greater than or equal to zero.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeployedOnHiveResponse'
+          description: OK
+  /api/v0.19/util/version:
+    get:
+      tags:
+      - Utility
+      summary: Returns version information
+      description: Returns commit hashes & build times for the running build of the webserver and all
+        apps.
+      operationId: getApiV0.19UtilVersion
+      responses:
+        '200':
+          content:
+            text/plain:
+              examples:
+                String:
+                  $ref: '#/components/examples/String'
+              schema:
+                type: string
+          description: OK
+      deprecated: true
+components:
+  schemas:
+    QuantumLensUser:
+      properties:
+        lastName:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        userID:
+          format: uuid
+          type: string
+      required:
+      - userID
+      type: object
+    QuantumLensAppStatusResponse:
+      properties:
+        appUpdate:
+          type:
+          - boolean
+          - 'null'
+        osUpdate:
+          type:
+          - boolean
+          - 'null'
+      type: object
+    QuantumLensResponse:
+      properties:
+        user:
+          $ref: '#/components/schemas/QuantumLensUser'
+        status:
+          $ref: '#/components/schemas/QuantumLensAppStatusResponse'
+      required:
+      - status
+      - user
+      type: object
+    DeployedOnHiveResponse:
+      properties:
+        runningOnHive:
+          type: boolean
+      required:
+      - runningOnHive
+      type: object
+  examples:
+    String:
+      value: some string
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

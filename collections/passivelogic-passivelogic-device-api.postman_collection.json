@@ -1,0 +1,391 @@
+{
+  "item": [
+    {
+      "id": "f0c73590-ecdc-48cb-83e8-ec63445b8c2a",
+      "name": "PassiveLogic Device",
+      "description": {
+        "content": "Routes related to PassiveLogic devices",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9501d6cf-a3b9-4860-bd71-1e764dc42aa3",
+          "name": "Logs in a PassiveLogic device",
+          "request": {
+            "name": "Logs in a PassiveLogic device",
+            "description": {
+              "content": "Logs in a PassiveLogic device, responding with the authentication token.\n\nmTLS authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "device",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "62bc9b67-bca6-4a98-8228-a1eab1239d7e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "device",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCIsImtpZCI6InBsLUUwOTk2NzlGLTQyNDQtNDA4Ni05NTZBLTg4OUM4QkVCQzg2QSJ9.eyJpc3N1ZXIiOiJQYXNzaXZlTG9naWMiLCJoaXZlSUQiOiJEMjU3M0M2Qy0wQjVBLTRCMzItQjM1Ni00OEEyOTlFRDE0OTMiLCJleHBpcmF0aW9uIjoxNzE0NDA2OTA3LjcyODE1Mywic3ViamVjdCI6IkhpdmUgQXV0aGVudGljYXRpb24iLCJoaXZlU2VyaWFsTnVtYmVyIjoiUTBSWFQyUE1HWCJ9.11Awfpm7Uo1LWBtZTCNn1pxUuliE3lcMF4bIqbJzX87u5zJRFRKqfNWdULlU7mmEq_Fes7CzEvSFmn7wlNLlZxY-T8NKhFq35raskqDW-ZdpXUKRk8aHyWfrCVeFcCZU\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16939887-578f-492c-b8eb-646e429cd6d3",
+          "name": "Logs in a PassiveLogic device",
+          "request": {
+            "name": "Logs in a PassiveLogic device",
+            "description": {
+              "content": "Logs in a PassiveLogic device, responding with the authentication token.\n\nmTLS authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "device",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "d154560c-3ab0-4460-9ff1-1e3621f6fa1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "device",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCIsImtpZCI6InBsLUUwOTk2NzlGLTQyNDQtNDA4Ni05NTZBLTg4OUM4QkVCQzg2QSJ9.eyJpc3N1ZXIiOiJQYXNzaXZlTG9naWMiLCJoaXZlSUQiOiJEMjU3M0M2Qy0wQjVBLTRCMzItQjM1Ni00OEEyOTlFRDE0OTMiLCJleHBpcmF0aW9uIjoxNzE0NDA2OTA3LjcyODE1Mywic3ViamVjdCI6IkhpdmUgQXV0aGVudGljYXRpb24iLCJoaXZlU2VyaWFsTnVtYmVyIjoiUTBSWFQyUE1HWCJ9.11Awfpm7Uo1LWBtZTCNn1pxUuliE3lcMF4bIqbJzX87u5zJRFRKqfNWdULlU7mmEq_Fes7CzEvSFmn7wlNLlZxY-T8NKhFq35raskqDW-ZdpXUKRk8aHyWfrCVeFcCZU\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cac3fdf3-3ef5-4676-a3fb-deffdfead8b8",
+          "name": "Generates an OAuth token for Tailscale",
+          "request": {
+            "name": "Generates an OAuth token for Tailscale",
+            "description": {
+              "content": "AutToken generated allowing hive's to enroll in our tailnet.\n\nmTLS authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "device",
+                "tailscale",
+                "authToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "6f33602f-48e1-4c46-bd9a-4732f53d92bd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "device",
+                    "tailscale",
+                    "authToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"capabilities\": {\n    \"devices\": {\n      \"create\": {\n        \"ephemeral\": false,\n        \"preauthorized\": false,\n        \"reusable\": false,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  },\n  \"expirySeconds\": 2561,\n  \"id\": \"string\",\n  \"key\": \"string\",\n  \"keyType\": \"string\",\n  \"revoked\": \"2018-01-21T18:47:24.532Z\",\n  \"expires\": \"1967-03-10T13:21:39.668Z\",\n  \"description\": \"string\",\n  \"created\": null,\n  \"invalid\": null,\n  \"scopes\": null,\n  \"tags\": null,\n  \"userId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e91dc00-5927-4653-9209-ed8b6535b7a2",
+          "name": "POST /device/register",
+          "request": {
+            "name": "POST /device/register",
+            "description": {
+              "content": "POST /device/register",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "device",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "514d0f13-7ea5-43aa-848b-aad0205ab40e",
+          "name": "POST /device/register",
+          "request": {
+            "name": "POST /device/register",
+            "description": {
+              "content": "POST /device/register",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "device",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1906c20a-9c50-4901-b9ac-6339fc2d0410",
+          "name": "Generates an OAuth token for Tailscale",
+          "request": {
+            "name": "Generates an OAuth token for Tailscale",
+            "description": {
+              "content": "AutToken generated allowing hive's to enroll in our tailnet.\n\nmTLS authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "device",
+                "tailscale",
+                "authToken"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "47b6280b-83d6-49fd-b864-50feb088cc5c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "device",
+                    "tailscale",
+                    "authToken"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"capabilities\": {\n    \"devices\": {\n      \"create\": {\n        \"ephemeral\": true,\n        \"preauthorized\": false,\n        \"reusable\": true,\n        \"tags\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  },\n  \"expirySeconds\": 2090,\n  \"id\": \"string\",\n  \"key\": \"string\",\n  \"keyType\": \"string\",\n  \"revoked\": \"2014-07-18T22:07:25.360Z\",\n  \"expires\": null,\n  \"description\": null,\n  \"created\": \"1984-08-11T17:14:20.870Z\",\n  \"invalid\": false,\n  \"scopes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"tags\": [\n    \"string\",\n    \"string\"\n  ],\n  \"userId\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "023e47f1-da96-4d79-a63f-1060d5168aea",
+    "name": "PassiveLogic REST PassiveLogic Device API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

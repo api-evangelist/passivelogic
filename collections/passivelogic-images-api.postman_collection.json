@@ -1,0 +1,674 @@
+{
+  "item": [
+    {
+      "id": "71e1e53c-e48e-48cc-9945-a12986d61251",
+      "name": "Images",
+      "description": {
+        "content": "Routes related to Image management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ca6c265-43a9-44c6-84f3-b3836a3ed0be",
+          "name": "Update user avatar image",
+          "request": {
+            "name": "Update user avatar image",
+            "description": {
+              "content": "Uploads and updates the avatar image URL with the new image URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "image",
+                "user-avatar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fileType\": \"<string>\",\n  \"image\": \"<byte>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e2373d9-867b-4258-a29d-dd6210d69322",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "image",
+                    "user-avatar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileType\": \"svg\",\n  \"image\": \"PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Image was succefully updated.\",\n  \"url\": \"http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0bbf7f2-22cb-4bdf-8376-53e4f175a480",
+          "name": "Uploads an image.",
+          "request": {
+            "name": "Uploads an image.",
+            "description": {
+              "content": "Uploads an image to the server, setting its new stored url & checksum in the database. If an existing ID is given, this will\nattempt an update of the image data. The data may be sent in either multipart/form-data or JSON format. If using JSON, the\nimage file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary\ndata.\n\nThis endpoint is intended for associating image file data with an existing `Image` node in the Quantum schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ID",
+                  "value": "<uuid>",
+                  "type": "text",
+                  "description": "(Required) UUID of the quantum image node that you want to associate this image file with."
+                },
+                {
+                  "key": "fileType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The type of file the given data represents, from a list of allowed files."
+                },
+                {
+                  "key": "image",
+                  "value": "<byte>",
+                  "type": "text",
+                  "description": "(Required) File data to write to the server. Must be Base64-encoded if sending as JSON."
+                },
+                {
+                  "key": "filePath",
+                  "value": "<string,null>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "04d0ddce-652d-4b9f-a037-9fba1a9f69ef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The type of file the given data represents, from a list of allowed files.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileType",
+                      "value": "svg",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) File data to write to the server. Must be Base64-encoded if sending as JSON.",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) UUID of the quantum image node that you want to associate this image file with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "268C8D05-1BB8-4D48-8C70-AA01A7990A21",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Image was succefully updated.\",\n  \"url\": \"http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bdf06eb-1d3c-473e-8a52-86898a149231",
+          "name": "Uploads an image.",
+          "request": {
+            "name": "Uploads an image.",
+            "description": {
+              "content": "Uploads an image to the server, setting its new stored url & checksum in the database. If an existing ID is given, this will\nattempt an update of the image data. The data may be sent in either multipart/form-data or JSON format. If using JSON, the\nimage file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary\ndata.\n\nThis endpoint is intended for associating image file data with an existing `Image` node in the Quantum schema.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ID",
+                  "value": "<uuid>",
+                  "type": "text",
+                  "description": "(Required) UUID of the quantum image node that you want to associate this image file with."
+                },
+                {
+                  "key": "fileType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The type of file the given data represents, from a list of allowed files."
+                },
+                {
+                  "key": "image",
+                  "value": "<byte>",
+                  "type": "text",
+                  "description": "(Required) File data to write to the server. Must be Base64-encoded if sending as JSON."
+                },
+                {
+                  "key": "filePath",
+                  "value": "<string,null>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ea7c7a60-1291-4ab4-85b6-a24fb80eb62f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The type of file the given data represents, from a list of allowed files.",
+                        "type": "text/plain"
+                      },
+                      "key": "fileType",
+                      "value": "svg",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) File data to write to the server. Must be Base64-encoded if sending as JSON.",
+                        "type": "text/plain"
+                      },
+                      "key": "image",
+                      "value": "PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) UUID of the quantum image node that you want to associate this image file with.",
+                        "type": "text/plain"
+                      },
+                      "key": "ID",
+                      "value": "268C8D05-1BB8-4D48-8C70-AA01A7990A21",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Image was succefully updated.\",\n  \"url\": \"http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c3b0f32-a77a-44aa-a6db-def1097e2cfc",
+          "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+          "request": {
+            "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+            "description": {
+              "content": "Delete the image with the given quantum node ID.\nIf authorized and the given image is found, it will be deleted from the file store and the database.\nThe ID provided must be the ID of the `Image` Quantum node, NOT the name of the image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "image",
+                ":imageID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "imageID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "2bc91d68-413a-42b2-84bc-6d246c87f1d1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "image",
+                    ":imageID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "imageID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfa24cca-2d16-419c-b159-1e797f0c0222",
+          "name": "Update user avatar image",
+          "request": {
+            "name": "Update user avatar image",
+            "description": {
+              "content": "Uploads and updates the avatar image URL with the new image URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "image",
+                "user-avatar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fileType\": \"<string>\",\n  \"image\": \"<byte>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b96dd7bb-e20a-4437-a4dc-e5c3dd795ca8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "image",
+                    "user-avatar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fileType\": \"svg\",\n  \"image\": \"PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Image was succefully updated.\",\n  \"url\": \"http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f4ffe0f-7f93-4d20-b2bf-76253158a6db",
+          "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+          "request": {
+            "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+            "description": {
+              "content": "Delete the image with the given quantum node ID.\nIf authorized and the given image is found, it will be deleted from the file store and the database.\nThe ID provided must be the ID of the `Image` Quantum node, NOT the name of the image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "image",
+                ":imageID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "imageID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "77657577-6560-4df4-904c-41d9b10b2a29",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "image",
+                    ":imageID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "imageID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "da8d5de3-08d6-4d79-9be3-09558448e20a",
+    "name": "PassiveLogic REST Images API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

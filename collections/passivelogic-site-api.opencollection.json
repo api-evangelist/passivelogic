@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Site API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Site",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Copy Project from one organization to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/site/copy",
+            "params": [
+              {
+                "name": "targetOrganizationID",
+                "value": "",
+                "type": "query",
+                "description": "Organization to copy the given site into."
+              },
+              {
+                "name": "siteID",
+                "value": "",
+                "type": "query",
+                "description": "Site to copy."
+              },
+              {
+                "name": "siteName",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site name."
+              },
+              {
+                "name": "siteDirectory",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site directory."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to start copying history from. Required to export all history."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to end copying history at. Required to export all history."
+              }
+            ]
+          },
+          "docs": "Copies Project from one organization to a target organization given a project Identifier.\nAll UUID's are created new for the copied project.\nReturns a mapping of old identifiers and new identifiers of the given project.\nHistory data is NOT copied unless startDate and endDate are provided.\nHistory copy will take time to complete in the background and there will be no indication of success."
+        },
+        {
+          "info": {
+            "name": "Copy Project from one organization to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/site/copy",
+            "params": [
+              {
+                "name": "targetOrganizationID",
+                "value": "",
+                "type": "query",
+                "description": "Organization to copy the given site into."
+              },
+              {
+                "name": "siteID",
+                "value": "",
+                "type": "query",
+                "description": "Site to copy."
+              },
+              {
+                "name": "siteName",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site name."
+              },
+              {
+                "name": "siteDirectory",
+                "value": "",
+                "type": "query",
+                "description": "Optionally change the copied site directory."
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to start copying history from. Required to export all history."
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "Date to end copying history at. Required to export all history."
+              }
+            ]
+          },
+          "docs": "Copies Project from one organization to a target organization given a project Identifier.\nAll UUID's are created new for the copied project.\nReturns a mapping of old identifiers and new identifiers of the given project.\nHistory data is NOT copied unless startDate and endDate are provided.\nHistory copy will take time to complete in the background and there will be no indication of success."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

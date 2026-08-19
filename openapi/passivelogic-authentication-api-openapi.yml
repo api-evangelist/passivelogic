@@ -1,0 +1,2727 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Authentication API
+tags:
+- description: Routes related to user auth
+  name: Authentication
+paths:
+  /api/v0.20/auth/email/change/verify:
+    get:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatedUserEmail'
+            examples:
+              UpdatedUserEmail:
+                $ref: '#/components/examples/UpdatedUserEmail'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Verifies and updates new user email
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Verifies the new email is valid. Updates the user email with the newly validated one.
+
+
+        Token authentication required. Provided by /api/v0.20/auth/email/change.'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      operationId: getApiV0.20AuthEmailChangeVerify
+  /api/auth/magic-link-generate:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              UserRegistrationInitiation:
+                $ref: '#/components/examples/UserRegistrationInitiation'
+            schema:
+              $ref: '#/components/schemas/UserRegistrationInitiation'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Generates a Magic Link to be used to login.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Generates magic link containing `?token=<signed JWT with user email contained>` and sends it in
+        an email to the user.
+
+        This is the secure mode and MUST be used in production.
+
+        This will not return a link to the client.
+
+
+        If User does not exist in Database, will throw 400 bad request. If user exists, will return 200
+        ok.
+
+        These links can then be used to login from GET magic-link-login.'
+      operationId: postApiAuthMagic-link-generate
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MagicLinkResponse'
+          description: OK
+  /api/v0.19/auth/email/change/verify:
+    get:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              UpdatedUserEmail:
+                $ref: '#/components/examples/UpdatedUserEmail'
+            schema:
+              $ref: '#/components/schemas/UpdatedUserEmail'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Verifies and updates new user email
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Verifies the new email is valid. Updates the user email with the newly validated one.
+
+
+        Token authentication required. Provided by /api/v0.19/auth/email/change.'
+      tags:
+      - Authentication
+      operationId: getApiV0.19AuthEmailChangeVerify
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+  /api/auth/email/change/verify:
+    get:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              UpdatedUserEmail:
+                $ref: '#/components/examples/UpdatedUserEmail'
+            schema:
+              $ref: '#/components/schemas/UpdatedUserEmail'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Verifies and updates new user email
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Verifies the new email is valid. Updates the user email with the newly validated one.
+
+
+        Token authentication required. Provided by /api/auth/email/change.'
+      operationId: getApiAuthEmailChangeVerify
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+  /api/auth/password/change:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              ChangeUserPassword:
+                $ref: '#/components/examples/ChangeUserPassword'
+            schema:
+              $ref: '#/components/schemas/ChangeUserPassword'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Changes a user's password for an already authenticated user.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Changes an authenticated user''s password to the specified value.'
+      operationId: postApiAuthPasswordChange
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+    get:
+      tags:
+      - Authentication
+      operationId: getApiAuthPasswordChange
+      description: ''
+      summary: Redirects the user to the change password flow in the external auth provider (Keycloak).
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.19/auth/password/reset:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              RequestResetPasswordData:
+                $ref: '#/components/examples/RequestResetPasswordData'
+            schema:
+              $ref: '#/components/schemas/RequestResetPasswordData'
+      summary: Initiates a password reset.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Initiates a password reset for the given user, sending them an email with a password reset link
+        authenticated to their
+
+        account only.'
+      operationId: postApiV0.19AuthPasswordReset
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+  /api/v0.20/auth/login:
+    get:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Logs in a user
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Logs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can
+        be used to
+
+        send a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns
+        a whoami for the
+
+        logged in user.
+
+
+        Basic authentication required.'
+      operationId: getApiV0.20AuthLogin
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                LoginResponse:
+                  $ref: '#/components/examples/LoginResponse'
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+          description: OK
+  /api/v0.19/auth/login:
+    get:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Logs in a user
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Logs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can
+        be used to
+
+        send a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns
+        a whoami for the
+
+        logged in user.
+
+
+        Basic authentication required.'
+      operationId: getApiV0.19AuthLogin
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              examples:
+                LoginResponse:
+                  $ref: '#/components/examples/LoginResponse'
+          description: OK
+  /api/v0.20/auth/api-key:
+    delete:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+        required: true
+      summary: Removes a given API key for the user
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+      operationId: deleteApiV0.20AuthApi-key
+  /api/auth/register:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              RegisterUserData:
+                $ref: '#/components/examples/RegisterUserData'
+            schema:
+              $ref: '#/components/schemas/RegisterUserData'
+        required: true
+      summary: Registers a new user
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Creates a new user based on the provided information. Requires jwt obtained via email from
+
+        `/api/auth/register/initiate`. The user status is set to `Active` and immediately logged in.
+
+
+
+
+        Registration token is required when email verification is enforced, as indicated by a failed response
+        to this endpoint'
+      operationId: postApiAuthRegister
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                RegisterUserResponse:
+                  $ref: '#/components/examples/RegisterUserResponse'
+              schema:
+                $ref: '#/components/schemas/RegisterUserResponse'
+  /api/auth/login:
+    get:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Logs in a user
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Logs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can
+        be used to
+
+        send a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns
+        a whoami for the
+
+        logged in user.
+
+
+        Basic authentication required.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+              examples:
+                LoginResponse:
+                  $ref: '#/components/examples/LoginResponse'
+          description: OK
+      operationId: getApiAuthLogin
+  /api/v0.20/auth/logout:
+    post:
+      description: 'If external auth (Keycloak) is enabled, this initiates the external logout process.
+
+
+        Otherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh
+        token is revoked.
+
+
+        The response sets the auth & refresh cookies to empty values & marks them as expired.
+
+        New tokens must then be generated by the login endpoint.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Authentication
+      operationId: postApiV0.20AuthLogout
+      summary: Logs out a user
+  /api/v0.19/auth/zendesk:
+    get:
+      description: 'Redirects a user to the PassiveLogic Zendesk portal.
+
+        If they are already authenticated with their PL account when making this request,
+
+        they will be automatically logged in to Zendesk as well. Otherwise they will be redirected to
+        the Zendesk login page.
+
+        A `returnTo` query parameter can be used to support deep linking to, for example, specific support
+        articles.'
+      summary: Logs a user in to Zendesk using their PL Account
+      operationId: getApiV0.19AuthZendesk
+      tags:
+      - Authentication
+  /api/v0.19/auth/verify:
+    get:
+      description: 'Redirects user to `/api/v0.19/auth/login`, passing along the provided valid jwt and
+        email.
+
+
+        Exists in this form for backward compatibility.'
+      parameters:
+      - description: User's email to confirm as verified
+        required: true
+        example: darthvader@galactic-empire.com
+        name: email
+        schema:
+          type: string
+        in: query
+      operationId: getApiV0.19AuthVerify
+      summary: Redirects user to login
+      tags:
+      - Authentication
+  /api/auth/keys:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWKS'
+      tags:
+      - Authentication
+      description: 'Returns the public keys used to sign the JSON web tokens so their authenticity can
+        be verified. These are served in the
+
+        standard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517'
+      summary: Returns the public keys used to sign PassiveLogic JSON web tokens.
+      operationId: getApiAuthKeys
+  /api/auth/password/reset:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestResetPasswordData'
+            examples:
+              RequestResetPasswordData:
+                $ref: '#/components/examples/RequestResetPasswordData'
+        required: true
+      summary: Initiates a password reset.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Initiates a password reset for the given user, sending them an email with a password reset link
+        authenticated to their
+
+        account only.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+      operationId: postApiAuthPasswordReset
+  /api/v0.20/auth/whoami:
+    get:
+      summary: Returns information about the currently logged in user.
+      description: Useful to check if a user is authenticated.
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      operationId: getApiV0.20AuthWhoami
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoAmIResponse'
+              examples:
+                WhoAmIResponse:
+                  $ref: '#/components/examples/WhoAmIResponse'
+      tags:
+      - Authentication
+  /api/v0.20/auth/verify:
+    get:
+      parameters:
+      - description: User's email to confirm as verified
+        example: darthvader@galactic-empire.com
+        required: true
+        schema:
+          type: string
+        name: email
+        in: query
+      description: 'Redirects user to `/api/v0.20/auth/login`, passing along the provided valid jwt and
+        email.
+
+
+        Exists in this form for backward compatibility.'
+      tags:
+      - Authentication
+      summary: Redirects user to login
+      operationId: getApiV0.20AuthVerify
+  /api/auth/magic-link-login:
+    get:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Logs in a user using Magic Link generated by POST magic-link-generate
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Requires a magic login link containing containing `?token=<signed JWT with user email contained>`.
+
+        This is the secure mode and MUST be used in production.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      operationId: getApiAuthMagic-link-login
+  /api/v0.19/auth/register:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterUserData'
+            examples:
+              RegisterUserData:
+                $ref: '#/components/examples/RegisterUserData'
+        required: true
+      summary: Registers a new user
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Creates a new user based on the provided information. Requires jwt obtained via email from
+
+        `/api/v0.19/auth/register/initiate`. The user status is set to `Active` and immediately logged
+        in.
+
+
+
+
+        Registration token is required when email verification is enforced, as indicated by a failed response
+        to this endpoint'
+      tags:
+      - Authentication
+      operationId: postApiV0.19AuthRegister
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                RegisterUserResponse:
+                  $ref: '#/components/examples/RegisterUserResponse'
+              schema:
+                $ref: '#/components/schemas/RegisterUserResponse'
+  /api/auth/api-key/generate:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Generates an API key for the current user
+      tags:
+      - Authentication
+      description: 'Generates, stores, and returns a new API key with the default expiration period for
+        the user currently logged in.
+
+
+        Once created, you can then provide this API key in an
+
+        `Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header.'
+      parameters:
+      - schema:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        example: 2678400
+        required: false
+        name: expireSeconds
+        in: query
+        description: Number of seconds until the key expires.
+      - schema:
+          type:
+          - string
+          - 'null'
+        example: ReadOnlyUser
+        required: false
+        name: role
+        in: query
+        description: Role of the new key.
+      operationId: getApiAuthApi-keyGenerate
+  /api/v0.20/auth/keys:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWKS'
+      tags:
+      - Authentication
+      summary: Returns the public keys used to sign PassiveLogic JSON web tokens.
+      description: 'Returns the public keys used to sign the JSON web tokens so their authenticity can
+        be verified. These are served in the
+
+        standard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517'
+      operationId: getApiV0.20AuthKeys
+  /api/v0.19/auth/api-key:
+    delete:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+        required: true
+      summary: Removes a given API key for the user
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      operationId: deleteApiV0.19AuthApi-key
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+  /api/auth/password/reset/change:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              ChangePasswordData:
+                $ref: '#/components/examples/ChangePasswordData'
+            schema:
+              $ref: '#/components/schemas/ChangePasswordData'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Changes a user's password from the password reset flow.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Changes a user''s password to the specified value, reached from password reset flow.
+
+
+        Token authentication required, only using the authentication JWT decoded from the password reset
+        URL sent to a user
+
+        from a reset initiation.'
+      tags:
+      - Authentication
+      operationId: postApiAuthPasswordResetChange
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+  /api/auth/offline:
+    get:
+      tags:
+      - Authentication
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: GET /auth/offline
+  /api/auth/register/initiate:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistrationInitiation'
+            examples:
+              UserRegistrationInitiation:
+                $ref: '#/components/examples/UserRegistrationInitiation'
+        required: true
+      summary: Sends an email to begin email verification and registration.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Initiates the PassiveLogic registration process by sending an email to the given user. A user
+        is not stored in the system
+
+        at this point in the process - instead this serves as the initial step proving that a uer has
+        access to the email they
+
+        are signing up with.
+
+
+        Email will contain a link that holds a signed JWT from us. That JWT is later used to validate
+        and complete registration.
+
+
+        No authentication required.'
+      tags:
+      - Authentication
+      operationId: postApiAuthRegisterInitiate
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+  /api/auth/verify:
+    get:
+      operationId: getApiAuthVerify
+      tags:
+      - Authentication
+      parameters:
+      - name: email
+        description: User's email to confirm as verified
+        in: query
+        required: true
+        schema:
+          type: string
+        example: darthvader@galactic-empire.com
+      description: 'Redirects user to `/api/auth/login`, passing along the provided valid jwt and email.
+
+
+        Exists in this form for backward compatibility.'
+      summary: Redirects user to login
+  /api/auth/api-key/remove:
+    delete:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Removes a given API key for the user. This route has been deprecated in favor of: DELETE
+        /api/auth/api-key.'
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+          description: OK
+      operationId: deleteApiAuthApi-keyRemove
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Removes a given API key for the user. This route has been deprecated in favor of: DELETE
+        /api/auth/api-key.'
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+      operationId: postApiAuthApi-keyRemove
+  /api/v0.19/auth/logout:
+    post:
+      operationId: postApiV0.19AuthLogout
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Authentication
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      summary: Logs out a user
+      description: 'If external auth (Keycloak) is enabled, this initiates the external logout process.
+
+
+        Otherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh
+        token is revoked.
+
+
+        The response sets the auth & refresh cookies to empty values & marks them as expired.
+
+        New tokens must then be generated by the login endpoint.'
+  /api/v0.20/auth/register:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              RegisterUserData:
+                $ref: '#/components/examples/RegisterUserData'
+            schema:
+              $ref: '#/components/schemas/RegisterUserData'
+      summary: Registers a new user
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Creates a new user based on the provided information. Requires jwt obtained via email from
+
+        `/api/v0.20/auth/register/initiate`. The user status is set to `Active` and immediately logged
+        in.
+
+
+
+
+        Registration token is required when email verification is enforced, as indicated by a failed response
+        to this endpoint'
+      operationId: postApiV0.20AuthRegister
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                RegisterUserResponse:
+                  $ref: '#/components/examples/RegisterUserResponse'
+              schema:
+                $ref: '#/components/schemas/RegisterUserResponse'
+          description: OK
+  /api/v0.19/auth/offline:
+    get:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: GET /auth/offline
+      tags:
+      - Authentication
+  /api/v0.20/auth/magic-link-generate:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              UserRegistrationInitiation:
+                $ref: '#/components/examples/UserRegistrationInitiation'
+            schema:
+              $ref: '#/components/schemas/UserRegistrationInitiation'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Generates a Magic Link to be used to login.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Generates magic link containing `?token=<signed JWT with user email contained>` and sends it in
+        an email to the user.
+
+        This is the secure mode and MUST be used in production.
+
+        This will not return a link to the client.
+
+
+        If User does not exist in Database, will throw 400 bad request. If user exists, will return 200
+        ok.
+
+        These links can then be used to login from GET magic-link-login.'
+      operationId: postApiV0.20AuthMagic-link-generate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MagicLinkResponse'
+  /api/v0.20/auth/password/change:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeUserPassword'
+            examples:
+              ChangeUserPassword:
+                $ref: '#/components/examples/ChangeUserPassword'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Changes a user's password for an already authenticated user.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Changes an authenticated user''s password to the specified value.'
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+      operationId: postApiV0.20AuthPasswordChange
+    get:
+      description: ''
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      operationId: getApiV0.20AuthPasswordChange
+      summary: Redirects the user to the change password flow in the external auth provider (Keycloak).
+      tags:
+      - Authentication
+  /api/auth/api-key:
+    delete:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+      summary: Removes a given API key for the user
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+      operationId: deleteApiAuthApi-key
+  /api/v0.19/auth/keys:
+    get:
+      tags:
+      - Authentication
+      description: 'Returns the public keys used to sign the JSON web tokens so their authenticity can
+        be verified. These are served in the
+
+        standard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517'
+      operationId: getApiV0.19AuthKeys
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWKS'
+      summary: Returns the public keys used to sign PassiveLogic JSON web tokens.
+  /api/v0.20/auth/password/reset:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              RequestResetPasswordData:
+                $ref: '#/components/examples/RequestResetPasswordData'
+            schema:
+              $ref: '#/components/schemas/RequestResetPasswordData'
+        required: true
+      summary: Initiates a password reset.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Initiates a password reset for the given user, sending them an email with a password reset link
+        authenticated to their
+
+        account only.'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      operationId: postApiV0.20AuthPasswordReset
+  /api/auth/email/change:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              UpdatedUserEmail:
+                $ref: '#/components/examples/UpdatedUserEmail'
+            schema:
+              $ref: '#/components/schemas/UpdatedUserEmail'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Initiates an email change for the current user.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Sends an update email request to the provided new email address.'
+      operationId: postApiAuthEmailChange
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+  /api/auth/profile/change:
+    get:
+      description: ''
+      tags:
+      - Authentication
+      operationId: getApiAuthProfileChange
+      summary: Redirects the user the change profile flow in the external auth provider (Keycloak).
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.19/auth/api-key/remove:
+    delete:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Removes a given API key for the user. This route has been deprecated in favor of: DELETE
+        /api/v0.19/auth/api-key.'
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      operationId: deleteApiV0.19AuthApi-keyRemove
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Removes a given API key for the user. This route has been deprecated in favor of: DELETE
+        /api/v0.19/auth/api-key.'
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      operationId: postApiV0.19AuthApi-keyRemove
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+          description: OK
+  /api/v0.20/auth/profile/change:
+    get:
+      description: ''
+      summary: Redirects the user the change profile flow in the external auth provider (Keycloak).
+      operationId: getApiV0.20AuthProfileChange
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Authentication
+  /api/v0.20/auth/password/reset/change:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              ChangePasswordData:
+                $ref: '#/components/examples/ChangePasswordData'
+            schema:
+              $ref: '#/components/schemas/ChangePasswordData'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Changes a user's password from the password reset flow.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Changes a user''s password to the specified value, reached from password reset flow.
+
+
+        Token authentication required, only using the authentication JWT decoded from the password reset
+        URL sent to a user
+
+        from a reset initiation.'
+      tags:
+      - Authentication
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+      operationId: postApiV0.20AuthPasswordResetChange
+  /api/v0.19/auth/magic-link-login:
+    get:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Logs in a user using Magic Link generated by POST magic-link-generate
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Requires a magic login link containing containing `?token=<signed JWT with user email contained>`.
+
+        This is the secure mode and MUST be used in production.'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      operationId: getApiV0.19AuthMagic-link-login
+  /api/v0.20/auth/magic-link-login:
+    get:
+      deprecated: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Logs in a user using Magic Link generated by POST magic-link-generate
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Requires a magic login link containing containing `?token=<signed JWT with user email contained>`.
+
+        This is the secure mode and MUST be used in production.'
+      tags:
+      - Authentication
+      operationId: getApiV0.20AuthMagic-link-login
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+  /api/v0.20/auth/zendesk:
+    get:
+      tags:
+      - Authentication
+      summary: Logs a user in to Zendesk using their PL Account
+      description: 'Redirects a user to the PassiveLogic Zendesk portal.
+
+        If they are already authenticated with their PL account when making this request,
+
+        they will be automatically logged in to Zendesk as well. Otherwise they will be redirected to
+        the Zendesk login page.
+
+        A `returnTo` query parameter can be used to support deep linking to, for example, specific support
+        articles.'
+      operationId: getApiV0.20AuthZendesk
+  /api/v0.19/auth/password/reset/change:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordData'
+            examples:
+              ChangePasswordData:
+                $ref: '#/components/examples/ChangePasswordData'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Changes a user's password from the password reset flow.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Changes a user''s password to the specified value, reached from password reset flow.
+
+
+        Token authentication required, only using the authentication JWT decoded from the password reset
+        URL sent to a user
+
+        from a reset initiation.'
+      tags:
+      - Authentication
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      operationId: postApiV0.19AuthPasswordResetChange
+  /api/v0.20/auth/email/change:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatedUserEmail'
+            examples:
+              UpdatedUserEmail:
+                $ref: '#/components/examples/UpdatedUserEmail'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Initiates an email change for the current user.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Sends an update email request to the provided new email address.'
+      tags:
+      - Authentication
+      operationId: postApiV0.20AuthEmailChange
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+  /api/v0.20/auth/kc/{user}:
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      parameters:
+      - name: user
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - Authentication
+      operationId: postApiV0.20AuthKcByUser
+      summary: Validates a user's password
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: 'Allows the Keycloak migration plugin to validate a user''s password. Once validated,
+        the password is saved
+
+        to Keycloak''s database and is subsequently no longer validated using this API.'
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeycloakUserInfo'
+              examples:
+                KeycloakUserInfo:
+                  $ref: '#/components/examples/KeycloakUserInfo'
+      parameters:
+      - name: user
+        in: path
+        schema:
+          type: string
+        required: true
+      tags:
+      - Authentication
+      operationId: getApiV0.20AuthKcByUser
+      summary: Retrieves user information for Keycloak
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: 'Enables migrating users to Keycloak by providing an API endpoint for retrieving user
+        information. This
+
+        information is then saved to Keycloak''s own database.'
+  /api/auth/whoami:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                WhoAmIResponse:
+                  $ref: '#/components/examples/WhoAmIResponse'
+              schema:
+                $ref: '#/components/schemas/WhoAmIResponse'
+      tags:
+      - Authentication
+      operationId: getApiAuthWhoami
+      description: Useful to check if a user is authenticated.
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Returns information about the currently logged in user.
+  /api/auth/kc/{user}:
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Validates a user's password
+      description: 'Allows the Keycloak migration plugin to validate a user''s password. Once validated,
+        the password is saved
+
+        to Keycloak''s database and is subsequently no longer validated using this API.'
+      tags:
+      - Authentication
+      parameters:
+      - in: path
+        schema:
+          type: string
+        required: true
+        name: user
+      operationId: postApiAuthKcByUser
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeycloakUserInfo'
+              examples:
+                KeycloakUserInfo:
+                  $ref: '#/components/examples/KeycloakUserInfo'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Retrieves user information for Keycloak
+      description: 'Enables migrating users to Keycloak by providing an API endpoint for retrieving user
+        information. This
+
+        information is then saved to Keycloak''s own database.'
+      tags:
+      - Authentication
+      parameters:
+      - in: path
+        schema:
+          type: string
+        required: true
+        name: user
+      operationId: getApiAuthKcByUser
+  /api/v0.19/auth/password/change:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            examples:
+              ChangeUserPassword:
+                $ref: '#/components/examples/ChangeUserPassword'
+            schema:
+              $ref: '#/components/schemas/ChangeUserPassword'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Changes a user's password for an already authenticated user.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Changes an authenticated user''s password to the specified value.'
+      tags:
+      - Authentication
+      operationId: postApiV0.19AuthPasswordChange
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+    get:
+      summary: Redirects the user to the change password flow in the external auth provider (Keycloak).
+      description: ''
+      operationId: getApiV0.19AuthPasswordChange
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Authentication
+  /api/v0.20/auth/api-key/remove:
+    delete:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Removes a given API key for the user. This route has been deprecated in favor of: DELETE
+        /api/v0.20/auth/api-key.'
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      operationId: deleteApiV0.20AuthApi-keyRemove
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+          description: OK
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            examples:
+              RemoveApiKeyRequest:
+                $ref: '#/components/examples/RemoveApiKeyRequest'
+            schema:
+              $ref: '#/components/schemas/RemoveApiKeyRequest'
+        required: true
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: 'Removes a given API key for the user. This route has been deprecated in favor of: DELETE
+        /api/v0.20/auth/api-key.'
+      tags:
+      - Authentication
+      description: Validates that the given token is linked to the currently authenticated user and removes
+        it if so.
+      operationId: postApiV0.20AuthApi-keyRemove
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+          description: OK
+  /api/v0.20/auth/api-key/generate:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Generates an API key for the current user
+      tags:
+      - Authentication
+      description: 'Generates, stores, and returns a new API key with the default expiration period for
+        the user currently logged in.
+
+
+        Once created, you can then provide this API key in an
+
+        `Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header.'
+      operationId: getApiV0.20AuthApi-keyGenerate
+      parameters:
+      - in: query
+        schema:
+          format: int64
+          type:
+          - integer
+          - 'null'
+        example: 2678400
+        description: Number of seconds until the key expires.
+        name: expireSeconds
+        required: false
+      - in: query
+        schema:
+          type:
+          - string
+          - 'null'
+        example: ReadOnlyUser
+        description: Role of the new key.
+        name: role
+        required: false
+  /api/v0.19/auth/magic-link-generate:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistrationInitiation'
+            examples:
+              UserRegistrationInitiation:
+                $ref: '#/components/examples/UserRegistrationInitiation'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Generates a Magic Link to be used to login.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Generates magic link containing `?token=<signed JWT with user email contained>` and sends it in
+        an email to the user.
+
+        This is the secure mode and MUST be used in production.
+
+        This will not return a link to the client.
+
+
+        If User does not exist in Database, will throw 400 bad request. If user exists, will return 200
+        ok.
+
+        These links can then be used to login from GET magic-link-login.'
+      tags:
+      - Authentication
+      operationId: postApiV0.19AuthMagic-link-generate
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MagicLinkResponse'
+          description: OK
+  /api/auth/zendesk:
+    get:
+      description: 'Redirects a user to the PassiveLogic Zendesk portal.
+
+        If they are already authenticated with their PL account when making this request,
+
+        they will be automatically logged in to Zendesk as well. Otherwise they will be redirected to
+        the Zendesk login page.
+
+        A `returnTo` query parameter can be used to support deep linking to, for example, specific support
+        articles.'
+      summary: Logs a user in to Zendesk using their PL Account
+      tags:
+      - Authentication
+      operationId: getApiAuthZendesk
+  /api/v0.19/auth/profile/change:
+    get:
+      operationId: getApiV0.19AuthProfileChange
+      tags:
+      - Authentication
+      description: ''
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Redirects the user the change profile flow in the external auth provider (Keycloak).
+  /api/v0.19/auth/api-key/generate:
+    get:
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenerateApiKeyResponse:
+                  $ref: '#/components/examples/GenerateApiKeyResponse'
+              schema:
+                $ref: '#/components/schemas/GenerateApiKeyResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Generates an API key for the current user
+      tags:
+      - Authentication
+      description: 'Generates, stores, and returns a new API key with the default expiration period for
+        the user currently logged in.
+
+
+        Once created, you can then provide this API key in an
+
+        `Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header.'
+      operationId: getApiV0.19AuthApi-keyGenerate
+      parameters:
+      - description: Number of seconds until the key expires.
+        example: 2678400
+        schema:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        required: false
+        name: expireSeconds
+        in: query
+      - description: Role of the new key.
+        example: ReadOnlyUser
+        schema:
+          type:
+          - string
+          - 'null'
+        required: false
+        name: role
+        in: query
+  /api/auth/logout:
+    post:
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      description: 'If external auth (Keycloak) is enabled, this initiates the external logout process.
+
+
+        Otherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh
+        token is revoked.
+
+
+        The response sets the auth & refresh cookies to empty values & marks them as expired.
+
+        New tokens must then be generated by the login endpoint.'
+      tags:
+      - Authentication
+      summary: Logs out a user
+      operationId: postApiAuthLogout
+  /api/v0.19/auth/kc/{user}:
+    post:
+      parameters:
+      - name: user
+        required: true
+        schema:
+          type: string
+        in: path
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Validates a user's password
+      tags:
+      - Authentication
+      description: 'Allows the Keycloak migration plugin to validate a user''s password. Once validated,
+        the password is saved
+
+        to Keycloak''s database and is subsequently no longer validated using this API.'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      operationId: postApiV0.19AuthKcByUser
+    get:
+      parameters:
+      - name: user
+        required: true
+        schema:
+          type: string
+        in: path
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Retrieves user information for Keycloak
+      tags:
+      - Authentication
+      description: 'Enables migrating users to Keycloak by providing an API endpoint for retrieving user
+        information. This
+
+        information is then saved to Keycloak''s own database.'
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                KeycloakUserInfo:
+                  $ref: '#/components/examples/KeycloakUserInfo'
+              schema:
+                $ref: '#/components/schemas/KeycloakUserInfo'
+          description: OK
+      operationId: getApiV0.19AuthKcByUser
+  /api/v0.19/auth/whoami:
+    get:
+      tags:
+      - Authentication
+      operationId: getApiV0.19AuthWhoami
+      description: Useful to check if a user is authenticated.
+      summary: Returns information about the currently logged in user.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                WhoAmIResponse:
+                  $ref: '#/components/examples/WhoAmIResponse'
+              schema:
+                $ref: '#/components/schemas/WhoAmIResponse'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+  /api/v0.19/auth/register/initiate:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistrationInitiation'
+            examples:
+              UserRegistrationInitiation:
+                $ref: '#/components/examples/UserRegistrationInitiation'
+        required: true
+      summary: Sends an email to begin email verification and registration.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Initiates the PassiveLogic registration process by sending an email to the given user. A user
+        is not stored in the system
+
+        at this point in the process - instead this serves as the initial step proving that a uer has
+        access to the email they
+
+        are signing up with.
+
+
+        Email will contain a link that holds a signed JWT from us. That JWT is later used to validate
+        and complete registration.
+
+
+        No authentication required.'
+      operationId: postApiV0.19AuthRegisterInitiate
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+          description: OK
+  /api/v0.19/auth/email/change:
+    post:
+      deprecated: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatedUserEmail'
+            examples:
+              UpdatedUserEmail:
+                $ref: '#/components/examples/UpdatedUserEmail'
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      summary: Initiates an email change for the current user.
+      tags:
+      - Authentication
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Sends an update email request to the provided new email address.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+      operationId: postApiV0.19AuthEmailChange
+  /api/v0.20/auth/register/initiate:
+    post:
+      deprecated: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistrationInitiation'
+            examples:
+              UserRegistrationInitiation:
+                $ref: '#/components/examples/UserRegistrationInitiation'
+        required: true
+      summary: Sends an email to begin email verification and registration.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
+        on and will be removed in the future.
+
+
+        Initiates the PassiveLogic registration process by sending an email to the given user. A user
+        is not stored in the system
+
+        at this point in the process - instead this serves as the initial step proving that a uer has
+        access to the email they
+
+        are signing up with.
+
+
+        Email will contain a link that holds a signed JWT from us. That JWT is later used to validate
+        and complete registration.
+
+
+        No authentication required.'
+      tags:
+      - Authentication
+      responses:
+        '200':
+          content:
+            application/json:
+              examples:
+                GenericMessageResponse:
+                  $ref: '#/components/examples/GenericMessageResponse'
+              schema:
+                $ref: '#/components/schemas/GenericMessageResponse'
+          description: OK
+      operationId: postApiV0.20AuthRegisterInitiate
+  /api/v0.20/auth/offline:
+    get:
+      description: GET /auth/offline
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      tags:
+      - Authentication
+components:
+  schemas:
+    RegisterUserData:
+      properties:
+        token:
+          type:
+          - string
+          - 'null'
+        recaptchaToken:
+          type:
+          - string
+          - 'null'
+        email:
+          description: User's email
+          type: string
+        acceptMailingList:
+          type: boolean
+          description: Flag to mark if the user wants marketing emails
+        password:
+          description: User's password
+          type: string
+        username:
+          type:
+          - string
+          - 'null'
+        acceptedEULA:
+          description: Flag to mark if the user has accepted the EULA
+          type: boolean
+        lastName:
+          description: User's last name
+          type: string
+        firstName:
+          description: User's first name
+          type: string
+      required:
+      - acceptMailingList
+      - acceptedEULA
+      - email
+      - firstName
+      - lastName
+      - password
+      description: Data required for user registration
+      type: object
+    QuantumUserStatus:
+      enum:
+      - Active
+      - Blocked
+      - Deleted
+      - Locked
+      - Pending
+      - Reset
+      type: string
+    KeycloakUserInfo:
+      type: object
+      properties:
+        requiredActions:
+          description: Actions the user will need to do on next login
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        lastName:
+          description: The user's last name (surname)
+          type:
+          - string
+          - 'null'
+        email:
+          description: Email for the user, also used as the username
+          type: string
+        emailVerified:
+          description: Has the email address for this user been verified as valid
+          type:
+          - boolean
+          - 'null'
+        firstName:
+          description: The user's first (given) name
+          type:
+          - string
+          - 'null'
+        roles:
+          description: Roles for this user
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        groups:
+          description: Groups that this user belongs to
+          items:
+            type: string
+          type:
+          - array
+          - 'null'
+        access:
+          additionalProperties:
+            type: boolean
+          description: Access rights for this user
+          type:
+          - object
+          - 'null'
+        id:
+          description: Unique ID for the user
+          type:
+          - string
+          - 'null'
+        attributes:
+          additionalProperties:
+            items:
+              type: string
+            type: array
+          description: Additional attributes of the user; each attribute can have multiple values
+          type:
+          - object
+          - 'null'
+        username:
+          description: Unique username for the user
+          type:
+          - string
+          - 'null'
+        enabled:
+          description: Active or inactive status for the user
+          type:
+          - boolean
+          - 'null'
+      description: Information for Keycloak about the requested user.
+      required:
+      - email
+    JWKS:
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/JWK'
+      required:
+      - keys
+      type: object
+    MagicLinkResponse:
+      type: object
+      properties:
+        url:
+          description: Url to be used a magic link login.
+          type:
+          - string
+          - 'null'
+        message:
+          description: Message describing the response type.
+          type:
+          - string
+          - 'null'
+      description: Email for use signing up with a magic link
+    GenerateApiKeyResponse:
+      properties:
+        expiration:
+          description: Expiration of the new key.
+          format: int64
+          type: integer
+        key:
+          description: New API key.
+          type: string
+      required:
+      - expiration
+      - key
+      description: New API key generated for a user.
+      type: object
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Signed Authentication JWT
+        refresh:
+          type: string
+          description: Signed refresh JWT
+        whoAmI:
+          $ref: '#/components/schemas/WhoAmIResponse'
+      description: Generic response information
+      required:
+      - refresh
+      - token
+      - whoAmI
+    JWK:
+      type: object
+      properties:
+        kty:
+          type: string
+      required:
+      - kty
+    ChangeUserPassword:
+      properties:
+        oldPassword:
+          description: Old password for the user, used to confirm identity.
+          type: string
+        newPassword:
+          description: New password for the user.
+          type: string
+      required:
+      - newPassword
+      - oldPassword
+      description: Information required to change a user's password from the authenticated change password
+        flow
+      type: object
+    RegisterUserResponse:
+      properties:
+        newUserID:
+          $ref: '#/components/schemas/Identifier'
+        message:
+          type: string
+          description: Additional information about the response
+        refresh:
+          type:
+          - string
+          - 'null'
+          description: New refresh JWT
+        token:
+          type:
+          - string
+          - 'null'
+          description: New authentication JWT containing changed information
+        userStatus:
+          $ref: '#/components/schemas/QuantumUserStatus'
+      required:
+      - message
+      description: Sent when a new user is successfully registered.
+      type: object
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+    RequestResetPasswordData:
+      properties:
+        usernameOrEmail:
+          description: Email of the user requesting a reset.
+          type: string
+      required:
+      - usernameOrEmail
+      description: Information required to request a password reset.
+      type: object
+    UserRegistrationInitiation:
+      type: object
+      properties:
+        email:
+          description: Email that is registering for a new account.
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+      description: Information for intiating user registration
+      required:
+      - email
+    UpdatedUserEmail:
+      properties:
+        password:
+          description: user's password to confirm identity
+          type: string
+        oldEmail:
+          description: Previous user email
+          type: string
+        newEmail:
+          description: New user email
+          type: string
+      required:
+      - newEmail
+      - oldEmail
+      - password
+      description: Information for changing a user's email
+      type: object
+    ChangePasswordData:
+      properties:
+        newPassword:
+          description: New password for the user.
+          type: string
+        confirmNewPassword:
+          type:
+          - string
+          - 'null'
+      required:
+      - newPassword
+      description: Information required to change a user's password from the reset password flow
+      type: object
+    WhoAmIResponse:
+      type: object
+      properties:
+        emailVerified:
+          type:
+          - boolean
+          - 'null'
+          description: Flag to mark if the user's email is verified
+        eulaAccepted:
+          type:
+          - boolean
+          - 'null'
+          description: Flag to mark if the user has acept the terms of the EULA
+        lastName:
+          type:
+          - string
+          - 'null'
+          description: User's last name
+        firstName:
+          type:
+          - string
+          - 'null'
+          description: User's first name
+        userID:
+          type: string
+          description: Unique ID for the user
+          format: uuid
+      description: Information about the authenticated user
+      required:
+      - userID
+    QuantumObjectType:
+      enum:
+      - Adjacency
+      - AllowedQuanta
+      - Analysis
+      - Animation
+      - ApiKey
+      - Artifact
+      - Asset
+      - AuthGroup
+      - Behavior
+      - Binding
+      - Building
+      - Campus
+      - CampusDirectory
+      - CompatibleQuanta
+      - ConnectionNet
+      - ConnectionNode
+      - ConstructionCategory
+      - ControlKnot
+      - Device
+      - DisplayRule
+      - EmailVerification
+      - Equation
+      - Equipment
+      - EquipmentComponent
+      - EquipmentComponentPropertyRouter
+      - EscalationGroup
+      - Event
+      - EventClass
+      - EventHistory
+      - EventRelation
+      - EventType
+      - Floor
+      - GraphVersion
+      - History
+      - Image
+      - ImportedModel
+      - InterfaceAlternate
+      - Invite
+      - Layer
+      - LayerSet
+      - LayerSetJoin
+      - Library
+      - Location
+      - LocationProperty
+      - Manufacturer
+      - Media
+      - MediaComponent
+      - Model
+      - MultifactorAuthentication
+      - NodeSet
+      - NodeSetConnectionNodeJoin
+      - Organization
+      - OrganizationAuthGroupPermission
+      - Prediction
+      - PredictionGroup
+      - Preference
+      - PreferenceGroup
+      - PrivilegeJoin
+      - Procedure
+      - Property
+      - PropertyTagRouter
+      - Quanta
+      - RefreshToken
+      - Relationship
+      - SelectedModel
+      - SessionBinding
+      - SessionEvent
+      - Shape
+      - Site
+      - Subsystem
+      - SubsystemCapability
+      - SubsystemSet
+      - Surface
+      - System
+      - Tag
+      - TagFamily
+      - TypicalConstruction
+      - UnitLookup
+      - UnitPreference
+      - User
+      - UserSession
+      - UserSessionHistory
+      - Vertex
+      - View
+      - WeatherSource
+      - Zone
+      - ZoneGroup
+      - ZoneSubsystem
+      - ZoneSubsystemSet
+      type: string
+    RemoveApiKeyRequest:
+      properties:
+        key:
+          description: API key to revoke.
+          type: string
+      required:
+      - key
+      description: API key to revoke
+      type: object
+    Identifier:
+      properties:
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/QuantumObjectType'
+      required:
+      - id
+      - type
+      type: object
+  examples:
+    RegisterUserData:
+      value:
+        acceptedEULA: true
+        acceptMailingList: false
+        email: darthvader@galactic-empire.com
+        lastName: Skywalker
+        password: Ih8obi-wan!higrndSUXX
+        token: <JWT Token from registration email>
+        firstName: Anakin
+        username: 20A715E8-2D71-4598-9023-BB5DA94F1EFB
+    WhoAmIResponse:
+      value:
+        firstName: Anakin
+        userID: 824DA601-88BA-434F-A7DA-06BD4AF6767F
+        eulaAccepted: true
+        emailVerified: true
+        lastName: Skywalker
+    UserRegistrationInitiation:
+      value:
+        email: darthvader@galactic-empire.com
+    LoginResponse:
+      value:
+        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY
+        whoAmI:
+          emailVerified: true
+          eulaAccepted: true
+          firstName: Anakin
+          lastName: Skywalker
+          userID: B210BA3E-D831-4EB2-B946-7CFC4367CD88
+    KeycloakUserInfo:
+      value:
+        requiredActions:
+        - UPDATE_PASSWORD
+        - UPDATE_PROFILE
+        lastName: Skywalker
+        email: darthvader@galactic-empire.com
+        emailVerified: true
+        firstName: Anakin
+        groups:
+        - sith
+        - empire
+        roles:
+        - admin
+        access:
+          view: true
+          manageGroupMembership: true
+        attributes:
+          likes:
+          - lightsabers
+          - the Force
+          position:
+          - Dark Lord of the Sith
+        id: A4927913-1382-4881-A456-8477D7369352
+        enabled: true
+        username: darthvader
+    RequestResetPasswordData:
+      value:
+        usernameOrEmail: darthvader@galactic-empire.com
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+    UpdatedUserEmail:
+      value:
+        newEmail: emperorpalps@gallactic-empire.com
+        oldEmail: sheevpalpatine@old-republic.net
+        password: unlimitedP0wuh!!!
+    RemoveApiKeyRequest:
+      value:
+        key: 564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95
+    GenerateApiKeyResponse:
+      value:
+        expiration: 839183994008058
+        key: 564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95
+    ChangeUserPassword:
+      value:
+        oldPassword: Ih8obi-wan!higrndSUXX
+        newPassword: SandSuxDest0ryAllSand
+    RegisterUserResponse:
+      value:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY
+        newUserID:
+          id: 7E530D0F-A359-4FBB-8BFA-563EEEDA30EC
+          type: User
+        message: User registered successfully.
+        userStatus: Active
+        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50
+    ChangePasswordData:
+      value:
+        newPassword: SandSuxDest0ryAllSand
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

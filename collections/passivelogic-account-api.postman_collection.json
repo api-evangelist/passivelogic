@@ -1,0 +1,713 @@
+{
+  "item": [
+    {
+      "id": "22c43dda-48a8-40bf-9b36-cca1580a9d28",
+      "name": "Account",
+      "description": {
+        "content": "Routes related to user account management.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac264624-d329-43b1-8ff8-0fd5f05aae52",
+          "name": "Accepts EULA for the current user",
+          "request": {
+            "name": "Accepts EULA for the current user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "account",
+                "eula",
+                "accept"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "dfaae10d-21aa-43c3-89de-f2b05e2c8516",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "account",
+                    "eula",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a0ab251-8d8b-4718-8188-854f635b1b08",
+          "name": "Deletes the user making this request.",
+          "request": {
+            "name": "Deletes the user making this request.",
+            "description": {
+              "content": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "user",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "72455690-945b-4a2a-a68e-16e3df717867",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "user",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6c13790-c0d5-4a9e-9053-53272d878faf",
+          "name": "Retrieves a list of the credentials the current user has enabled.",
+          "request": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "description": {
+              "content": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "account",
+                "credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "812f831d-d2c7-4919-a0ed-813e924e1ad1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "account",
+                    "credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"e8e18a4c-9ea1-6eae-67f2-b85b570d3e5b\",\n    \"type\": \"string\",\n    \"createdDate\": null,\n    \"value\": \"string\",\n    \"userLabel\": null,\n    \"temporary\": true,\n    \"device\": \"string\",\n    \"priority\": null\n  },\n  {\n    \"id\": \"5751b949-db48-d73a-4e78-554b14b8dbc1\",\n    \"type\": \"string\",\n    \"createdDate\": 8995,\n    \"value\": null,\n    \"userLabel\": null,\n    \"temporary\": true,\n    \"device\": \"string\",\n    \"priority\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef2e4657-8fa7-4cd1-80b2-a82528222347",
+          "name": "Deletes the user making this request.",
+          "request": {
+            "name": "Deletes the user making this request.",
+            "description": {
+              "content": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "account",
+                "user",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "7290aa35-b583-482b-b69b-6d26ef07d2c3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "account",
+                    "user",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f163b0b7-061d-4bd1-be4a-5d2473f4d8c9",
+          "name": "Accepts EULA for the current user",
+          "request": {
+            "name": "Accepts EULA for the current user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "eula",
+                "accept"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "d192c662-623b-4c77-a906-c24722017bc2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "eula",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb981e44-fe5b-4734-bc9b-84bc4c9d841d",
+          "name": "Deletes the user making this request.",
+          "request": {
+            "name": "Deletes the user making this request.",
+            "description": {
+              "content": "Deletes the requesting user if they are not a SuperUser within any organizations.\nOtherwise prompts them to transfer ownership or delete the org before making this request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "account",
+                "user",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "277d4d08-57be-4fd3-a785-015c235f4f09",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "account",
+                    "user",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "191cf795-0d7e-43e3-9098-1b040715a8d5",
+          "name": "Retrieves a list of the credentials the current user has enabled.",
+          "request": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "description": {
+              "content": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c0844d80-ffe3-47a9-8ea9-7254e794a65f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"e8e18a4c-9ea1-6eae-67f2-b85b570d3e5b\",\n    \"type\": \"string\",\n    \"createdDate\": null,\n    \"value\": \"string\",\n    \"userLabel\": null,\n    \"temporary\": true,\n    \"device\": \"string\",\n    \"priority\": null\n  },\n  {\n    \"id\": \"5751b949-db48-d73a-4e78-554b14b8dbc1\",\n    \"type\": \"string\",\n    \"createdDate\": 8995,\n    \"value\": null,\n    \"userLabel\": null,\n    \"temporary\": true,\n    \"device\": \"string\",\n    \"priority\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69020b39-3380-41a0-b058-c0e57e342755",
+          "name": "Retrieves a list of the credentials the current user has enabled.",
+          "request": {
+            "name": "Retrieves a list of the credentials the current user has enabled.",
+            "description": {
+              "content": "Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,\nTOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note\nthat this API must be called with a properly authenticated JWT.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "account",
+                "credentials"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c237ae99-177f-48b4-aa58-2785103eb767",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "account",
+                    "credentials"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"e8e18a4c-9ea1-6eae-67f2-b85b570d3e5b\",\n    \"type\": \"string\",\n    \"createdDate\": null,\n    \"value\": \"string\",\n    \"userLabel\": null,\n    \"temporary\": true,\n    \"device\": \"string\",\n    \"priority\": null\n  },\n  {\n    \"id\": \"5751b949-db48-d73a-4e78-554b14b8dbc1\",\n    \"type\": \"string\",\n    \"createdDate\": 8995,\n    \"value\": null,\n    \"userLabel\": null,\n    \"temporary\": true,\n    \"device\": \"string\",\n    \"priority\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9fb0cea2-5b3d-4a36-acb2-38af0994a6f6",
+          "name": "Accepts EULA for the current user",
+          "request": {
+            "name": "Accepts EULA for the current user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\nDenotes that the current user has accepted the EULA.\nReturns updated access and refresh tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "account",
+                "eula",
+                "accept"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "2484b8a9-2a3d-4fcd-a47d-312e1e1d7a64",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "account",
+                    "eula",
+                    "accept"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "24da9575-711b-4c97-bd95-4d5ef1f00fea",
+    "name": "PassiveLogic REST Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

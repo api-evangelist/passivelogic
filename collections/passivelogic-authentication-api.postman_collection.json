@@ -1,0 +1,5692 @@
+{
+  "item": [
+    {
+      "id": "bbba9b47-8029-4dff-86b2-65c46957b244",
+      "name": "Authentication",
+      "description": {
+        "content": "Routes related to user auth",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8e7159b-e90b-40a1-9904-3f95314b7264",
+          "name": "Verifies and updates new user email",
+          "request": {
+            "name": "Verifies and updates new user email",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/v0.20/auth/email/change.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "email",
+                "change",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEmail\": \"<string>\",\n  \"oldEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "95a3c397-eacd-49b7-8810-1ce45198a7b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "email",
+                    "change",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newEmail\": \"emperorpalps@gallactic-empire.com\",\n  \"oldEmail\": \"sheevpalpatine@old-republic.net\",\n  \"password\": \"unlimitedP0wuh!!!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72c97eb1-bfee-484d-bde1-150aa4f0e70a",
+          "name": "Generates a Magic Link to be used to login.",
+          "request": {
+            "name": "Generates a Magic Link to be used to login.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-login.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "magic-link-generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string,null>\",\n  \"lastName\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "153a15fd-9a27-4c12-9ca4-c753356db624",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "magic-link-generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20c9935d-e2dc-475d-8cde-519ddcc295fe",
+          "name": "Verifies and updates new user email",
+          "request": {
+            "name": "Verifies and updates new user email",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/v0.19/auth/email/change.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "email",
+                "change",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEmail\": \"<string>\",\n  \"oldEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1878ded2-863f-46c1-9af6-432cd41cead6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "email",
+                    "change",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newEmail\": \"emperorpalps@gallactic-empire.com\",\n  \"oldEmail\": \"sheevpalpatine@old-republic.net\",\n  \"password\": \"unlimitedP0wuh!!!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "122fe171-246a-44ea-b846-3367396d5279",
+          "name": "Verifies and updates new user email",
+          "request": {
+            "name": "Verifies and updates new user email",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nVerifies the new email is valid. Updates the user email with the newly validated one.\n\nToken authentication required. Provided by /api/auth/email/change.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "email",
+                "change",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEmail\": \"<string>\",\n  \"oldEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e1a4e27-fe79-413d-9e06-c38cfc8788d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "email",
+                    "change",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newEmail\": \"emperorpalps@gallactic-empire.com\",\n  \"oldEmail\": \"sheevpalpatine@old-republic.net\",\n  \"password\": \"unlimitedP0wuh!!!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "550068a3-8265-4499-bf70-cfc884d8d38c",
+          "name": "Changes a user's password for an already authenticated user.",
+          "request": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "password",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"oldPassword\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b3fef115-fa3e-4fa1-a769-5766c729a424",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "password",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldPassword\": \"Ih8obi-wan!higrndSUXX\",\n  \"newPassword\": \"SandSuxDest0ryAllSand\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a26a8d80-d7ac-423f-872e-d9e7efca4cd0",
+          "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+          "request": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "password",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "33c366f4-0dec-464f-8d9a-bbafaf9de6f0",
+          "name": "Initiates a password reset.",
+          "request": {
+            "name": "Initiates a password reset.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "password",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c167e61d-7fe6-4b70-8235-32df5b9b784f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "password",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"usernameOrEmail\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c191a88-b816-47ee-a9f9-ec67b468daee",
+          "name": "Logs in a user",
+          "request": {
+            "name": "Logs in a user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f6e36a5f-ca3f-4228-9d98-d8407b9e70ab",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50\",\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY\",\n  \"whoAmI\": {\n    \"emailVerified\": true,\n    \"eulaAccepted\": true,\n    \"firstName\": \"Anakin\",\n    \"lastName\": \"Skywalker\",\n    \"userID\": \"B210BA3E-D831-4EB2-B946-7CFC4367CD88\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f90f2d8-d1d4-4e2c-bc50-4816e0f4dfb3",
+          "name": "Logs in a user",
+          "request": {
+            "name": "Logs in a user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "eb26745a-ed4e-405b-a94c-28f7eb5e10ba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50\",\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY\",\n  \"whoAmI\": {\n    \"emailVerified\": true,\n    \"eulaAccepted\": true,\n    \"firstName\": \"Anakin\",\n    \"lastName\": \"Skywalker\",\n    \"userID\": \"B210BA3E-D831-4EB2-B946-7CFC4367CD88\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c083eb1-48e6-451d-8e18-491501ed86fb",
+          "name": "Removes a given API key for the user",
+          "request": {
+            "name": "Removes a given API key for the user",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "api-key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93537391-4d7b-43c4-a606-7f66d47c0869",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "api-key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fc4f005-5ce7-4a98-ba77-f15a4e233238",
+          "name": "Registers a new user",
+          "request": {
+            "name": "Registers a new user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"acceptMailingList\": \"<boolean>\",\n  \"acceptedEULA\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"token\": \"<string,null>\",\n  \"recaptchaToken\": \"<string,null>\",\n  \"username\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "869e7cd8-95ed-43e8-bf36-b855632e1c21",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acceptedEULA\": true,\n  \"acceptMailingList\": false,\n  \"email\": \"darthvader@galactic-empire.com\",\n  \"lastName\": \"Skywalker\",\n  \"password\": \"Ih8obi-wan!higrndSUXX\",\n  \"token\": \"<JWT Token from registration email>\",\n  \"firstName\": \"Anakin\",\n  \"username\": \"20A715E8-2D71-4598-9023-BB5DA94F1EFB\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY\",\n  \"newUserID\": {\n    \"id\": \"7E530D0F-A359-4FBB-8BFA-563EEEDA30EC\",\n    \"type\": \"User\"\n  },\n  \"message\": \"User registered successfully.\",\n  \"userStatus\": \"Active\",\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05d48a1c-eab8-45ab-84d2-c5ea6437eee0",
+          "name": "Logs in a user",
+          "request": {
+            "name": "Logs in a user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nLogs in a user. If multi-factor authentication is enabled, returns a multi-factor token that can be used to\nsend a multi-factor code to the user. Otherwise, sets auth & refresh tokens as cookies and returns a whoami for the\nlogged in user.\n\nBasic authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ee273622-7954-4ee4-ac1c-24756fff4bc7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50\",\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY\",\n  \"whoAmI\": {\n    \"emailVerified\": true,\n    \"eulaAccepted\": true,\n    \"firstName\": \"Anakin\",\n    \"lastName\": \"Skywalker\",\n    \"userID\": \"B210BA3E-D831-4EB2-B946-7CFC4367CD88\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9204064-e269-4404-991f-a75d3c35e52b",
+          "name": "Logs out a user",
+          "request": {
+            "name": "Logs out a user",
+            "description": {
+              "content": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "a01225f8-8230-4251-b877-0eab90077235",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ee9d2d6-c453-4c68-84f7-2a192b184b66",
+          "name": "Logs a user in to Zendesk using their PL Account",
+          "request": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "description": {
+              "content": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "zendesk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3f6b26a-702b-436a-ae75-72600eadd2e0",
+          "name": "Redirects user to login",
+          "request": {
+            "name": "Redirects user to login",
+            "description": {
+              "content": "Redirects user to `/api/v0.19/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) User's email to confirm as verified"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eeed9fbf-2cc2-460f-9dd2-2a28c03fde81",
+          "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+          "request": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "description": {
+              "content": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9340e78-6923-4c18-956b-31e859ec4852",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"string\"\n    },\n    {\n      \"kty\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54b55c17-8c79-4ce6-8ac6-7de5fb240b2c",
+          "name": "Initiates a password reset.",
+          "request": {
+            "name": "Initiates a password reset.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "password",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "712c64b2-5769-4f7d-a9c1-a3ff3e24ae31",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "password",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"usernameOrEmail\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5de3a246-1416-4c06-8222-1097863b2bec",
+          "name": "Returns information about the currently logged in user.",
+          "request": {
+            "name": "Returns information about the currently logged in user.",
+            "description": {
+              "content": "Useful to check if a user is authenticated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "whoami"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c37e605e-6cf7-4122-ad1e-42f16035e4fd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "whoami"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"firstName\": \"Anakin\",\n  \"userID\": \"824DA601-88BA-434F-A7DA-06BD4AF6767F\",\n  \"eulaAccepted\": true,\n  \"emailVerified\": true,\n  \"lastName\": \"Skywalker\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26b8c135-ae50-4b8f-8cb8-dfa262e4122a",
+          "name": "Redirects user to login",
+          "request": {
+            "name": "Redirects user to login",
+            "description": {
+              "content": "Redirects user to `/api/v0.20/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) User's email to confirm as verified"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac6f75f7-a1d5-4f5f-b7c0-aece5213ae1f",
+          "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+          "request": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "magic-link-login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "f41f55b6-8e30-4f34-b199-886d8a510b60",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "magic-link-login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d41a2ff1-804b-4c9c-9cf9-fb572aaa996d",
+          "name": "Registers a new user",
+          "request": {
+            "name": "Registers a new user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/v0.19/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"acceptMailingList\": \"<boolean>\",\n  \"acceptedEULA\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"token\": \"<string,null>\",\n  \"recaptchaToken\": \"<string,null>\",\n  \"username\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15fab8d6-9b2c-4289-a664-20d5ef5f04c7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acceptedEULA\": true,\n  \"acceptMailingList\": false,\n  \"email\": \"darthvader@galactic-empire.com\",\n  \"lastName\": \"Skywalker\",\n  \"password\": \"Ih8obi-wan!higrndSUXX\",\n  \"token\": \"<JWT Token from registration email>\",\n  \"firstName\": \"Anakin\",\n  \"username\": \"20A715E8-2D71-4598-9023-BB5DA94F1EFB\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY\",\n  \"newUserID\": {\n    \"id\": \"7E530D0F-A359-4FBB-8BFA-563EEEDA30EC\",\n    \"type\": \"User\"\n  },\n  \"message\": \"User registered successfully.\",\n  \"userStatus\": \"Active\",\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19e348ba-35b1-4acd-83f2-8ab648d8b059",
+          "name": "Generates an API key for the current user",
+          "request": {
+            "name": "Generates an API key for the current user",
+            "description": {
+              "content": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "api-key",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expireSeconds",
+                  "value": "<integer,null-int64>",
+                  "description": "Number of seconds until the key expires."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string,null>",
+                  "description": "Role of the new key."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a0be025f-fc96-44a2-839e-e5ad5a1f86fe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "api-key",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expireSeconds",
+                      "value": "2678400"
+                    },
+                    {
+                      "key": "role",
+                      "value": "ReadOnlyUser"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08f53031-bb1a-4237-ab5f-99b3a80bacde",
+          "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+          "request": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "description": {
+              "content": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4ac6670-81a4-4baa-943b-a9a0f1538b2d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"string\"\n    },\n    {\n      \"kty\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "842afbf4-017b-4625-b98d-dbbe7009fc49",
+          "name": "Removes a given API key for the user",
+          "request": {
+            "name": "Removes a given API key for the user",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "api-key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f219b105-a99a-4275-a874-b2f6a507a314",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "api-key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d90a337-f36c-42a2-8a1a-600b9bdeed4c",
+          "name": "Changes a user's password from the password reset flow.",
+          "request": {
+            "name": "Changes a user's password from the password reset flow.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "password",
+                "reset",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"confirmNewPassword\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17cc641e-bfa1-4b32-9cbe-516040649184",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "password",
+                    "reset",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newPassword\": \"SandSuxDest0ryAllSand\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24065171-0adb-405e-af5b-0db02bd4d8f8",
+          "name": "GET /auth/offline",
+          "request": {
+            "name": "GET /auth/offline",
+            "description": {
+              "content": "GET /auth/offline",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "offline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f38c7864-f306-417b-aee5-5565dba99dcb",
+          "name": "Sends an email to begin email verification and registration.",
+          "request": {
+            "name": "Sends an email to begin email verification and registration.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registration.\n\nNo authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "register",
+                "initiate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string,null>\",\n  \"lastName\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e5c10cf-b5e2-446a-88b3-d04a7b455f05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "register",
+                    "initiate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "987ccf26-e2b0-4756-9fbf-c88465673ce5",
+          "name": "Redirects user to login",
+          "request": {
+            "name": "Redirects user to login",
+            "description": {
+              "content": "Redirects user to `/api/auth/login`, passing along the provided valid jwt and email.\n\nExists in this form for backward compatibility.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) User's email to confirm as verified"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55341cb6-5a55-46da-809f-9c016dad398e",
+          "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+          "request": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "api-key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e476d75d-3c9a-4d89-b036-397836ccc312",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "api-key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0d51fd3-18dd-4fb5-8fc6-2c6e207977e6",
+          "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+          "request": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/auth/api-key.",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "api-key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "75962ff5-2551-4a5c-9f32-8d624b4e191f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "api-key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "794f2f0a-8bd3-4c1e-b6fa-30df3278ec50",
+          "name": "Logs out a user",
+          "request": {
+            "name": "Logs out a user",
+            "description": {
+              "content": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "92318804-a4f2-4303-8702-c48a2c5b1007",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07ffc92d-8157-4558-8042-f729e956a3a9",
+          "name": "Registers a new user",
+          "request": {
+            "name": "Registers a new user",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nCreates a new user based on the provided information. Requires jwt obtained via email from\n`/api/v0.20/auth/register/initiate`. The user status is set to `Active` and immediately logged in.\n\n\n\nRegistration token is required when email verification is enforced, as indicated by a failed response to this endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"acceptMailingList\": \"<boolean>\",\n  \"acceptedEULA\": \"<boolean>\",\n  \"email\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"password\": \"<string>\",\n  \"token\": \"<string,null>\",\n  \"recaptchaToken\": \"<string,null>\",\n  \"username\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "60393eee-73b8-4810-8766-4124734f687b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"acceptedEULA\": true,\n  \"acceptMailingList\": false,\n  \"email\": \"darthvader@galactic-empire.com\",\n  \"lastName\": \"Skywalker\",\n  \"password\": \"Ih8obi-wan!higrndSUXX\",\n  \"token\": \"<JWT Token from registration email>\",\n  \"firstName\": \"Anakin\",\n  \"username\": \"20A715E8-2D71-4598-9023-BB5DA94F1EFB\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY\",\n  \"newUserID\": {\n    \"id\": \"7E530D0F-A359-4FBB-8BFA-563EEEDA30EC\",\n    \"type\": \"User\"\n  },\n  \"message\": \"User registered successfully.\",\n  \"userStatus\": \"Active\",\n  \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9422dc62-aa9f-4ea8-8294-9b6237537965",
+          "name": "GET /auth/offline",
+          "request": {
+            "name": "GET /auth/offline",
+            "description": {
+              "content": "GET /auth/offline",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "offline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "365e01f3-24e6-4aae-b1ef-fcb67a9c950f",
+          "name": "Generates a Magic Link to be used to login.",
+          "request": {
+            "name": "Generates a Magic Link to be used to login.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-login.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "magic-link-generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string,null>\",\n  \"lastName\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4fc37701-ed3c-43f6-b4da-669c674e6294",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "magic-link-generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58099fc1-e38f-49ac-81c7-ddcc9436fa2d",
+          "name": "Changes a user's password for an already authenticated user.",
+          "request": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "password",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"oldPassword\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34355054-67e1-4a5b-9bee-c73d8ea1d571",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "password",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldPassword\": \"Ih8obi-wan!higrndSUXX\",\n  \"newPassword\": \"SandSuxDest0ryAllSand\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "928690f9-a246-4940-acaf-688cd633fdda",
+          "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+          "request": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "password",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a6f28b7-a4a1-4640-8743-09170cecca83",
+          "name": "Removes a given API key for the user",
+          "request": {
+            "name": "Removes a given API key for the user",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "api-key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7cabde10-545c-4cb7-b404-30c5d06e71ce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "api-key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea807169-b34c-47b4-bf4b-1b7746c442d2",
+          "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+          "request": {
+            "name": "Returns the public keys used to sign PassiveLogic JSON web tokens.",
+            "description": {
+              "content": "Returns the public keys used to sign the JSON web tokens so their authenticity can be verified. These are served in the\nstandard JSON Web Key format: https://www.rfc-editor.org/rfc/rfc7517",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0acad467-5f79-4415-af55-09c26ca17b30",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"string\"\n    },\n    {\n      \"kty\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39a41e1c-0851-4053-88a3-88b044f7054b",
+          "name": "Initiates a password reset.",
+          "request": {
+            "name": "Initiates a password reset.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates a password reset for the given user, sending them an email with a password reset link authenticated to their\naccount only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "password",
+                "reset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usernameOrEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e97dc28-ad93-40e4-b6e5-4dd40af9f219",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "password",
+                    "reset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"usernameOrEmail\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1a2e3b8-c423-4850-96b5-dfb0b4dfbaf1",
+          "name": "Initiates an email change for the current user.",
+          "request": {
+            "name": "Initiates an email change for the current user.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "email",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEmail\": \"<string>\",\n  \"oldEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "733e3a5b-ae99-4332-9474-2e073de0cdf1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "email",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newEmail\": \"emperorpalps@gallactic-empire.com\",\n  \"oldEmail\": \"sheevpalpatine@old-republic.net\",\n  \"password\": \"unlimitedP0wuh!!!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af4f5ccd-dc21-4093-9ec1-bc023cf56a12",
+          "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+          "request": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "profile",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beed0adb-870f-4da1-931c-9fe091ab0fe8",
+          "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+          "request": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "api-key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f866f5d-ad23-437f-aadf-1d9d530b25de",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "api-key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2d40f33-c815-43c4-b285-dc356735b985",
+          "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+          "request": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.19/auth/api-key.",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "api-key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b1813f0-7b2d-4d70-ac67-a3e33417220b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "api-key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2d545f9-fd1a-4470-b23d-2d9bfebb07d3",
+          "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+          "request": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "profile",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74951cff-82d7-4155-9a58-1498291d4aea",
+          "name": "Changes a user's password from the password reset flow.",
+          "request": {
+            "name": "Changes a user's password from the password reset flow.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "password",
+                "reset",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"confirmNewPassword\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "097e8312-574f-42c4-a4d2-218cc89f69bc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "password",
+                    "reset",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newPassword\": \"SandSuxDest0ryAllSand\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "043ac2d2-7f70-4bc3-89d4-1efc2d854722",
+          "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+          "request": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "magic-link-login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "3555f515-9d3b-4075-8c27-f7ec36132503",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "magic-link-login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ded42c45-dc04-4c76-b95c-df855640986a",
+          "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+          "request": {
+            "name": "Logs in a user using Magic Link generated by POST magic-link-generate",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nRequires a magic login link containing containing `?token=<signed JWT with user email contained>`.\nThis is the secure mode and MUST be used in production.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "magic-link-login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5f663127-2d19-4af9-be1b-6cd88dd9df2c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "magic-link-login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "101d0629-32a0-431a-a1be-3f1069d0ce5f",
+          "name": "Logs a user in to Zendesk using their PL Account",
+          "request": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "description": {
+              "content": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "zendesk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25ac363a-fee2-4fab-83cc-449797b21fa1",
+          "name": "Changes a user's password from the password reset flow.",
+          "request": {
+            "name": "Changes a user's password from the password reset flow.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges a user's password to the specified value, reached from password reset flow.\n\nToken authentication required, only using the authentication JWT decoded from the password reset URL sent to a user\nfrom a reset initiation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "password",
+                "reset",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"confirmNewPassword\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be74f9c6-348e-4986-aafc-d9f88114650c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "password",
+                    "reset",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newPassword\": \"SandSuxDest0ryAllSand\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86768eb8-885c-4457-b0b1-bab86501ae67",
+          "name": "Initiates an email change for the current user.",
+          "request": {
+            "name": "Initiates an email change for the current user.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "email",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEmail\": \"<string>\",\n  \"oldEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ee27b1b-69db-40a0-97fa-30e26377e1d3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "email",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newEmail\": \"emperorpalps@gallactic-empire.com\",\n  \"oldEmail\": \"sheevpalpatine@old-republic.net\",\n  \"password\": \"unlimitedP0wuh!!!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "303e4dd6-4205-4bbb-ac2a-3ae4daf471e9",
+          "name": "Validates a user's password",
+          "request": {
+            "name": "Validates a user's password",
+            "description": {
+              "content": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "kc",
+                ":user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "2f0a67b5-b746-4e91-9c1f-43e18fdcceb7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "kc",
+                    ":user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bca3893-693f-4697-83b0-d319bd5e8855",
+          "name": "Retrieves user information for Keycloak",
+          "request": {
+            "name": "Retrieves user information for Keycloak",
+            "description": {
+              "content": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "kc",
+                ":user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "605861a8-a548-48bb-9749-3599814baa4b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "kc",
+                    ":user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requiredActions\": [\n    \"UPDATE_PASSWORD\",\n    \"UPDATE_PROFILE\"\n  ],\n  \"lastName\": \"Skywalker\",\n  \"email\": \"darthvader@galactic-empire.com\",\n  \"emailVerified\": true,\n  \"firstName\": \"Anakin\",\n  \"groups\": [\n    \"sith\",\n    \"empire\"\n  ],\n  \"roles\": [\n    \"admin\"\n  ],\n  \"access\": {\n    \"view\": true,\n    \"manageGroupMembership\": true\n  },\n  \"attributes\": {\n    \"likes\": [\n      \"lightsabers\",\n      \"the Force\"\n    ],\n    \"position\": [\n      \"Dark Lord of the Sith\"\n    ]\n  },\n  \"id\": \"A4927913-1382-4881-A456-8477D7369352\",\n  \"enabled\": true,\n  \"username\": \"darthvader\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a82942-33c3-4cb3-a22c-178a4ebaf8e4",
+          "name": "Returns information about the currently logged in user.",
+          "request": {
+            "name": "Returns information about the currently logged in user.",
+            "description": {
+              "content": "Useful to check if a user is authenticated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "whoami"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "c70c574c-4bbc-4a99-bb46-1d2b739c2259",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "whoami"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"firstName\": \"Anakin\",\n  \"userID\": \"824DA601-88BA-434F-A7DA-06BD4AF6767F\",\n  \"eulaAccepted\": true,\n  \"emailVerified\": true,\n  \"lastName\": \"Skywalker\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66101df4-174b-465f-be08-03874df2a647",
+          "name": "Validates a user's password",
+          "request": {
+            "name": "Validates a user's password",
+            "description": {
+              "content": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "kc",
+                ":user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "c024b802-dc7d-400f-b7ab-3aabd5dfd268",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "kc",
+                    ":user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17137806-ec51-489e-a573-6817c892728f",
+          "name": "Retrieves user information for Keycloak",
+          "request": {
+            "name": "Retrieves user information for Keycloak",
+            "description": {
+              "content": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "kc",
+                ":user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "ca878852-2336-4309-9ea8-8ac6201ec0bf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "kc",
+                    ":user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requiredActions\": [\n    \"UPDATE_PASSWORD\",\n    \"UPDATE_PROFILE\"\n  ],\n  \"lastName\": \"Skywalker\",\n  \"email\": \"darthvader@galactic-empire.com\",\n  \"emailVerified\": true,\n  \"firstName\": \"Anakin\",\n  \"groups\": [\n    \"sith\",\n    \"empire\"\n  ],\n  \"roles\": [\n    \"admin\"\n  ],\n  \"access\": {\n    \"view\": true,\n    \"manageGroupMembership\": true\n  },\n  \"attributes\": {\n    \"likes\": [\n      \"lightsabers\",\n      \"the Force\"\n    ],\n    \"position\": [\n      \"Dark Lord of the Sith\"\n    ]\n  },\n  \"id\": \"A4927913-1382-4881-A456-8477D7369352\",\n  \"enabled\": true,\n  \"username\": \"darthvader\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad5b9c93-493a-449d-b6c5-ed8c216d5159",
+          "name": "Changes a user's password for an already authenticated user.",
+          "request": {
+            "name": "Changes a user's password for an already authenticated user.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nChanges an authenticated user's password to the specified value.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "password",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPassword\": \"<string>\",\n  \"oldPassword\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "30ab7e20-ed8c-4922-a3f4-c19ac958fbad",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "password",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"oldPassword\": \"Ih8obi-wan!higrndSUXX\",\n  \"newPassword\": \"SandSuxDest0ryAllSand\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4636d1c-ec4f-4604-abdc-c742d3e46d52",
+          "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+          "request": {
+            "name": "Redirects the user to the change password flow in the external auth provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "password",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d20981fc-6e54-41b8-8fa2-0a98d0894874",
+          "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+          "request": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "api-key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ec696aa-507e-417b-803d-353d407947d1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "api-key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bed4ed41-f1a7-4147-8fea-6ba852779e26",
+          "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+          "request": {
+            "name": "Removes a given API key for the user. This route has been deprecated in favor of: DELETE /api/v0.20/auth/api-key.",
+            "description": {
+              "content": "Validates that the given token is linked to the currently authenticated user and removes it if so.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "api-key",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc4b8bf4-08da-43cd-883a-d8ac2173b8d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "api-key",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7833ab7-e033-49ee-8f63-025c6a7843d6",
+          "name": "Generates an API key for the current user",
+          "request": {
+            "name": "Generates an API key for the current user",
+            "description": {
+              "content": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "api-key",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expireSeconds",
+                  "value": "<integer,null-int64>",
+                  "description": "Number of seconds until the key expires."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string,null>",
+                  "description": "Role of the new key."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "4b246c62-c911-4b1b-84e3-096e95c6ff19",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "api-key",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expireSeconds",
+                      "value": "2678400"
+                    },
+                    {
+                      "key": "role",
+                      "value": "ReadOnlyUser"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54689935-b8fb-465f-8172-f0b92443a280",
+          "name": "Generates a Magic Link to be used to login.",
+          "request": {
+            "name": "Generates a Magic Link to be used to login.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nGenerates magic link containing `?token=<signed JWT with user email contained>` and sends it in an email to the user.\nThis is the secure mode and MUST be used in production.\nThis will not return a link to the client.\n\nIf User does not exist in Database, will throw 400 bad request. If user exists, will return 200 ok.\nThese links can then be used to login from GET magic-link-login.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "magic-link-generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string,null>\",\n  \"lastName\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8c765e0b-8339-41fc-970c-af0092b5b85a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "magic-link-generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c37679b-e9b9-441d-981b-50413da25479",
+          "name": "Logs a user in to Zendesk using their PL Account",
+          "request": {
+            "name": "Logs a user in to Zendesk using their PL Account",
+            "description": {
+              "content": "Redirects a user to the PassiveLogic Zendesk portal.\nIf they are already authenticated with their PL account when making this request,\nthey will be automatically logged in to Zendesk as well. Otherwise they will be redirected to the Zendesk login page.\nA `returnTo` query parameter can be used to support deep linking to, for example, specific support articles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "zendesk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "414309d9-036c-4253-beb6-5d67a67d49b6",
+          "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+          "request": {
+            "name": "Redirects the user the change profile flow in the external auth provider (Keycloak).",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "profile",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5c4f1e4-eae1-4ce9-b9b6-24e6acbe0203",
+          "name": "Generates an API key for the current user",
+          "request": {
+            "name": "Generates an API key for the current user",
+            "description": {
+              "content": "Generates, stores, and returns a new API key with the default expiration period for the user currently logged in.\n\nOnce created, you can then provide this API key in an\n`Authorization: PL-API-KEY <Key>` header in replacement of an `X-PL-AUTH` header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "api-key",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expireSeconds",
+                  "value": "<integer,null-int64>",
+                  "description": "Number of seconds until the key expires."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string,null>",
+                  "description": "Role of the new key."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "33c8b4aa-15bd-4a98-8dad-9b5122655fd6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "api-key",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expireSeconds",
+                      "value": "2678400"
+                    },
+                    {
+                      "key": "role",
+                      "value": "ReadOnlyUser"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiration\": 839183994008058,\n  \"key\": \"564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c04d293-e075-420a-bee1-004c1489fcf3",
+          "name": "Logs out a user",
+          "request": {
+            "name": "Logs out a user",
+            "description": {
+              "content": "If external auth (Keycloak) is enabled, this initiates the external logout process.\n\nOtherwise, if a cookie keyed by pl-refresh-token is provided in the logout request, that refresh token is revoked.\n\nThe response sets the auth & refresh cookies to empty values & marks them as expired.\nNew tokens must then be generated by the login endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "a41af69d-f6f3-4edd-8165-6a95320d28d0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df3b5347-6884-4e33-b295-9a2f2ac5e810",
+          "name": "Validates a user's password",
+          "request": {
+            "name": "Validates a user's password",
+            "description": {
+              "content": "Allows the Keycloak migration plugin to validate a user's password. Once validated, the password is saved\nto Keycloak's database and is subsequently no longer validated using this API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "kc",
+                ":user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          },
+          "response": [
+            {
+              "id": "27252ae8-f517-4d21-9a65-bad56efa63e6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "kc",
+                    ":user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d252e2ec-51de-4d81-9837-1f6ac365a2ad",
+          "name": "Retrieves user information for Keycloak",
+          "request": {
+            "name": "Retrieves user information for Keycloak",
+            "description": {
+              "content": "Enables migrating users to Keycloak by providing an API endpoint for retrieving user information. This\ninformation is then saved to Keycloak's own database.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "kc",
+                ":user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "8ad51675-3ac5-4df5-80a8-9aa2b3e5b41c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "kc",
+                    ":user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"requiredActions\": [\n    \"UPDATE_PASSWORD\",\n    \"UPDATE_PROFILE\"\n  ],\n  \"lastName\": \"Skywalker\",\n  \"email\": \"darthvader@galactic-empire.com\",\n  \"emailVerified\": true,\n  \"firstName\": \"Anakin\",\n  \"groups\": [\n    \"sith\",\n    \"empire\"\n  ],\n  \"roles\": [\n    \"admin\"\n  ],\n  \"access\": {\n    \"view\": true,\n    \"manageGroupMembership\": true\n  },\n  \"attributes\": {\n    \"likes\": [\n      \"lightsabers\",\n      \"the Force\"\n    ],\n    \"position\": [\n      \"Dark Lord of the Sith\"\n    ]\n  },\n  \"id\": \"A4927913-1382-4881-A456-8477D7369352\",\n  \"enabled\": true,\n  \"username\": \"darthvader\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "487ef8c0-0ac6-474a-93bc-5d7c1f890c16",
+          "name": "Returns information about the currently logged in user.",
+          "request": {
+            "name": "Returns information about the currently logged in user.",
+            "description": {
+              "content": "Useful to check if a user is authenticated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "whoami"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5ec4db92-c57f-42cb-95e1-3df0f89f388b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "whoami"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"firstName\": \"Anakin\",\n  \"userID\": \"824DA601-88BA-434F-A7DA-06BD4AF6767F\",\n  \"eulaAccepted\": true,\n  \"emailVerified\": true,\n  \"lastName\": \"Skywalker\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c52f60c-35ac-4370-a99d-1189147adec4",
+          "name": "Sends an email to begin email verification and registration.",
+          "request": {
+            "name": "Sends an email to begin email verification and registration.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registration.\n\nNo authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "register",
+                "initiate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string,null>\",\n  \"lastName\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11e632b6-3d78-4093-996c-edf03a1d3c8c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "register",
+                    "initiate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9a44c19-da36-444d-bd9e-a8124023556e",
+          "name": "Initiates an email change for the current user.",
+          "request": {
+            "name": "Initiates an email change for the current user.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nSends an update email request to the provided new email address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.19",
+                "auth",
+                "email",
+                "change"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newEmail\": \"<string>\",\n  \"oldEmail\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e455d743-0008-485e-a3b1-b2f37874a0be",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.19",
+                    "auth",
+                    "email",
+                    "change"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newEmail\": \"emperorpalps@gallactic-empire.com\",\n  \"oldEmail\": \"sheevpalpatine@old-republic.net\",\n  \"password\": \"unlimitedP0wuh!!!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee5ec4bd-ed13-484a-831f-e9fd901a283e",
+          "name": "Sends an email to begin email verification and registration.",
+          "request": {
+            "name": "Sends an email to begin email verification and registration.",
+            "description": {
+              "content": "DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.\n\nInitiates the PassiveLogic registration process by sending an email to the given user. A user is not stored in the system\nat this point in the process - instead this serves as the initial step proving that a uer has access to the email they\nare signing up with.\n\nEmail will contain a link that holds a signed JWT from us. That JWT is later used to validate and complete registration.\n\nNo authentication required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "register",
+                "initiate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"firstName\": \"<string,null>\",\n  \"lastName\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ecfec898-64c3-4295-802d-b1a3fd4a49b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v0.20",
+                    "auth",
+                    "register",
+                    "initiate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"darthvader@galactic-empire.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We will watch your career with great interest.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72810f9f-1bf6-41ae-b5de-308411fd5fac",
+          "name": "GET /auth/offline",
+          "request": {
+            "name": "GET /auth/offline",
+            "description": {
+              "content": "GET /auth/offline",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "auth",
+                "offline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e971ea03-0e7f-4659-9c8e-9e764f4a46eb",
+    "name": "PassiveLogic REST Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

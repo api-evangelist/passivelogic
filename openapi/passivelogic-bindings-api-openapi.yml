@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  version: 0.0.0
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
+    user management, and
+
+    GraphQL API access.'
+  title: PassiveLogic REST Bindings API
+tags:
+- description: Routes related to Binding management.
+  name: Bindings
+paths:
+  /api/v0.20/binding:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          multipart/form-data:
+            examples:
+              UploadFileData:
+                $ref: '#/components/examples/UploadFileData'
+            schema:
+              $ref: '#/components/schemas/UploadFileData'
+          application/json:
+            examples:
+              UploadFileData:
+                $ref: '#/components/examples/UploadFileData'
+            schema:
+              $ref: '#/components/schemas/UploadFileData'
+        required: true
+      summary: Uploads a file associated with a binding.
+      tags:
+      - Bindings
+      description: 'Uploads a file to the server and associates that file with a binding node, setting
+        its new stored URL & checksum in the
+
+        database. The data may be sent in either multipart/form-data or JSON format. If using JSON, the
+        image file must be
+
+        Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit
+        binary data.'
+      operationId: postApiV0.20Binding
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BindingUploadResponse'
+              examples:
+                BindingUploadResponse:
+                  $ref: '#/components/examples/BindingUploadResponse'
+          description: OK
+  /api/binding:
+    post:
+      security:
+      - Basic Auth - login: []
+      - XSRF header: []
+      - DEPRECATED - PL API Key: []
+      - PL API Key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadFileData'
+            examples:
+              UploadFileData:
+                $ref: '#/components/examples/UploadFileData'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadFileData'
+            examples:
+              UploadFileData:
+                $ref: '#/components/examples/UploadFileData'
+        required: true
+      summary: Uploads a file associated with a binding.
+      tags:
+      - Bindings
+      description: 'Uploads a file to the server and associates that file with a binding node, setting
+        its new stored URL & checksum in the
+
+        database. The data may be sent in either multipart/form-data or JSON format. If using JSON, the
+        image file must be
+
+        Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit
+        binary data.'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                BindingUploadResponse:
+                  $ref: '#/components/examples/BindingUploadResponse'
+              schema:
+                $ref: '#/components/schemas/BindingUploadResponse'
+      operationId: postApiBinding
+components:
+  examples:
+    BindingUploadResponse:
+      value:
+        message: Binding object was successfully updated.
+        url: https://passivelogic.com/binding/497E362B-AB0B-4013-AE38-86DB09A013AA
+    UploadFileData:
+      value:
+        file: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+        ID: FF5BFAAC-B65A-443D-8A0C-904A38C904E9
+        fileType: svg
+  schemas:
+    BindingUploadResponse:
+      properties:
+        url:
+          type:
+          - string
+          - 'null'
+        message:
+          type: string
+          description: Informative message relating to binding upload. Updated binding url with cache
+            bust.
+      required:
+      - message
+      description: Binding response definition
+      type: object
+    UploadFileData:
+      properties:
+        ID:
+          type: string
+          description: UUID of the quantum binding node that you want to associate this file with.
+          format: uuid
+        filePath:
+          type:
+          - string
+          - 'null'
+        file:
+          type: string
+          description: File data to write to the server.
+          format: byte
+        fileType:
+          type: string
+          description: The type of file the given data represents.
+      required:
+      - ID
+      - file
+      - fileType
+      description: Data required to upload a file binding.
+      type: object
+  securitySchemes:
+    XSRF_header:
+      in: header
+      description: Authentication using an XSRF protected JWT
+      name: X-PL-AUTH
+      type: apiKey
+    Basic_Auth_-_login:
+      description: Basic authentication used only at login.
+      scheme: basic
+      type: http
+    PL_API_Key:
+      in: header
+      description: PL API Key in header
+      name: PL-API-KEY
+      type: apiKey
+    DEPRECATED_-_PL_API_Key:
+      in: header
+      description: DEPRECATED - PL API Key in Bearer header
+      name: 'Authorization: PL-API-KEY'
+      type: apiKey

@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Images API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Images",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update user avatar image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/image/user-avatar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads and updates the avatar image URL with the new image URL."
+        },
+        {
+          "info": {
+            "name": "Uploads an image.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads an image to the server, setting its new stored url & checksum in the database. If an existing ID is given, this will\nattempt an update of the image data. The data may be sent in either multipart/form-data or JSON format. If using JSON, the\nimage file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary\ndata.\n\nThis endpoint is intended for associating image file data with an existing `Image` node in the Quantum schema."
+        },
+        {
+          "info": {
+            "name": "Uploads an image.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/image",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads an image to the server, setting its new stored url & checksum in the database. If an existing ID is given, this will\nattempt an update of the image data. The data may be sent in either multipart/form-data or JSON format. If using JSON, the\nimage file must be Base64-encoded. Using multipart/form-data is recommended as it is a more efficient way to transmit binary\ndata.\n\nThis endpoint is intended for associating image file data with an existing `Image` node in the Quantum schema."
+        },
+        {
+          "info": {
+            "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/v0.20/image/:imageID",
+            "params": [
+              {
+                "name": "imageID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the image with the given quantum node ID.\nIf authorized and the given image is found, it will be deleted from the file store and the database.\nThe ID provided must be the ID of the `Image` Quantum node, NOT the name of the image."
+        },
+        {
+          "info": {
+            "name": "Update user avatar image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/image/user-avatar",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads and updates the avatar image URL with the new image URL."
+        },
+        {
+          "info": {
+            "name": "Delete an image. Deprecated: Delete an image node via the normal GraphQL endpoint or a QuantumSync operation. This route has been deprecated in favor of: POST /api/graphql.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/image/:imageID",
+            "params": [
+              {
+                "name": "imageID",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the image with the given quantum node ID.\nIf authorized and the given image is found, it will be deleted from the file store and the database.\nThe ID provided must be the ID of the `Image` Quantum node, NOT the name of the image."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

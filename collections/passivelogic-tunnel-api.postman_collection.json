@@ -1,0 +1,276 @@
+{
+  "item": [
+    {
+      "id": "9d87a32c-dea7-4019-9960-a5f69a958230",
+      "name": "tunnel",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a94db8ec-dc9d-4fb7-9894-e30e7b6f9834",
+          "name": "PUT /tunnel/:serialNumber/**",
+          "request": {
+            "name": "PUT /tunnel/:serialNumber/**",
+            "description": {
+              "content": "PUT /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c505a4c-fb1f-40f0-bea2-319f46d35dc1",
+          "name": "DELETE /tunnel/:serialNumber/**",
+          "request": {
+            "name": "DELETE /tunnel/:serialNumber/**",
+            "description": {
+              "content": "DELETE /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c59ade90-f1fc-430c-8c84-8a8b7552b5b7",
+          "name": "POST /tunnel/:serialNumber/**",
+          "request": {
+            "name": "POST /tunnel/:serialNumber/**",
+            "description": {
+              "content": "POST /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64e422ac-26ca-4b80-8de5-84083d1a2b16",
+          "name": "GET /tunnel/:serialNumber/**",
+          "request": {
+            "name": "GET /tunnel/:serialNumber/**",
+            "description": {
+              "content": "GET /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v0.20",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b30a4e0b-3abb-40d8-b7e8-89353dc783db",
+          "name": "DELETE /tunnel/:serialNumber/**",
+          "request": {
+            "name": "DELETE /tunnel/:serialNumber/**",
+            "description": {
+              "content": "DELETE /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fa8487a-a71e-4d57-afd4-8e8d367cca3e",
+          "name": "PUT /tunnel/:serialNumber/**",
+          "request": {
+            "name": "PUT /tunnel/:serialNumber/**",
+            "description": {
+              "content": "PUT /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd8f6cbc-7e42-4bf7-a7b2-e36a84d04640",
+          "name": "POST /tunnel/:serialNumber/**",
+          "request": {
+            "name": "POST /tunnel/:serialNumber/**",
+            "description": {
+              "content": "POST /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc95f931-d952-4593-a725-388e23058c9d",
+          "name": "GET /tunnel/:serialNumber/**",
+          "request": {
+            "name": "GET /tunnel/:serialNumber/**",
+            "description": {
+              "content": "GET /tunnel/:serialNumber/**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tunnel",
+                ":serialNumber",
+                "**"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e588f1f4-e297-4404-ad6f-19330a64c9c3",
+    "name": "PassiveLogic REST Tunnel API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and\nGraphQL API access.",
+      "type": "text/plain"
+    }
+  }
+}

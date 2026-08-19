@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Quantum Sync API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Quantum Sync",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "QuantumSync API over websockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/quantumsync"
+          },
+          "docs": "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n### `start`: authenticates and specifies an initial context. note: the id for start and updateContext is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n        \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n       "
+        },
+        {
+          "info": {
+            "name": "QuantumSync API Legacy Route. Use /api/quantumsync instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/datasync"
+          },
+          "docs": "Refer to the /api/quantumsync route documentation for full details. This route will be removed in the next major version."
+        },
+        {
+          "info": {
+            "name": "QuantumSync API Legacy Route. Use /api/v0.19/quantumsync instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/datasync"
+          },
+          "docs": "Refer to the /api/v0.19/quantumsync route documentation for full details. This route will be removed in the next major version."
+        },
+        {
+          "info": {
+            "name": "QuantumSync API over websockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/quantumsync"
+          },
+          "docs": "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n### `start`: authenticates and specifies an initial context. note: the id for start and updateContext is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n        \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n       "
+        },
+        {
+          "info": {
+            "name": "QuantumSync API Legacy Route. Use /api/v0.20/quantumsync instead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/datasync"
+          },
+          "docs": "Refer to the /api/v0.20/quantumsync route documentation for full details. This route will be removed in the next major version."
+        },
+        {
+          "info": {
+            "name": "QuantumSync API over websockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/quantumsync"
+          },
+          "docs": "# Custom QuantumSync/ShadowClient API:\n\n## QuantumSync QuantumSyncRequestTypes:\n### `start`: authenticates and specifies an initial context. note: the id for start and updateContext is used to key a Dictionary[String:AnyRootedQuantumGraph]\nex)\n```json\n{\n    \"type\": \"start\",\n    \"id\": \"site\",\n    \"appType\":\"BuildingStudio\"\n    \"payload\": {\n        \"authToken\": \"REDACTED\",\n        \"ID\": \"ACAF9E07-5031-4BC2-A8C5-D2C6598D83DE\",\n        \"from\": \"Site\",\n        \"include\": [\n            \"Site\",\n       "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

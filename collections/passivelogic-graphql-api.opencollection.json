@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PassiveLogic REST Graph QL API",
+    "version": "0.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GraphQL",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GraphQL API over websocket.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/graphqlSubscribe"
+          },
+          "docs": "Serves the GraphQL API over websockets to support streaming results like subscriptions.\n\nThe following sub-protocols are supported:\n- [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)\n- [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API over websocket.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/graphqlSubscribe"
+          },
+          "docs": "Serves the GraphQL API over websockets to support streaming results like subscriptions.\n\nThe following sub-protocols are supported:\n- [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)\n- [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.20/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "variables",
+                "value": "[object Object]",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.20/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/v0.19/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "variables",
+                "value": "[object Object]",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/v0.19/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/graphql",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operationName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "variables",
+                "value": "[object Object]",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/graphql",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)"
+        },
+        {
+          "info": {
+            "name": "GraphQL API over websocket.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/graphqlSubscribe"
+          },
+          "docs": "Serves the GraphQL API over websockets to support streaming results like subscriptions.\n\nThe following sub-protocols are supported:\n- [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)\n- [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
