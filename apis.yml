@@ -19,6 +19,19 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Digital Twin
+- Building Automation
+- HVAC
+- Smart Buildings
+- Autonomous Systems
+- GraphQL
+- Ontology
+- IoT
+- Edge Computing
+- Physical AI
+- Energy
+tags_raw:
+- Company
 - digital-twin
 - building-automation
 - hvac
@@ -42,6 +55,12 @@ apis:
   humanURL: https://quantumalliance.org/documentation/
   baseURL: https://passivelogic.com/api/graphql
   tags:
+  - GraphQL
+  - Digital Twin
+  - Ontology
+  - Smart Buildings
+  - Autonomous Systems
+  tags_raw:
   - graphql
   - digital-twin
   - ontology
@@ -87,7 +106,8 @@ apis:
   description: The api API from PassiveLogic — 2 operation(s) for api.
   humanURL: https://passivelogic.com/app/swagger/
   baseURL: https://passivelogic.com/api/
-  tags:
+  tags: []
+  tags_raw:
   - api
   properties:
   - type: OpenAPI
@@ -114,6 +134,8 @@ apis:
   humanURL: https://passivelogic.com/app/swagger/
   baseURL: https://passivelogic.com/api/
   tags:
+  - App
+  tags_raw:
   - app
   properties:
   - type: OpenAPI
@@ -217,7 +239,8 @@ apis:
   description: The Default API from PassiveLogic — 1 operation(s) for default.
   humanURL: https://passivelogic.com/app/swagger/
   baseURL: https://passivelogic.com/api/
-  tags:
+  tags: []
+  tags_raw:
   - Default
   properties:
   - type: OpenAPI
@@ -322,6 +345,8 @@ apis:
   humanURL: https://passivelogic.com/app/swagger/
   baseURL: https://passivelogic.com/api/
   tags:
+  - Image
+  tags_raw:
   - Images
   properties:
   - type: OpenAPI
