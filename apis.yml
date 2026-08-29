@@ -10,6 +10,18 @@ description: >-
   bindings, device registration, CSV property-history export and QuantumSync WebSocket data sync. Authentication is
   handled by an external Keycloak identity provider (OpenID Connect) with JWT, XSRF-protected session tokens and
   long-lived PL API keys.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://framerusercontent.com/assets/L5gk3b8Fq6q5IinWJOFtKMlivU.png
 url: https://raw.githubusercontent.com/api-evangelist/passivelogic/refs/heads/main/apis.yml
 x-type: company
