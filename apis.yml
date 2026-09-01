@@ -31,16 +31,16 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
-- digital-twin
-- building-automation
-- hvac
-- smart-buildings
-- autonomous-systems
-- graphql
+- Digital Twin
+- Building Automation
+- HVAC
+- Smart Buildings
+- Autonomous Systems
+- GraphQL
 - Ontology
-- iot
-- edge-computing
-- physical-ai
+- IoT
+- Edge Computing
+- Physical AI
 - Energy
 tags_raw:
 - Company
@@ -67,11 +67,11 @@ apis:
   humanURL: https://quantumalliance.org/documentation/
   baseURL: https://passivelogic.com/api/graphql
   tags:
-  - graphql
-  - digital-twin
+  - GraphQL
+  - Digital Twin
   - Ontology
-  - smart-buildings
-  - autonomous-systems
+  - Smart Buildings
+  - Autonomous Systems
   tags_raw:
   - graphql
   - digital-twin
