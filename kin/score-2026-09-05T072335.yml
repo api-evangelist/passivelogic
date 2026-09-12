@@ -1,50 +1,57 @@
-# Kin Score artifact — passivelogic — 2026-08-10T111628
+# Kin Score artifact — passivelogic — 2026-09-05T072335
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: passivelogic
-  schema_version: 0.9.1
-  scored_at: '2026-08-10'
-  run_ts: 2026-08-10T111628
-  composite: 47.0
+  schema_version: 0.18.3
+  scored_at: '2026-09-05'
+  run_ts: 2026-09-05T072335
+  composite: 40.4
   band: developing
   facets:
-    discoverability: 92.6
-    contract_quality: 54.4
-    governance: 21.9
-    operational_transparency: 36.8
-    developer_ergonomics: 40.8
-    commercial_clarity: 34.2
+    discoverability: 68.5
+    contract_quality: 56.3
+    governance: 8.3
+    operational_transparency: 26.3
+    developer_ergonomics: 42.3
+    commercial_clarity: 13.2
+    contract_governance: 8.3
+    access_clarity: 13.2
   agent_readiness:
-    score: 40.3
+    score: 37.2
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
+      reversibility_documented: false
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: served
       idempotency: false
       error_semantics: documented
       openapi_examples: partial
       rate_limit_signal: false
       event_surface_described: derived
       agent_skills: derived
-      well_known_catalog: true
+      well_known_catalog: false
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: served
+      protected_resource_metadata: false
+      dynamic_client_registration: true
+      agentic_commerce: false
   regulatory:
     applies: true
     regime: Energy & Utilities
     regime_id: energy_utilities
-    score: 56.8
+    score: 45.9
     matched_via: tags
   provenance:
     skills: derived
     agentic_access: derived
     conformance: derived
     contracts:
-      total: 1
+      total: 17
       derived: 0
       coverage: 0.0
-      callable: 0.0
+      callable: 100.0
