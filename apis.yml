@@ -1,14 +1,14 @@
 aid: passivelogic
 name: PassiveLogic
-description: >-
-  PassiveLogic builds a physics-based autonomy platform for buildings and industrial systems — the Hive, Hive Mini and
-  Cell edge controllers, the Sense wireless sensor line, and the Autonomy Suite design/operate applications (Blueprint,
-  Creator, Lens, Live, Portfolio, Qortex). Its software core is Quantum, an open physics-based digital twin ontology
-  and data model for autonomous systems, developed with the U.S. Department of Energy and the Quantum Alliance
-  consortium. The Quantum API is exposed as a GraphQL query and subscription surface over the digital twin graph, sat
-  behind a documented HTTP REST API covering authentication, API-key issuance, organizations, auth groups, images,
-  bindings, device registration, CSV property-history export and QuantumSync WebSocket data sync. Authentication is
-  handled by an external Keycloak identity provider (OpenID Connect) with JWT, XSRF-protected session tokens and
+description: PassiveLogic builds a physics-based autonomy platform for buildings and industrial systems
+  — the Hive, Hive Mini and Cell edge controllers, the Sense wireless sensor line, and the Autonomy Suite
+  design/operate applications (Blueprint, Creator, Lens, Live, Portfolio, Qortex). Its software core is
+  Quantum, an open physics-based digital twin ontology and data model for autonomous systems, developed
+  with the U.S. Department of Energy and the Quantum Alliance consortium. The Quantum API is exposed as
+  a GraphQL query and subscription surface over the digital twin graph, sat behind a documented HTTP REST
+  API covering authentication, API-key issuance, organizations, auth groups, images, bindings, device
+  registration, CSV property-history export and QuantumSync WebSocket data sync. Authentication is handled
+  by an external Keycloak identity provider (OpenID Connect) with JWT, XSRF-protected session tokens and
   long-lived PL API keys.
 deliveryModel:
   model: saas
@@ -43,7 +43,7 @@ x-type: company
 x-source: harvest:secondary-market
 specificationVersion: '0.23'
 created: '2026-08-04'
-modified: '2026-08-04'
+modified: '2026-09-16'
 tags:
 - Company
 - Digital Twin
@@ -72,13 +72,12 @@ tags_raw:
 - energy
 apis:
 - name: Quantum GraphQL API
-  description: >-
-    The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting clients query
-    buildings, floors, zones, surfaces, equipment, components, properties and time-series data from the
-    physics-based ontology. Supports GET and POST, plus GraphQL subscriptions over WebSocket at /api/graphqlSubscribe
-    and QuantumSync real-time data sync at /api/quantumsync. Authenticated with a JWT bearer or a PL-API-KEY
-    header; schema introspection is available to authenticated clients and through the Quantum Insights
-    query builder.
+  description: The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting
+    clients query buildings, floors, zones, surfaces, equipment, components, properties and time-series
+    data from the physics-based ontology. Supports GET and POST, plus GraphQL subscriptions over WebSocket
+    at /api/graphqlSubscribe and QuantumSync real-time data sync at /api/quantumsync. Authenticated with
+    a JWT bearer or a PL-API-KEY header; schema introspection is available to authenticated clients and
+    through the Quantum Insights query builder.
   humanURL: https://quantumalliance.org/documentation/
   baseURL: https://passivelogic.com/api/graphql
   tags:
@@ -421,7 +420,7 @@ apis:
   - type: Lifecycle
     url: lifecycle/passivelogic-lifecycle.yml
 - aid: passivelogic:passivelogic-passivelogic-device-api
-  name: PassiveLogic PassiveLogic Device API
+  name: PassiveLogic Device API
   description: Routes related to PassiveLogic devices
   humanURL: https://passivelogic.com/app/swagger/
   baseURL: https://passivelogic.com/api/
