@@ -72,12 +72,13 @@ tags_raw:
 - energy
 apis:
 - name: Quantum GraphQL API
-  description: The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting
-    clients query buildings, floors, zones, surfaces, equipment, components, properties and time-series
-    data from the physics-based ontology. Supports GET and POST, plus GraphQL subscriptions over WebSocket
-    at /api/graphqlSubscribe and QuantumSync real-time data sync at /api/quantumsync. Authenticated with
-    a JWT bearer or a PL-API-KEY header; schema introspection is available to authenticated clients and
-    through the Quantum Insights query builder.
+  description: >-
+    The Quantum API — a GraphQL query surface over the Quantum digital twin graph, letting clients query
+    buildings, floors, zones, surfaces, equipment, components, properties and time-series data from the
+    physics-based ontology. Supports GET and POST, plus GraphQL subscriptions over WebSocket at /api/graphqlSubscribe
+    and QuantumSync real-time data sync at /api/quantumsync. Authenticated with a JWT bearer or a PL-API-KEY
+    header; schema introspection is available to authenticated clients and through the Quantum Insights
+    query builder.
   humanURL: https://quantumalliance.org/documentation/
   baseURL: https://passivelogic.com/api/graphql
   tags:
@@ -313,32 +314,6 @@ apis:
     url: data-model/passivelogic-data-model.yml
   - type: Lifecycle
     url: lifecycle/passivelogic-lifecycle.yml
-- aid: passivelogic:passivelogic-graphql-api
-  name: PassiveLogic Graph QL API
-  description: Routes related to the GraphQL API
-  humanURL: https://passivelogic.com/app/swagger/
-  baseURL: https://passivelogic.com/api/
-  tags:
-  - GraphQL
-  properties:
-  - type: OpenAPI
-    url: openapi/passivelogic-graphql-api-openapi.yml
-  - type: Swagger
-    url: https://passivelogic.com/api/doc
-  - type: APIReference
-    url: https://passivelogic.com/app/swagger/
-  - type: Documentation
-    url: https://quantumalliance.org/documentation/
-  - type: Authentication
-    url: authentication/passivelogic-authentication.yml
-  - type: Conventions
-    url: conventions/passivelogic-conventions.yml
-  - type: ErrorCatalog
-    url: errors/passivelogic-problem-types.yml
-  - type: DataModel
-    url: data-model/passivelogic-data-model.yml
-  - type: Lifecycle
-    url: lifecycle/passivelogic-lifecycle.yml
 - aid: passivelogic:passivelogic-health-api
   name: PassiveLogic Health API
   description: Routes related to server health checks
@@ -533,6 +508,32 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/passivelogic-utility-api-openapi.yml
+  - type: Swagger
+    url: https://passivelogic.com/api/doc
+  - type: APIReference
+    url: https://passivelogic.com/app/swagger/
+  - type: Documentation
+    url: https://quantumalliance.org/documentation/
+  - type: Authentication
+    url: authentication/passivelogic-authentication.yml
+  - type: Conventions
+    url: conventions/passivelogic-conventions.yml
+  - type: ErrorCatalog
+    url: errors/passivelogic-problem-types.yml
+  - type: DataModel
+    url: data-model/passivelogic-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/passivelogic-lifecycle.yml
+- aid: passivelogic:passivelogic-graph-ql-api
+  name: PassiveLogic Graph QL API
+  description: Routes related to the GraphQL API
+  humanURL: https://quantumalliance.org/documentation/
+  baseURL: https://passivelogic.com/api/graphql
+  tags:
+  - Graph QL
+  properties:
+  - type: OpenAPI
+    url: openapi/passivelogic-graph-ql-api-openapi.yml
   - type: Swagger
     url: https://passivelogic.com/api/doc
   - type: APIReference
