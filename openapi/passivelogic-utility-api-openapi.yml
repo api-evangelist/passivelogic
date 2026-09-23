@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Utility API
@@ -13,8 +12,7 @@ paths:
   /api/v0.19/util/externalauthconfig:
     get:
       operationId: getApiV0.19UtilExternalauthconfig
-      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what
-        the public settings are.
+      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are.
       responses:
         '200':
           description: OK
@@ -46,8 +44,7 @@ paths:
       description: 'Returns the status of the QuantumLens application for the current user.
 
 
-        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil =
-        no update)
+        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)
 
         - `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)
 
@@ -63,8 +60,7 @@ paths:
       summary: Provides information about the external auth configuration
       tags:
       - Utility
-      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what
-        the public settings are.
+      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are.
       responses:
         '200':
           description: OK
@@ -99,8 +95,7 @@ paths:
       - Utility
       operationId: getApiV0.20UtilQuantumversion
       summary: Returns the Quantum Schema version
-      description: Returns the current version of the Quantum schema in use by this webserver as a semantic
-        version.
+      description: Returns the current version of the Quantum schema in use by this webserver as a semantic version.
       responses:
         '200':
           content:
@@ -113,8 +108,7 @@ paths:
           description: OK
   /api/util/quantumversion:
     get:
-      description: Returns the current version of the Quantum schema in use by this webserver as a semantic
-        version.
+      description: Returns the current version of the Quantum schema in use by this webserver as a semantic version.
       responses:
         '200':
           content:
@@ -134,8 +128,7 @@ paths:
       operationId: getApiUtilExternalauthconfig
       tags:
       - Utility
-      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what
-        the public settings are.
+      description: Use to check whether or not external auth (i.e. Keycloak) is enabled, and if so what the public settings are.
       responses:
         '200':
           description: OK
@@ -156,8 +149,7 @@ paths:
       description: 'Returns the status of the QuantumLens application for the current user.
 
 
-        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil =
-        no update)
+        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)
 
         - `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)
 
@@ -181,8 +173,7 @@ paths:
     get:
       tags:
       - Utility
-      description: Returns commit hashes & build times for the running build of the webserver and all
-        apps.
+      description: Returns commit hashes & build times for the running build of the webserver and all apps.
       operationId: getApiUtilVersion
       summary: Returns version information
       responses:
@@ -200,8 +191,7 @@ paths:
     get:
       summary: Returns version information
       operationId: getApiV0.20UtilVersion
-      description: Returns commit hashes & build times for the running build of the webserver and all
-        apps.
+      description: Returns commit hashes & build times for the running build of the webserver and all apps.
       tags:
       - Utility
       responses:
@@ -217,9 +207,8 @@ paths:
       deprecated: true
   /api/v0.19/util/pl-hardware-info:
     get:
-      summary: Indicates to clients whether or not they are hives serving a webserver.
-      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server,
-        the PL_HIVE_REVISION environment variable
+      summary: Indicates to clients whether or not they are hives serving a webserver
+      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server, the PL_HIVE_REVISION environment variable
 
         is set to a number greater than or equal to zero.'
       operationId: getApiV0.19UtilPl-hardware-info
@@ -248,8 +237,7 @@ paths:
       summary: Returns the Quantum Schema version
       tags:
       - Utility
-      description: Returns the current version of the Quantum schema in use by this webserver as a semantic
-        version.
+      description: Returns the current version of the Quantum schema in use by this webserver as a semantic version.
   /api/v0.20/util/quantumlens:
     post:
       operationId: postApiV0.20UtilQuantumlens
@@ -271,8 +259,7 @@ paths:
       description: 'Returns the status of the QuantumLens application for the current user.
 
 
-        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil =
-        no update)
+        - `appUpdate`: indicates if a new app version is required (true = forced, false = soft, nil = no update)
 
         - `osUpdate`: indicates if an iOS update is required (true = update required, nil = compatible)
 
@@ -290,11 +277,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/DeployedOnHiveResponse'
-      summary: Indicates to clients whether or not they are hives serving a webserver.
+      summary: Indicates to clients whether or not they are hives serving a webserver
       tags:
       - Utility
-      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server,
-        the PL_HIVE_REVISION environment variable
+      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server, the PL_HIVE_REVISION environment variable
 
         is set to a number greater than or equal to zero.'
   /api/v0.20/util/ping:
@@ -336,9 +322,8 @@ paths:
       operationId: getApiUtilPl-hardware-info
       tags:
       - Utility
-      summary: Indicates to clients whether or not they are hives serving a webserver.
-      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server,
-        the PL_HIVE_REVISION environment variable
+      summary: Indicates to clients whether or not they are hives serving a webserver
+      description: 'Returns a JSON object where the field ''runningOnHive'' will be true if, on the server, the PL_HIVE_REVISION environment variable
 
         is set to a number greater than or equal to zero.'
       responses:
@@ -353,8 +338,7 @@ paths:
       tags:
       - Utility
       summary: Returns version information
-      description: Returns commit hashes & build times for the running build of the webserver and all
-        apps.
+      description: Returns commit hashes & build times for the running build of the webserver and all apps.
       operationId: getApiV0.19UtilVersion
       responses:
         '200':

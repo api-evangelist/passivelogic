@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Auth Groups API
@@ -62,11 +61,9 @@ paths:
       - DEPRECATED - PL API Key: []
       - PL API Key: []
       summary: Removes user from Auth Group
-      description: 'Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions
-        to remove another user.
+      description: 'Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions to remove another user.
 
-        User can only remove other users with permissions less than or equal to their own permissions.
-        For example: PrivilegedUsers
+        User can only remove other users with permissions less than or equal to their own permissions. For example: PrivilegedUsers
 
         cannot remove SuperUsers.'
       tags:
@@ -131,9 +128,8 @@ paths:
             schema:
               $ref: '#/components/schemas/InviteUserToAuthGroupData'
         required: true
-      summary: Sends an AuthGroup invite to the given email.
-      description: Generates and sends an invitation link for the given Site or View (AuthGroup) to the
-        given user email.
+      summary: Sends an AuthGroup invite to the given email
+      description: Generates and sends an invitation link for the given Site or View (AuthGroup) to the given user email.
       tags:
       - Auth Groups
       operationId: postApiAuthgroupInvite
@@ -165,11 +161,9 @@ paths:
       - DEPRECATED - PL API Key: []
       - PL API Key: []
       summary: Accepts an AuthGroup Invitation
-      description: 'Used by the front end `/app/login/post-auth` route to accept project (auth group)
-        invitations. The role the user receives in the
+      description: 'Used by the front end `/app/login/post-auth` route to accept project (auth group) invitations. The role the user receives in the
 
-        referenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default
-        to read-only user.'
+        referenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default to read-only user.'
       tags:
       - Auth Groups
       operationId: postApiV0.20AuthgroupJoin
@@ -199,11 +193,9 @@ paths:
               AcceptOrganizationInvite:
                 $ref: '#/components/examples/AcceptOrganizationInvite'
       summary: Accepts an AuthGroup Invitation
-      description: 'DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation
-        by clicking directly in an email.
+      description: 'DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation by clicking directly in an email.
 
-        Accepting invitations is now handled by the /app/login/post-auth route provided by the front end,
-        which calls POST
+        Accepting invitations is now handled by the /app/login/post-auth route provided by the front end, which calls POST
 
         /api/authgroup/join. This can be removed when any invitations linked to in this way have expired.'
       tags:
@@ -238,11 +230,9 @@ paths:
       - DEPRECATED - PL API Key: []
       - PL API Key: []
       summary: Removes user from Auth Group
-      description: 'Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions
-        to remove another user.
+      description: 'Remove a User from an AuthGroup. Users must have PrivilegedUser or greater permissions to remove another user.
 
-        User can only remove other users with permissions less than or equal to their own permissions.
-        For example: PrivilegedUsers
+        User can only remove other users with permissions less than or equal to their own permissions. For example: PrivilegedUsers
 
         cannot remove SuperUsers.'
       tags:
@@ -274,9 +264,8 @@ paths:
             examples:
               InviteUserToAuthGroupData:
                 $ref: '#/components/examples/InviteUserToAuthGroupData'
-      summary: Sends an AuthGroup invite to the given email.
-      description: Generates and sends an invitation link for the given Site or View (AuthGroup) to the
-        given user email.
+      summary: Sends an AuthGroup invite to the given email
+      description: Generates and sends an invitation link for the given Site or View (AuthGroup) to the given user email.
       tags:
       - Auth Groups
       responses:
@@ -310,11 +299,9 @@ paths:
       summary: Accepts an AuthGroup Invitation
       tags:
       - Auth Groups
-      description: 'Used by the front end `/app/login/post-auth` route to accept project (auth group)
-        invitations. The role the user receives in the
+      description: 'Used by the front end `/app/login/post-auth` route to accept project (auth group) invitations. The role the user receives in the
 
-        referenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default
-        to read-only user.'
+        referenced AuthGroup is determined through AuthGroup invite role; if no role is defined, we default to read-only user.'
       operationId: postApiAuthgroupJoin
       responses:
         '200':
@@ -344,11 +331,9 @@ paths:
       summary: Accepts an AuthGroup Invitation
       tags:
       - Auth Groups
-      description: 'DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation
-        by clicking directly in an email.
+      description: 'DEPRECATED: GET /api/authgroup/join was used to accept a project (auth group) invitation by clicking directly in an email.
 
-        Accepting invitations is now handled by the /app/login/post-auth route provided by the front end,
-        which calls POST
+        Accepting invitations is now handled by the /app/login/post-auth route provided by the front end, which calls POST
 
         /api/authgroup/join. This can be removed when any invitations linked to in this way have expired.'
       operationId: getApiAuthgroupJoin
@@ -363,42 +348,7 @@ paths:
                   $ref: '#/components/examples/GenericMessageResponse'
           description: OK
 components:
-  examples:
-    AcceptOrganizationInvite:
-      value:
-        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
-    AuthGroupInviteResponse:
-      value:
-        inviteID: 7AAB23B4-6EA1-431C-867B-011004EE6074
-        message: Invitation sent.
-    DeclineOrganizationInvite:
-      value:
-        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
-    InviteUserToAuthGroupData:
-      value:
-        expiration: '2027-08-04T18:39:54Z'
-        inviteEmail: mithrawnuruodo@galactic-empire.com
-        authGroupID: E91394B2-549E-4D03-8502-4801065B138C
-        role: StandardUser
-    AuthGroupRemovalResponse:
-      value:
-        message: User has been successfully removed!
-        authGroupID: E2FA0E97-22E2-4996-84BD-74AC09DB973D
-        userID: BF33C269-8FAB-48A5-BF13-CB2052070CFE
-    GenericMessageResponse:
-      value:
-        message: We will watch your career with great interest.
   schemas:
-    AcceptOrganizationInvite:
-      properties:
-        inviteID:
-          description: ID of the invitation being accepted.
-          type: string
-          format: uuid
-      required:
-      - inviteID
-      description: Parameters required to accept an organization invite
-      type: object
     QuantumRole:
       enum:
       - PrivilegedUser
@@ -406,58 +356,6 @@ components:
       - StandardUser
       - SuperUser
       type: string
-    AuthGroupRemovalResponse:
-      properties:
-        userID:
-          type: string
-          description: ID of the User who has been removed
-          format: uuid
-        authGroupID:
-          type: string
-          description: ID of the Authgroup the user has been removed from.
-          format: uuid
-        message:
-          type: string
-          description: Message with additional information
-      required:
-      - authGroupID
-      - message
-      - userID
-      description: Response indicating that a User has been removed from an AuthGroup.
-      type: object
-    GenericMessageResponse:
-      type: object
-      properties:
-        message:
-          description: Informative message relating to the specific response
-          type: string
-      description: Generic response information
-      required:
-      - message
-    AuthGroupInviteResponse:
-      properties:
-        message:
-          description: Message with additional information
-          type: string
-        inviteID:
-          description: ID of the invitation generated/sent
-          type: string
-          format: uuid
-      required:
-      - inviteID
-      - message
-      description: Response indicating that an AuthGroup invitation was successfully sent.
-      type: object
-    DeclineOrganizationInvite:
-      properties:
-        inviteID:
-          description: ID of the invitation being declined.
-          format: uuid
-          type: string
-      required:
-      - inviteID
-      description: Parameters required to decline an organization invite
-      type: object
     InviteUserToAuthGroupData:
       properties:
         inviteEmail:
@@ -480,6 +378,93 @@ components:
       - inviteEmail
       description: Parameters required to invite a user to an organization
       type: object
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+    DeclineOrganizationInvite:
+      properties:
+        inviteID:
+          description: ID of the invitation being declined.
+          format: uuid
+          type: string
+      required:
+      - inviteID
+      description: Parameters required to decline an organization invite
+      type: object
+    AuthGroupRemovalResponse:
+      properties:
+        userID:
+          type: string
+          description: ID of the User who has been removed
+          format: uuid
+        authGroupID:
+          type: string
+          description: ID of the Authgroup the user has been removed from.
+          format: uuid
+        message:
+          type: string
+          description: Message with additional information
+      required:
+      - authGroupID
+      - message
+      - userID
+      description: Response indicating that a User has been removed from an AuthGroup.
+      type: object
+    AcceptOrganizationInvite:
+      properties:
+        inviteID:
+          description: ID of the invitation being accepted.
+          type: string
+          format: uuid
+      required:
+      - inviteID
+      description: Parameters required to accept an organization invite
+      type: object
+    AuthGroupInviteResponse:
+      properties:
+        message:
+          description: Message with additional information
+          type: string
+        inviteID:
+          description: ID of the invitation generated/sent
+          type: string
+          format: uuid
+      required:
+      - inviteID
+      - message
+      description: Response indicating that an AuthGroup invitation was successfully sent.
+      type: object
+  examples:
+    AuthGroupRemovalResponse:
+      value:
+        message: User has been successfully removed!
+        authGroupID: E2FA0E97-22E2-4996-84BD-74AC09DB973D
+        userID: BF33C269-8FAB-48A5-BF13-CB2052070CFE
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+    AuthGroupInviteResponse:
+      value:
+        inviteID: 7AAB23B4-6EA1-431C-867B-011004EE6074
+        message: Invitation sent.
+    AcceptOrganizationInvite:
+      value:
+        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
+    InviteUserToAuthGroupData:
+      value:
+        expiration: '2027-08-04T18:39:54Z'
+        inviteEmail: mithrawnuruodo@galactic-empire.com
+        authGroupID: E91394B2-549E-4D03-8502-4801065B138C
+        role: StandardUser
+    DeclineOrganizationInvite:
+      value:
+        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
   securitySchemes:
     XSRF_header:
       in: header

@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST API
@@ -14,11 +13,19 @@ paths:
       description: GET /api/meta.json
       tags:
       - api
+      summary: Get api meta json
+      x-summary-source: derived
+      operationId: getApiMetaJson
+      x-operation-id-source: derived
   /api/metrics:
     get:
       tags:
       - api
       description: GET /api/metrics
+      summary: Get api metrics
+      x-summary-source: derived
+      operationId: getApiMetrics
+      x-operation-id-source: derived
 components:
   securitySchemes:
     XSRF_header:

@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Export API
@@ -25,8 +24,7 @@ paths:
               schema:
                 type: string
           description: OK
-      description: 'Returns a string representation of property history values in CSV format from the
-        given properties.
+      description: 'Returns a string representation of property history values in CSV format from the given properties.
 
         returns in the following headers:
 
@@ -61,8 +59,7 @@ paths:
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
-      description: 'Returns a string representation of property history values in CSV format from the
-        given properties.
+      description: 'Returns a string representation of property history values in CSV format from the given properties.
 
         returns in the following headers:
 

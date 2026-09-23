@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST PassiveLogic Device API
@@ -92,6 +91,10 @@ paths:
       - PL API Key: []
       tags:
       - PassiveLogic Device
+      summary: Create api device register
+      x-summary-source: derived
+      operationId: postApiV020DeviceRegister
+      x-operation-id-source: derived
   /api/device/register:
     post:
       description: POST /device/register
@@ -102,6 +105,10 @@ paths:
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Create api device register
+      x-summary-source: derived
+      operationId: postApiDeviceRegister
+      x-operation-id-source: derived
   /api/v0.20/device/tailscale/authToken:
     get:
       summary: Generates an OAuth token for Tailscale
@@ -126,21 +133,19 @@ paths:
       - PassiveLogic Device
 components:
   schemas:
-    DeviceLoginResponse:
-      properties:
-        token:
-          type: string
-          description: Signed authentication JWT
-      required:
-      - token
-      description: Response to /api/device/login
-      type: object
     TailscaleCapabilitiesDevices:
       properties:
         create:
           $ref: '#/components/schemas/TailscaleCapabilitiesDevicesCreate'
       required:
       - create
+      type: object
+    TailscaleCapabilities:
+      properties:
+        devices:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
+      required:
+      - devices
       type: object
     TailscaleCapabilitiesDevicesCreate:
       properties:
@@ -219,12 +224,14 @@ components:
       - key
       - keyType
       type: object
-    TailscaleCapabilities:
+    DeviceLoginResponse:
       properties:
-        devices:
-          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
+        token:
+          type: string
+          description: Signed authentication JWT
       required:
-      - devices
+      - token
+      description: Response to /api/device/login
       type: object
   examples:
     DeviceLoginResponse:

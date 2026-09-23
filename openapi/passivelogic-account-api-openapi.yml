@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Account API
@@ -21,8 +20,7 @@ paths:
       summary: Accepts EULA for the current user
       tags:
       - Account
-      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
-        on and will be removed in the future.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.
 
         Denotes that the current user has accepted the EULA.
 
@@ -41,7 +39,7 @@ paths:
   /api/account/user/delete:
     delete:
       operationId: deleteApiAccountUserDelete
-      summary: Deletes the user making this request.
+      summary: Deletes the user making this request
       responses:
         '200':
           content:
@@ -64,13 +62,11 @@ paths:
         Otherwise prompts them to transfer ownership or delete the org before making this request.'
   /api/v0.19/account/credentials:
     get:
-      summary: Retrieves a list of the credentials the current user has enabled.
+      summary: Retrieves a list of the credentials the current user has enabled
       operationId: getApiV0.19AccountCredentials
-      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak.
-        Credential types include password,
+      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,
 
-        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g.
-        2025-10-10T16:32:11Z). Also note
+        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note
 
         that this API must be called with a properly authenticated JWT.'
       security:
@@ -93,7 +89,7 @@ paths:
     delete:
       tags:
       - Account
-      summary: Deletes the user making this request.
+      summary: Deletes the user making this request
       description: 'Deletes the requesting user if they are not a SuperUser within any organizations.
 
         Otherwise prompts them to transfer ownership or delete the org before making this request.'
@@ -124,8 +120,7 @@ paths:
       summary: Accepts EULA for the current user
       tags:
       - Account
-      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
-        on and will be removed in the future.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.
 
         Denotes that the current user has accepted the EULA.
 
@@ -164,7 +159,7 @@ paths:
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
-      summary: Deletes the user making this request.
+      summary: Deletes the user making this request
   /api/account/credentials:
     get:
       security:
@@ -183,19 +178,17 @@ paths:
                   $ref: '#/components/schemas/KeycloakCredentialInfo'
                 type: array
           description: OK
-      summary: Retrieves a list of the credentials the current user has enabled.
-      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak.
-        Credential types include password,
+      summary: Retrieves a list of the credentials the current user has enabled
+      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,
 
-        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g.
-        2025-10-10T16:32:11Z). Also note
+        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note
 
         that this API must be called with a properly authenticated JWT.'
       operationId: getApiAccountCredentials
   /api/v0.20/account/credentials:
     get:
       operationId: getApiV0.20AccountCredentials
-      summary: Retrieves a list of the credentials the current user has enabled.
+      summary: Retrieves a list of the credentials the current user has enabled
       security:
       - Basic Auth - login: []
       - XSRF header: []
@@ -212,11 +205,9 @@ paths:
           description: OK
       tags:
       - Account
-      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak.
-        Credential types include password,
+      description: 'Retrieves the list of credentials enabled for the current user as reported by Keycloak. Credential types include password,
 
-        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g.
-        2025-10-10T16:32:11Z). Also note
+        TOPT, and passkeys. Note that `createdDate` will be sent as an ISO 8601 formatted string (e.g. 2025-10-10T16:32:11Z). Also note
 
         that this API must be called with a properly authenticated JWT.'
   /api/v0.20/account/eula/accept:
@@ -230,8 +221,7 @@ paths:
       summary: Accepts EULA for the current user
       tags:
       - Account
-      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned
-        on and will be removed in the future.
+      description: 'DEPRECATED: This endpoint is not available when Keycloak authentication is turned on and will be removed in the future.
 
         Denotes that the current user has accepted the EULA.
 

@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Organization API
@@ -26,11 +25,10 @@ paths:
                 $ref: '#/components/examples/InviteUserToOrganizationData'
             schema:
               $ref: '#/components/schemas/InviteUserToOrganizationData'
-      summary: Sends an organization invite to the given email.
+      summary: Sends an organization invite to the given email
       tags:
       - Organization
-      description: Generates and sends an invitation link for the given organization to the given user
-        email.
+      description: Generates and sends an invitation link for the given organization to the given user email.
       operationId: postApiOrganizationInvite
       responses:
         '200':
@@ -58,11 +56,10 @@ paths:
             examples:
               DeleteOrganizationData:
                 $ref: '#/components/examples/DeleteOrganizationData'
-      summary: Deletes specified organization.
+      summary: Deletes specified organization
       tags:
       - Organization
-      description: 'Completely deletes an organization, after verifying that the user making this request
-        has permission to do so.
+      description: 'Completely deletes an organization, after verifying that the user making this request has permission to do so.
 
         Sends an email to all other members of the organization informing them that it has been deleted.'
       responses:
@@ -95,8 +92,7 @@ paths:
       summary: Updates the organization's logo
       tags:
       - Organization
-      description: 'Verifies that the user making the request has sufficient permissions to change the
-        logo for the organization.
+      description: 'Verifies that the user making the request has sufficient permissions to change the logo for the organization.
 
         Takes in a new image as the organization''s logo. Creates or replaces the previous stored logo.'
       operationId: postApiV0.19OrganizationUpdate-logo
@@ -160,11 +156,9 @@ paths:
                 $ref: '#/components/examples/OrganizationImageData'
         required: true
       summary: Updates the organization's image
-      description: 'Verifies that the user making the request has sufficient permissions to change the
-        image for the organization.
+      description: 'Verifies that the user making the request has sufficient permissions to change the image for the organization.
 
-        Takes in a new image as the new organization image. Creates or replaces the previously stored
-        image.'
+        Takes in a new image as the new organization image. Creates or replaces the previously stored image.'
       tags:
       - Organization
       responses:
@@ -230,8 +224,7 @@ paths:
       summary: Updates the organization's logo
       tags:
       - Organization
-      description: 'Verifies that the user making the request has sufficient permissions to change the
-        logo for the organization.
+      description: 'Verifies that the user making the request has sufficient permissions to change the logo for the organization.
 
         Takes in a new image as the organization''s logo. Creates or replaces the previous stored logo.'
       operationId: postApiOrganizationUpdate-logo
@@ -261,11 +254,10 @@ paths:
               InviteUserToOrganizationData:
                 $ref: '#/components/examples/InviteUserToOrganizationData'
         required: true
-      summary: Sends an organization invite to the given email.
+      summary: Sends an organization invite to the given email
       tags:
       - Organization
-      description: Generates and sends an invitation link for the given organization to the given user
-        email.
+      description: Generates and sends an invitation link for the given organization to the given user email.
       responses:
         '200':
           content:
@@ -329,8 +321,7 @@ paths:
       summary: Adds a user to an organization
       description: 'Adds user to organization based on Organization invite ID.
 
-        Role in organization is determined through Organization invite role, if no role is defined, we
-        default to read-only user.'
+        Role in organization is determined through Organization invite role, if no role is defined, we default to read-only user.'
       tags:
       - Organization
       operationId: postApiOrganizationJoin
@@ -363,11 +354,9 @@ paths:
       summary: Updates the organization's image
       tags:
       - Organization
-      description: 'Verifies that the user making the request has sufficient permissions to change the
-        image for the organization.
+      description: 'Verifies that the user making the request has sufficient permissions to change the image for the organization.
 
-        Takes in a new image as the new organization image. Creates or replaces the previously stored
-        image.'
+        Takes in a new image as the new organization image. Creates or replaces the previously stored image.'
       responses:
         '200':
           description: OK
@@ -398,8 +387,7 @@ paths:
       summary: Adds a user to an organization
       description: 'Adds user to organization based on Organization invite ID.
 
-        Role in organization is determined through Organization invite role, if no role is defined, we
-        default to read-only user.'
+        Role in organization is determined through Organization invite role, if no role is defined, we default to read-only user.'
       tags:
       - Organization
       operationId: postApiV0.19OrganizationJoin
@@ -432,8 +420,7 @@ paths:
       summary: Updates the organization's logo
       tags:
       - Organization
-      description: 'Verifies that the user making the request has sufficient permissions to change the
-        logo for the organization.
+      description: 'Verifies that the user making the request has sufficient permissions to change the logo for the organization.
 
         Takes in a new image as the organization''s logo. Creates or replaces the previous stored logo.'
       responses:
@@ -463,9 +450,8 @@ paths:
                 $ref: '#/components/examples/DeleteOrganizationData'
             schema:
               $ref: '#/components/schemas/DeleteOrganizationData'
-      summary: Deletes specified organization.
-      description: 'Completely deletes an organization, after verifying that the user making this request
-        has permission to do so.
+      summary: Deletes specified organization
+      description: 'Completely deletes an organization, after verifying that the user making this request has permission to do so.
 
         Sends an email to all other members of the organization informing them that it has been deleted.'
       tags:
@@ -497,11 +483,10 @@ paths:
               InviteUserToOrganizationData:
                 $ref: '#/components/examples/InviteUserToOrganizationData'
         required: true
-      summary: Sends an organization invite to the given email.
+      summary: Sends an organization invite to the given email
       tags:
       - Organization
-      description: Generates and sends an invitation link for the given organization to the given user
-        email.
+      description: Generates and sends an invitation link for the given organization to the given user email.
       responses:
         '200':
           description: OK
@@ -532,8 +517,7 @@ paths:
       summary: Adds a user to an organization
       description: 'Adds user to organization based on Organization invite ID.
 
-        Role in organization is determined through Organization invite role, if no role is defined, we
-        default to read-only user.'
+        Role in organization is determined through Organization invite role, if no role is defined, we default to read-only user.'
       tags:
       - Organization
       responses:
@@ -563,9 +547,8 @@ paths:
                 $ref: '#/components/examples/DeleteOrganizationData'
             schema:
               $ref: '#/components/schemas/DeleteOrganizationData'
-      summary: Deletes specified organization.
-      description: 'Completely deletes an organization, after verifying that the user making this request
-        has permission to do so.
+      summary: Deletes specified organization
+      description: 'Completely deletes an organization, after verifying that the user making this request has permission to do so.
 
         Sends an email to all other members of the organization informing them that it has been deleted.'
       tags:
@@ -600,11 +583,9 @@ paths:
       summary: Updates the organization's image
       tags:
       - Organization
-      description: 'Verifies that the user making the request has sufficient permissions to change the
-        image for the organization.
+      description: 'Verifies that the user making the request has sufficient permissions to change the image for the organization.
 
-        Takes in a new image as the new organization image. Creates or replaces the previously stored
-        image.'
+        Takes in a new image as the new organization image. Creates or replaces the previously stored image.'
       responses:
         '200':
           description: OK
@@ -631,68 +612,13 @@ components:
       - message
       description: Image response definition
       type: object
-    DeleteOrganizationData:
-      properties:
-        orgID:
-          format: uuid
-          description: ID of the organization being deleted
-          type: string
-      required:
-      - orgID
-      description: Parameters require to delete an organization
-      type: object
-    AcceptOrganizationInvite:
-      properties:
-        inviteID:
-          description: ID of the invitation being accepted.
-          type: string
-          format: uuid
-      required:
-      - inviteID
-      description: Parameters required to accept an organization invite
-      type: object
-    GenericMessageResponse:
-      type: object
-      properties:
-        message:
-          description: Informative message relating to the specific response
-          type: string
-      description: Generic response information
-      required:
-      - message
-    OrganizationImageData:
-      properties:
-        organizationID:
-          description: The organization that is associated with this image request.
-          format: uuid
-          type: string
-        image:
-          description: File data to write to the server. Must be Base64-encoded if sending as JSON.
-          format: byte
-          type: string
-        fileType:
-          description: The type of file the given data represents, from a list of allowed files
-          type: string
-      required:
-      - fileType
-      - image
-      - organizationID
-      description: Data required to upload a organization image
-      type: object
-    OrgInviteResponse:
-      properties:
-        inviteID:
-          type: string
-          description: ID of the invitation generated/sent
-          format: uuid
-        message:
-          type: string
-          description: Message with additional information
-      required:
-      - inviteID
-      - message
-      description: Response indicating that an organization invitation was successfully sent.
-      type: object
+    QuantumRole:
+      enum:
+      - PrivilegedUser
+      - ReadOnlyUser
+      - StandardUser
+      - SuperUser
+      type: string
     InviteUserToOrganizationData:
       properties:
         inviteEmail:
@@ -715,13 +641,25 @@ components:
       - orgID
       description: Parameters required to invite a user to an organization
       type: object
-    QuantumRole:
-      enum:
-      - PrivilegedUser
-      - ReadOnlyUser
-      - StandardUser
-      - SuperUser
-      type: string
+    OrganizationImageData:
+      properties:
+        organizationID:
+          description: The organization that is associated with this image request.
+          format: uuid
+          type: string
+        image:
+          description: File data to write to the server. Must be Base64-encoded if sending as JSON.
+          format: byte
+          type: string
+        fileType:
+          description: The type of file the given data represents, from a list of allowed files
+          type: string
+      required:
+      - fileType
+      - image
+      - organizationID
+      description: Data required to upload a organization image
+      type: object
     DeclineOrganizationInvite:
       properties:
         inviteID:
@@ -732,27 +670,59 @@ components:
       - inviteID
       description: Parameters required to decline an organization invite
       type: object
-  examples:
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+    DeleteOrganizationData:
+      properties:
+        orgID:
+          format: uuid
+          description: ID of the organization being deleted
+          type: string
+      required:
+      - orgID
+      description: Parameters require to delete an organization
+      type: object
     AcceptOrganizationInvite:
-      value:
-        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
-    ImageUploadResponse:
-      value:
-        message: Image was succefully updated.
-        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+      properties:
+        inviteID:
+          description: ID of the invitation being accepted.
+          type: string
+          format: uuid
+      required:
+      - inviteID
+      description: Parameters required to accept an organization invite
+      type: object
+    OrgInviteResponse:
+      properties:
+        inviteID:
+          type: string
+          description: ID of the invitation generated/sent
+          format: uuid
+        message:
+          type: string
+          description: Message with additional information
+      required:
+      - inviteID
+      - message
+      description: Response indicating that an organization invitation was successfully sent.
+      type: object
+  examples:
     InviteUserToOrganizationData:
       value:
         role: StandardUser
         expiration: '2027-08-04T18:39:54Z'
         orgID: 826F5A10-0158-43FD-B134-A0D047A6E8CB
         inviteEmail: mithrawnuruodo@galactic-empire.com
-    OrgInviteResponse:
+    GenericMessageResponse:
       value:
-        inviteID: 33E9B8C6-BECC-4723-9BCA-08A432C7F8B5
-        message: Invitation sent.
-    DeclineOrganizationInvite:
-      value:
-        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
+        message: We will watch your career with great interest.
     OrganizationImageData:
       value:
         organizationID: E77FF523-421A-4625-A224-053A10A04381
@@ -761,9 +731,20 @@ components:
     DeleteOrganizationData:
       value:
         orgID: 3E401610-4DB2-4A0F-9BC1-6F84709C4C20
-    GenericMessageResponse:
+    ImageUploadResponse:
       value:
-        message: We will watch your career with great interest.
+        message: Image was succefully updated.
+        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+    OrgInviteResponse:
+      value:
+        inviteID: 33E9B8C6-BECC-4723-9BCA-08A432C7F8B5
+        message: Invitation sent.
+    AcceptOrganizationInvite:
+      value:
+        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
+    DeclineOrganizationInvite:
+      value:
+        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
   securitySchemes:
     XSRF_header:
       in: header

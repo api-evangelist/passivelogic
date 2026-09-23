@@ -1,132 +1,175 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST App API
 tags:
-- name: app
+- name: App
 paths:
   /app/lp/**:
     get:
       tags:
-      - app
+      - App
       description: GET /app/lp/**
+      summary: Get app lp **
+      x-summary-source: derived
+      operationId: getAppLp**
+      x-operation-id-source: derived
   /app/qs/**:
     get:
       tags:
-      - app
+      - App
       description: GET /app/qs/**
+      summary: Get app qs **
+      x-summary-source: derived
+      operationId: getAppQs**
+      x-operation-id-source: derived
   /app/qe/*:
     get:
       tags:
-      - app
+      - App
       description: GET /app/qe/*
+      summary: Get app qe *
+      x-summary-source: derived
+      operationId: getAppQe*
+      x-operation-id-source: derived
   /app/login/userAuth:
     get:
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
       description: ''
       tags:
-      - app
+      - App
       operationId: getAppLoginUserAuth
   /app/login/password:
     get:
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
       operationId: getAppLoginPassword
       description: ''
       tags:
-      - app
+      - App
   /app/bs/**:
     get:
       description: GET /app/bs/**
       tags:
-      - app
+      - App
+      summary: Get app bs **
+      x-summary-source: derived
+      operationId: getAppBs**
+      x-operation-id-source: derived
   /app/login/eula:
     get:
       tags:
-      - app
-      summary: Redirects to external authentication provider (Keycloak).
+      - App
+      summary: Redirects to external authentication provider (Keycloak)
       description: ''
       operationId: getAppLoginEula
   /app/as/**:
     get:
       tags:
-      - app
+      - App
       description: GET /app/as/**
+      summary: Get app as **
+      x-summary-source: derived
+      operationId: getAppAs**
+      x-operation-id-source: derived
   /app/al/**:
     get:
       tags:
-      - app
+      - App
       description: GET /app/al/**
+      summary: Get app al **
+      x-summary-source: derived
+      operationId: getAppAl**
+      x-operation-id-source: derived
   /app/login/verify:
     get:
       tags:
-      - app
+      - App
       description: ''
       operationId: getAppLoginVerify
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
   /app/devtools/*:
     get:
       tags:
-      - app
+      - App
       description: GET /app/devtools/*
+      summary: Get app devtools *
+      x-summary-source: derived
+      operationId: getAppDevtools*
+      x-operation-id-source: derived
   /app/login/reset:
     get:
       tags:
-      - app
+      - App
       operationId: getAppLoginReset
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
       description: ''
   /app/qc/**:
     get:
       description: GET /app/qc/**
       tags:
-      - app
+      - App
+      summary: Get app qc **
+      x-summary-source: derived
+      operationId: getAppQc**
+      x-operation-id-source: derived
   /app/login/signUp:
     get:
       tags:
-      - app
+      - App
       operationId: getAppLoginSignUp
       description: ''
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
   /app/login/finish:
     get:
       tags:
-      - app
+      - App
       description: ''
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
       operationId: getAppLoginFinish
   /app/login/signIn:
     get:
       description: ''
-      summary: Redirects to external authentication provider (Keycloak).
+      summary: Redirects to external authentication provider (Keycloak)
       operationId: getAppLoginSignIn
       tags:
-      - app
+      - App
   /app/**:
     get:
       description: GET /app/**
       tags:
-      - app
+      - App
+      summary: Get app **
+      x-summary-source: derived
+      operationId: getApp**
+      x-operation-id-source: derived
   /app/login:
     get:
       operationId: getAppLogin
       tags:
-      - app
-      summary: Redirects to external authentication provider (Keycloak).
+      - App
+      summary: Redirects to external authentication provider (Keycloak)
       description: ''
   /app/login/**:
     get:
       tags:
-      - app
+      - App
       description: GET /app/login/**
+      summary: Get app login **
+      x-summary-source: derived
+      operationId: getAppLogin**
+      x-operation-id-source: derived
   /app/az/**:
     get:
       tags:
-      - app
+      - App
       description: GET /app/az/**
+      summary: Get app az **
+      x-summary-source: derived
+      operationId: getAppAz**
+      x-operation-id-source: derived
 components:
   securitySchemes:
     XSRF_header:

@@ -1,20 +1,19 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Graph QL API
 tags:
 - description: Routes related to the GraphQL API
-  name: GraphQL
+  name: Graph QL
 paths:
   /api/v0.19/graphqlSubscribe:
     get:
       tags:
-      - GraphQL
-      summary: GraphQL API over websocket.
+      - Graph QL
+      summary: GraphQL API over websocket
       security:
       - Basic Auth - login: []
       - XSRF header: []
@@ -25,23 +24,23 @@ paths:
 
         The following sub-protocols are supported:
 
-        - [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+        - graphql-transport-ws
 
-        - [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)'
+        - graphql-ws'
       operationId: getApiV0.19GraphqlSubscribe
   /api/v0.20/graphqlSubscribe:
     get:
       tags:
-      - GraphQL
-      summary: GraphQL API over websocket.
+      - Graph QL
+      summary: GraphQL API over websocket
       description: 'Serves the GraphQL API over websockets to support streaming results like subscriptions.
 
 
         The following sub-protocols are supported:
 
-        - [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+        - graphql-transport-ws
 
-        - [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)'
+        - graphql-ws'
       operationId: getApiV0.20GraphqlSubscribe
       security:
       - Basic Auth - login: []
@@ -66,8 +65,8 @@ paths:
         url: https://graphql.org/learn/serving-over-http/#post-request
         description: GraphQL documentation.
       tags:
-      - GraphQL
-      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)
+      - Graph QL
+      description: Serves the GraphQL API. For more details, see graphql.org
       operationId: postApiV0.20Graphql
       responses:
         '200':
@@ -94,8 +93,8 @@ paths:
         description: GraphQL documentation.
         url: https://graphql.org/learn/serving-over-http/#get-request
       tags:
-      - GraphQL
-      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)
+      - Graph QL
+      description: Serves the GraphQL API. For more details, see graphql.org
       operationId: getApiV0.20Graphql
       parameters:
       - in: query
@@ -137,9 +136,9 @@ paths:
       externalDocs:
         description: GraphQL documentation.
         url: https://graphql.org/learn/serving-over-http/#post-request
-      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)
+      description: Serves the GraphQL API. For more details, see graphql.org
       tags:
-      - GraphQL
+      - Graph QL
       operationId: postApiV0.19Graphql
       responses:
         '200':
@@ -165,9 +164,9 @@ paths:
       externalDocs:
         description: GraphQL documentation.
         url: https://graphql.org/learn/serving-over-http/#get-request
-      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)
+      description: Serves the GraphQL API. For more details, see graphql.org
       tags:
-      - GraphQL
+      - Graph QL
       operationId: getApiV0.19Graphql
       parameters:
       - required: true
@@ -210,8 +209,8 @@ paths:
         description: GraphQL documentation.
         url: https://graphql.org/learn/serving-over-http/#post-request
       tags:
-      - GraphQL
-      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#post-request)
+      - Graph QL
+      description: Serves the GraphQL API. For more details, see graphql.org
       operationId: postApiGraphql
       responses:
         '200':
@@ -238,8 +237,8 @@ paths:
         url: https://graphql.org/learn/serving-over-http/#get-request
         description: GraphQL documentation.
       tags:
-      - GraphQL
-      description: Serves the GraphQL API. For more details, see [graphql.org](https://graphql.org/learn/serving-over-http/#get-request)
+      - Graph QL
+      description: Serves the GraphQL API. For more details, see graphql.org
       parameters:
       - name: query
         in: query
@@ -267,17 +266,17 @@ paths:
   /api/graphqlSubscribe:
     get:
       operationId: getApiGraphqlSubscribe
-      summary: GraphQL API over websocket.
+      summary: GraphQL API over websocket
       tags:
-      - GraphQL
+      - Graph QL
       description: 'Serves the GraphQL API over websockets to support streaming results like subscriptions.
 
 
         The following sub-protocols are supported:
 
-        - [graphql-transport-ws](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md)
+        - graphql-transport-ws
 
-        - [graphql-ws](https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md)'
+        - graphql-ws'
       security:
       - Basic Auth - login: []
       - XSRF header: []
@@ -285,17 +284,22 @@ paths:
       - PL API Key: []
 components:
   schemas:
-    SourceLocation:
+    GraphQLRequest:
       properties:
-        column:
-          type: integer
-          format: int64
-        line:
-          type: integer
-          format: int64
+        variables:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            type: boolean
+        operationName:
+          type:
+          - string
+          - 'null'
+        query:
+          type: string
       required:
-      - column
-      - line
+      - query
       type: object
     GraphQLError:
       properties:
@@ -336,22 +340,17 @@ components:
           items:
             $ref: '#/components/schemas/GraphQLError'
       type: object
-    GraphQLRequest:
+    SourceLocation:
       properties:
-        variables:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            type: boolean
-        operationName:
-          type:
-          - string
-          - 'null'
-        query:
-          type: string
+        column:
+          type: integer
+          format: int64
+        line:
+          type: integer
+          format: int64
       required:
-      - query
+      - column
+      - line
       type: object
   securitySchemes:
     XSRF_header:

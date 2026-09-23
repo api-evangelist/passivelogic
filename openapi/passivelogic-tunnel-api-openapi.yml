@@ -1,88 +1,119 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Tunnel API
 tags:
-- name: tunnel
+- name: Tunnel
 paths:
   /api/v0.20/tunnel/{serialNumber}/**:
     put:
       tags:
-      - tunnel
+      - Tunnel
       description: PUT /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Replace api tunnel by serial number **
+      x-summary-source: derived
+      operationId: putApiV020TunnelBySerialNumber**
+      x-operation-id-source: derived
     delete:
       tags:
-      - tunnel
+      - Tunnel
       description: DELETE /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Delete api tunnel by serial number **
+      x-summary-source: derived
+      operationId: deleteApiV020TunnelBySerialNumber**
+      x-operation-id-source: derived
     post:
       tags:
-      - tunnel
+      - Tunnel
       description: POST /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Create api tunnel by serial number **
+      x-summary-source: derived
+      operationId: postApiV020TunnelBySerialNumber**
+      x-operation-id-source: derived
     get:
       tags:
-      - tunnel
+      - Tunnel
       description: GET /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Get api tunnel by serial number **
+      x-summary-source: derived
+      operationId: getApiV020TunnelBySerialNumber**
+      x-operation-id-source: derived
   /api/tunnel/{serialNumber}/**:
     delete:
       tags:
-      - tunnel
+      - Tunnel
       description: DELETE /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Delete api tunnel by serial number **
+      x-summary-source: derived
+      operationId: deleteApiTunnelBySerialNumber**
+      x-operation-id-source: derived
     put:
       tags:
-      - tunnel
+      - Tunnel
       description: PUT /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Replace api tunnel by serial number **
+      x-summary-source: derived
+      operationId: putApiTunnelBySerialNumber**
+      x-operation-id-source: derived
     post:
       tags:
-      - tunnel
+      - Tunnel
       description: POST /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Create api tunnel by serial number **
+      x-summary-source: derived
+      operationId: postApiTunnelBySerialNumber**
+      x-operation-id-source: derived
     get:
       tags:
-      - tunnel
+      - Tunnel
       description: GET /tunnel/:serialNumber/**
       security:
       - Basic Auth - login: []
       - XSRF header: []
       - DEPRECATED - PL API Key: []
       - PL API Key: []
+      summary: Get api tunnel by serial number **
+      x-summary-source: derived
+      operationId: getApiTunnelBySerialNumber**
+      x-operation-id-source: derived
 components:
   securitySchemes:
     XSRF_header:

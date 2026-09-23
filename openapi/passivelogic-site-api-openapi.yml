@@ -1,8 +1,7 @@
 openapi: 3.2.0
 info:
   version: 0.0.0
-  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication,
-    user management, and
+  description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
   title: PassiveLogic REST Site API
@@ -160,21 +159,6 @@ paths:
           description: OK
 components:
   schemas:
-    ObjectPair:
-      properties:
-        newID:
-          type: string
-          format: uuid
-        oldID:
-          type: string
-          format: uuid
-        type:
-          $ref: '#/components/schemas/QuantumObjectType'
-      required:
-      - newID
-      - oldID
-      - type
-      type: object
     QuantumObjectType:
       enum:
       - Adjacency
@@ -267,6 +251,21 @@ components:
       - ZoneSubsystem
       - ZoneSubsystemSet
       type: string
+    ObjectPair:
+      properties:
+        newID:
+          type: string
+          format: uuid
+        oldID:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/QuantumObjectType'
+      required:
+      - newID
+      - oldID
+      - type
+      type: object
     ObjectIdentifiers:
       properties:
         objectIdentifierMap:
