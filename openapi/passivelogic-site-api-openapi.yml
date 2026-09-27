@@ -159,6 +159,21 @@ paths:
           description: OK
 components:
   schemas:
+    ObjectPair:
+      properties:
+        newID:
+          type: string
+          format: uuid
+        oldID:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/QuantumObjectType'
+      required:
+      - newID
+      - oldID
+      - type
+      type: object
     QuantumObjectType:
       enum:
       - Adjacency
@@ -251,21 +266,6 @@ components:
       - ZoneSubsystem
       - ZoneSubsystemSet
       type: string
-    ObjectPair:
-      properties:
-        newID:
-          type: string
-          format: uuid
-        oldID:
-          type: string
-          format: uuid
-        type:
-          $ref: '#/components/schemas/QuantumObjectType'
-      required:
-      - newID
-      - oldID
-      - type
-      type: object
     ObjectIdentifiers:
       properties:
         objectIdentifierMap:

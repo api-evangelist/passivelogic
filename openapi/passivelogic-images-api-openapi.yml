@@ -230,6 +230,23 @@ paths:
           description: OK
       operationId: deleteApiImageByImageID
 components:
+  examples:
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+    ImageUploadResponse:
+      value:
+        message: Image was succefully updated.
+        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+    ImageData:
+      value:
+        fileType: svg
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+    UploadImageData:
+      value:
+        fileType: svg
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+        ID: 268C8D05-1BB8-4D48-8C70-AA01A7990A21
   schemas:
     ImageUploadResponse:
       properties:
@@ -267,15 +284,6 @@ components:
       - image
       description: Data required to upload an image.
       type: object
-    GenericMessageResponse:
-      type: object
-      properties:
-        message:
-          description: Informative message relating to the specific response
-          type: string
-      description: Generic response information
-      required:
-      - message
     ImageData:
       properties:
         fileType:
@@ -290,23 +298,15 @@ components:
       - image
       description: Data required to upload image without using an image model.
       type: object
-  examples:
-    UploadImageData:
-      value:
-        fileType: svg
-        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
-        ID: 268C8D05-1BB8-4D48-8C70-AA01A7990A21
     GenericMessageResponse:
-      value:
-        message: We will watch your career with great interest.
-    ImageData:
-      value:
-        fileType: svg
-        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
-    ImageUploadResponse:
-      value:
-        message: Image was succefully updated.
-        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
   securitySchemes:
     XSRF_header:
       in: header

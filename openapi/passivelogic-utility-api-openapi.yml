@@ -353,6 +353,34 @@ paths:
       deprecated: true
 components:
   schemas:
+    DeployedOnHiveResponse:
+      properties:
+        runningOnHive:
+          type: boolean
+      required:
+      - runningOnHive
+      type: object
+    QuantumLensResponse:
+      properties:
+        user:
+          $ref: '#/components/schemas/QuantumLensUser'
+        status:
+          $ref: '#/components/schemas/QuantumLensAppStatusResponse'
+      required:
+      - status
+      - user
+      type: object
+    QuantumLensAppStatusResponse:
+      properties:
+        appUpdate:
+          type:
+          - boolean
+          - 'null'
+        osUpdate:
+          type:
+          - boolean
+          - 'null'
+      type: object
     QuantumLensUser:
       properties:
         lastName:
@@ -368,34 +396,6 @@ components:
           type: string
       required:
       - userID
-      type: object
-    QuantumLensAppStatusResponse:
-      properties:
-        appUpdate:
-          type:
-          - boolean
-          - 'null'
-        osUpdate:
-          type:
-          - boolean
-          - 'null'
-      type: object
-    QuantumLensResponse:
-      properties:
-        user:
-          $ref: '#/components/schemas/QuantumLensUser'
-        status:
-          $ref: '#/components/schemas/QuantumLensAppStatusResponse'
-      required:
-      - status
-      - user
-      type: object
-    DeployedOnHiveResponse:
-      properties:
-        runningOnHive:
-          type: boolean
-      required:
-      - runningOnHive
       type: object
   examples:
     String:

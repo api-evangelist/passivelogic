@@ -4,27 +4,18 @@ info:
   description: 'This page documents the operations supported by the PassiveLogic HTTP API, covering authentication, user management, and
 
     GraphQL API access.'
-  title: PassiveLogic REST API
+  title: PassiveLogic REST Meta.json API
 tags:
-- name: api
+- name: Meta.json
 paths:
   /api/meta.json:
     get:
       description: GET /api/meta.json
       tags:
-      - api
+      - Meta.json
       summary: Get api meta json
       x-summary-source: derived
       operationId: getApiMetaJson
-      x-operation-id-source: derived
-  /api/metrics:
-    get:
-      tags:
-      - api
-      description: GET /api/metrics
-      summary: Get api metrics
-      x-summary-source: derived
-      operationId: getApiMetrics
       x-operation-id-source: derived
 components:
   securitySchemes:

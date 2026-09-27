@@ -4,7 +4,6 @@
     "_original/passivelogic-openapi.json"
   ],
   "outputs": [
-    "passivelogic-default-api-openapi.yml",
     "passivelogic-account-api-openapi.yml",
     "passivelogic-auth-groups-api-openapi.yml",
     "passivelogic-authentication-api-openapi.yml",
@@ -13,17 +12,19 @@
     "passivelogic-graphql-api-openapi.yml",
     "passivelogic-health-api-openapi.yml",
     "passivelogic-images-api-openapi.yml",
+    "passivelogic-meta-json-api-openapi.yml",
+    "passivelogic-metrics-api-openapi.yml",
     "passivelogic-organization-api-openapi.yml",
     "passivelogic-passivelogic-device-api-openapi.yml",
+    "passivelogic-passivelogic-rest-api-api-openapi.yml",
     "passivelogic-quantum-sync-api-openapi.yml",
     "passivelogic-site-api-openapi.yml",
     "passivelogic-utility-api-openapi.yml",
-    "passivelogic-api-api-openapi.yml",
     "passivelogic-app-api-openapi.yml",
     "passivelogic-tunnel-api-openapi.yml"
   ],
   "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
+    "deleted 3 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -31,11 +32,15 @@
     "1 archived document(s) dropped as subsets of other archived documents",
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "passivelogic-openapi.json: upgraded openapi 3.0.1 -> OpenAPI 3.2.0; renamed 4 component key(s) illegal in 3.x (e.g. Basic Auth - login)",
-    "passivelogic-openapi.json: declared missing tag: ",
-    "passivelogic-openapi.json: declared missing tag: api",
+    "passivelogic-openapi.json: tagged paths GET /api/meta.json -> Meta.json",
+    "passivelogic-openapi.json: tagged paths GET / -> PassiveLogic REST API",
+    "passivelogic-openapi.json: tagged paths GET /api/metrics -> Metrics",
+    "passivelogic-openapi.json: declared missing tag: Meta.json",
+    "passivelogic-openapi.json: declared missing tag: Metrics",
+    "passivelogic-openapi.json: declared missing tag: PassiveLogic REST API",
     "passivelogic-openapi.json: declared missing tag: tunnel",
-    "superseded outputs removed: passivelogic-graph-ql-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 18 total)"
+    "superseded outputs removed: passivelogic-api-api-openapi.yml, passivelogic-default-api-openapi.yml, passivelogic-graph-ql-api-openapi.yml",
+    "apis.yml register: written (+4 apis, 19 total)"
   ],
   "skipped": [
     "_original/passivelogic-rest-api-openapi.yml: archived document superseded by a larger archived document",

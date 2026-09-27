@@ -6,12 +6,12 @@ info:
     GraphQL API access.'
   title: PassiveLogic REST API
 tags:
-- name: ''
+- name: PassiveLogic REST API
 paths:
   /:
     get:
       tags:
-      - ''
+      - PassiveLogic REST API
       description: GET /
       summary: Get
       x-summary-source: derived
