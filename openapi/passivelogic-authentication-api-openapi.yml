@@ -2089,24 +2089,112 @@ paths:
       operationId: getApiV020AuthOffline
       x-operation-id-source: derived
 components:
-  schemas:
+  examples:
     UserRegistrationInitiation:
-      type: object
+      value:
+        email: darthvader@galactic-empire.com
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+    ChangeUserPassword:
+      value:
+        oldPassword: Ih8obi-wan!higrndSUXX
+        newPassword: SandSuxDest0ryAllSand
+    WhoAmIResponse:
+      value:
+        firstName: Anakin
+        userID: 824DA601-88BA-434F-A7DA-06BD4AF6767F
+        eulaAccepted: true
+        emailVerified: true
+        lastName: Skywalker
+    RequestResetPasswordData:
+      value:
+        usernameOrEmail: darthvader@galactic-empire.com
+    UpdatedUserEmail:
+      value:
+        newEmail: emperorpalps@gallactic-empire.com
+        oldEmail: sheevpalpatine@old-republic.net
+        password: unlimitedP0wuh!!!
+    RegisterUserResponse:
+      value:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY
+        newUserID:
+          id: 7E530D0F-A359-4FBB-8BFA-563EEEDA30EC
+          type: User
+        message: User registered successfully.
+        userStatus: Active
+        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50
+    KeycloakUserInfo:
+      value:
+        requiredActions:
+        - UPDATE_PASSWORD
+        - UPDATE_PROFILE
+        lastName: Skywalker
+        email: darthvader@galactic-empire.com
+        emailVerified: true
+        firstName: Anakin
+        groups:
+        - sith
+        - empire
+        roles:
+        - admin
+        access:
+          view: true
+          manageGroupMembership: true
+        attributes:
+          likes:
+          - lightsabers
+          - the Force
+          position:
+          - Dark Lord of the Sith
+        id: A4927913-1382-4881-A456-8477D7369352
+        enabled: true
+        username: darthvader
+    GenerateApiKeyResponse:
+      value:
+        expiration: 839183994008058
+        key: 564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95
+    LoginResponse:
+      value:
+        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY
+        whoAmI:
+          emailVerified: true
+          eulaAccepted: true
+          firstName: Anakin
+          lastName: Skywalker
+          userID: B210BA3E-D831-4EB2-B946-7CFC4367CD88
+    RemoveApiKeyRequest:
+      value:
+        key: 564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95
+    ChangePasswordData:
+      value:
+        newPassword: SandSuxDest0ryAllSand
+    RegisterUserData:
+      value:
+        acceptedEULA: true
+        acceptMailingList: false
+        email: darthvader@galactic-empire.com
+        lastName: Skywalker
+        password: Ih8obi-wan!higrndSUXX
+        token: <JWT Token from registration email>
+        firstName: Anakin
+        username: 20A715E8-2D71-4598-9023-BB5DA94F1EFB
+  schemas:
+    GenerateApiKeyResponse:
       properties:
-        email:
-          description: Email that is registering for a new account.
+        expiration:
+          description: Expiration of the new key.
+          format: int64
+          type: integer
+        key:
+          description: New API key.
           type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-      description: Information for intiating user registration
       required:
-      - email
+      - expiration
+      - key
+      description: New API key generated for a user.
+      type: object
     QuantumObjectType:
       enum:
       - Adjacency
@@ -2199,126 +2287,6 @@ components:
       - ZoneSubsystem
       - ZoneSubsystemSet
       type: string
-    WhoAmIResponse:
-      type: object
-      properties:
-        emailVerified:
-          type:
-          - boolean
-          - 'null'
-          description: Flag to mark if the user's email is verified
-        eulaAccepted:
-          type:
-          - boolean
-          - 'null'
-          description: Flag to mark if the user has acept the terms of the EULA
-        lastName:
-          type:
-          - string
-          - 'null'
-          description: User's last name
-        firstName:
-          type:
-          - string
-          - 'null'
-          description: User's first name
-        userID:
-          type: string
-          description: Unique ID for the user
-          format: uuid
-      description: Information about the authenticated user
-      required:
-      - userID
-    RegisterUserData:
-      properties:
-        token:
-          type:
-          - string
-          - 'null'
-        recaptchaToken:
-          type:
-          - string
-          - 'null'
-        email:
-          description: User's email
-          type: string
-        acceptMailingList:
-          type: boolean
-          description: Flag to mark if the user wants marketing emails
-        password:
-          description: User's password
-          type: string
-        username:
-          type:
-          - string
-          - 'null'
-        acceptedEULA:
-          description: Flag to mark if the user has accepted the EULA
-          type: boolean
-        lastName:
-          description: User's last name
-          type: string
-        firstName:
-          description: User's first name
-          type: string
-      required:
-      - acceptMailingList
-      - acceptedEULA
-      - email
-      - firstName
-      - lastName
-      - password
-      description: Data required for user registration
-      type: object
-    MagicLinkResponse:
-      type: object
-      properties:
-        url:
-          description: Url to be used a magic link login.
-          type:
-          - string
-          - 'null'
-        message:
-          description: Message describing the response type.
-          type:
-          - string
-          - 'null'
-      description: Email for use signing up with a magic link
-    UpdatedUserEmail:
-      properties:
-        password:
-          description: user's password to confirm identity
-          type: string
-        oldEmail:
-          description: Previous user email
-          type: string
-        newEmail:
-          description: New user email
-          type: string
-      required:
-      - newEmail
-      - oldEmail
-      - password
-      description: Information for changing a user's email
-      type: object
-    JWKS:
-      properties:
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/JWK'
-      required:
-      - keys
-      type: object
-    QuantumUserStatus:
-      enum:
-      - Active
-      - Blocked
-      - Deleted
-      - Locked
-      - Pending
-      - Reset
-      type: string
     ChangeUserPassword:
       properties:
         oldPassword:
@@ -2332,55 +2300,6 @@ components:
       - oldPassword
       description: Information required to change a user's password from the authenticated change password flow
       type: object
-    Identifier:
-      properties:
-        id:
-          type: string
-        type:
-          $ref: '#/components/schemas/QuantumObjectType'
-      required:
-      - id
-      - type
-      type: object
-    GenerateApiKeyResponse:
-      properties:
-        expiration:
-          description: Expiration of the new key.
-          format: int64
-          type: integer
-        key:
-          description: New API key.
-          type: string
-      required:
-      - expiration
-      - key
-      description: New API key generated for a user.
-      type: object
-    GenericMessageResponse:
-      type: object
-      properties:
-        message:
-          description: Informative message relating to the specific response
-          type: string
-      description: Generic response information
-      required:
-      - message
-    LoginResponse:
-      type: object
-      properties:
-        token:
-          type: string
-          description: Signed Authentication JWT
-        refresh:
-          type: string
-          description: Signed refresh JWT
-        whoAmI:
-          $ref: '#/components/schemas/WhoAmIResponse'
-      description: Generic response information
-      required:
-      - refresh
-      - token
-      - whoAmI
     ChangePasswordData:
       properties:
         newPassword:
@@ -2393,31 +2312,6 @@ components:
       required:
       - newPassword
       description: Information required to change a user's password from the reset password flow
-      type: object
-    JWK:
-      type: object
-      properties:
-        kty:
-          type: string
-      required:
-      - kty
-    RemoveApiKeyRequest:
-      properties:
-        key:
-          description: API key to revoke.
-          type: string
-      required:
-      - key
-      description: API key to revoke
-      type: object
-    RequestResetPasswordData:
-      properties:
-        usernameOrEmail:
-          description: Email of the user requesting a reset.
-          type: string
-      required:
-      - usernameOrEmail
-      description: Information required to request a password reset.
       type: object
     KeycloakUserInfo:
       type: object
@@ -2495,6 +2389,23 @@ components:
       description: Information for Keycloak about the requested user.
       required:
       - email
+    UpdatedUserEmail:
+      properties:
+        password:
+          description: user's password to confirm identity
+          type: string
+        oldEmail:
+          description: Previous user email
+          type: string
+        newEmail:
+          description: New user email
+          type: string
+      required:
+      - newEmail
+      - oldEmail
+      - password
+      description: Information for changing a user's email
+      type: object
     RegisterUserResponse:
       properties:
         newUserID:
@@ -2518,97 +2429,186 @@ components:
       - message
       description: Sent when a new user is successfully registered.
       type: object
-  examples:
-    GenericMessageResponse:
-      value:
-        message: We will watch your career with great interest.
-    LoginResponse:
-      value:
-        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50
-        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY
-        whoAmI:
-          emailVerified: true
-          eulaAccepted: true
-          firstName: Anakin
-          lastName: Skywalker
-          userID: B210BA3E-D831-4EB2-B946-7CFC4367CD88
     WhoAmIResponse:
-      value:
-        firstName: Anakin
-        userID: 824DA601-88BA-434F-A7DA-06BD4AF6767F
-        eulaAccepted: true
-        emailVerified: true
-        lastName: Skywalker
-    RegisterUserData:
-      value:
-        acceptedEULA: true
-        acceptMailingList: false
-        email: darthvader@galactic-empire.com
-        lastName: Skywalker
-        password: Ih8obi-wan!higrndSUXX
-        token: <JWT Token from registration email>
-        firstName: Anakin
-        username: 20A715E8-2D71-4598-9023-BB5DA94F1EFB
-    UpdatedUserEmail:
-      value:
-        newEmail: emperorpalps@gallactic-empire.com
-        oldEmail: sheevpalpatine@old-republic.net
-        password: unlimitedP0wuh!!!
-    RequestResetPasswordData:
-      value:
-        usernameOrEmail: darthvader@galactic-empire.com
-    UserRegistrationInitiation:
-      value:
-        email: darthvader@galactic-empire.com
-    ChangeUserPassword:
-      value:
-        oldPassword: Ih8obi-wan!higrndSUXX
-        newPassword: SandSuxDest0ryAllSand
-    ChangePasswordData:
-      value:
-        newPassword: SandSuxDest0ryAllSand
-    RegisterUserResponse:
-      value:
-        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwibmFtZSI6ImRhcnRodmFkZXIiLCJzdGF0dXMiOiJBY3RpdmUifQ.KiI6-jHPAMsDHvyA7U-BaRZ8mZnByF9a1887lVb-1lY
-        newUserID:
-          id: 7E530D0F-A359-4FBB-8BFA-563EEEDA30EC
-          type: User
-        message: User registered successfully.
-        userStatus: Active
-        refresh: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJQYXNzaXZlTG9naWMiLCJzdWIiOiJBUEkiLCJleHAiOjE1MTYyMzkwMjIsIklEIjoiMjAyZTI0MTEtNjQ5OS00YWJlLTk5MmYtMmZmODU1MWY5NmU5IiwidXNlcklEIjoiMzMwYTFmMjktMTlkMC00Y2M5LWI3MjQtOWJmNDQxNWY4ODY1In0.hyyBxcHBXqYzwZehxqW7aCwfQTlngtCc7gRW31ijK50
-    KeycloakUserInfo:
-      value:
-        requiredActions:
-        - UPDATE_PASSWORD
-        - UPDATE_PROFILE
-        lastName: Skywalker
-        email: darthvader@galactic-empire.com
-        emailVerified: true
-        firstName: Anakin
-        groups:
-        - sith
-        - empire
-        roles:
-        - admin
-        access:
-          view: true
-          manageGroupMembership: true
-        attributes:
-          likes:
-          - lightsabers
-          - the Force
-          position:
-          - Dark Lord of the Sith
-        id: A4927913-1382-4881-A456-8477D7369352
-        enabled: true
-        username: darthvader
+      type: object
+      properties:
+        emailVerified:
+          type:
+          - boolean
+          - 'null'
+          description: Flag to mark if the user's email is verified
+        eulaAccepted:
+          type:
+          - boolean
+          - 'null'
+          description: Flag to mark if the user has acept the terms of the EULA
+        lastName:
+          type:
+          - string
+          - 'null'
+          description: User's last name
+        firstName:
+          type:
+          - string
+          - 'null'
+          description: User's first name
+        userID:
+          type: string
+          description: Unique ID for the user
+          format: uuid
+      description: Information about the authenticated user
+      required:
+      - userID
+    JWKS:
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/JWK'
+      required:
+      - keys
+      type: object
     RemoveApiKeyRequest:
-      value:
-        key: 564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95
-    GenerateApiKeyResponse:
-      value:
-        expiration: 839183994008058
-        key: 564d9054fb2cf06e3592c8c4fdc1f613822b0de6358d8580a78ae0b204be3f95
+      properties:
+        key:
+          description: API key to revoke.
+          type: string
+      required:
+      - key
+      description: API key to revoke
+      type: object
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: Signed Authentication JWT
+        refresh:
+          type: string
+          description: Signed refresh JWT
+        whoAmI:
+          $ref: '#/components/schemas/WhoAmIResponse'
+      description: Generic response information
+      required:
+      - refresh
+      - token
+      - whoAmI
+    MagicLinkResponse:
+      type: object
+      properties:
+        url:
+          description: Url to be used a magic link login.
+          type:
+          - string
+          - 'null'
+        message:
+          description: Message describing the response type.
+          type:
+          - string
+          - 'null'
+      description: Email for use signing up with a magic link
+    RegisterUserData:
+      properties:
+        token:
+          type:
+          - string
+          - 'null'
+        recaptchaToken:
+          type:
+          - string
+          - 'null'
+        email:
+          description: User's email
+          type: string
+        acceptMailingList:
+          type: boolean
+          description: Flag to mark if the user wants marketing emails
+        password:
+          description: User's password
+          type: string
+        username:
+          type:
+          - string
+          - 'null'
+        acceptedEULA:
+          description: Flag to mark if the user has accepted the EULA
+          type: boolean
+        lastName:
+          description: User's last name
+          type: string
+        firstName:
+          description: User's first name
+          type: string
+      required:
+      - acceptMailingList
+      - acceptedEULA
+      - email
+      - firstName
+      - lastName
+      - password
+      description: Data required for user registration
+      type: object
+    QuantumUserStatus:
+      enum:
+      - Active
+      - Blocked
+      - Deleted
+      - Locked
+      - Pending
+      - Reset
+      type: string
+    UserRegistrationInitiation:
+      type: object
+      properties:
+        email:
+          description: Email that is registering for a new account.
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+      description: Information for intiating user registration
+      required:
+      - email
+    Identifier:
+      properties:
+        id:
+          type: string
+        type:
+          $ref: '#/components/schemas/QuantumObjectType'
+      required:
+      - id
+      - type
+      type: object
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
+    JWK:
+      type: object
+      properties:
+        kty:
+          type: string
+      required:
+      - kty
+    RequestResetPasswordData:
+      properties:
+        usernameOrEmail:
+          description: Email of the user requesting a reset.
+          type: string
+      required:
+      - usernameOrEmail
+      description: Information required to request a password reset.
+      type: object
   securitySchemes:
     XSRF_header:
       in: header

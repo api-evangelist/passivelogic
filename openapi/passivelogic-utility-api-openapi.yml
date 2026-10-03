@@ -353,6 +353,17 @@ paths:
       deprecated: true
 components:
   schemas:
+    QuantumLensAppStatusResponse:
+      properties:
+        appUpdate:
+          type:
+          - boolean
+          - 'null'
+        osUpdate:
+          type:
+          - boolean
+          - 'null'
+      type: object
     DeployedOnHiveResponse:
       properties:
         runningOnHive:
@@ -369,17 +380,6 @@ components:
       required:
       - status
       - user
-      type: object
-    QuantumLensAppStatusResponse:
-      properties:
-        appUpdate:
-          type:
-          - boolean
-          - 'null'
-        osUpdate:
-          type:
-          - boolean
-          - 'null'
       type: object
     QuantumLensUser:
       properties:

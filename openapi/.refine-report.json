@@ -24,7 +24,7 @@
     "passivelogic-tunnel-api-openapi.yml"
   ],
   "archived": [
-    "deleted 3 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -39,24 +39,25 @@
     "passivelogic-openapi.json: declared missing tag: Metrics",
     "passivelogic-openapi.json: declared missing tag: PassiveLogic REST API",
     "passivelogic-openapi.json: declared missing tag: tunnel",
-    "superseded outputs removed: passivelogic-api-api-openapi.yml, passivelogic-default-api-openapi.yml, passivelogic-graph-ql-api-openapi.yml",
-    "apis.yml register: written (+4 apis, 19 total)"
+    "superseded outputs removed: passivelogic-graph-ql-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 19 total)"
   ],
   "skipped": [
     "_original/passivelogic-rest-api-openapi.yml: archived document superseded by a larger archived document",
     "passivelogic-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "passivelogic-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-app-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-auth-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-bindings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "passivelogic-default-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-export-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-graph-ql-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-images-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "passivelogic-meta-json-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "passivelogic-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-organization-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-passivelogic-device-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "passivelogic-passivelogic-rest-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-quantum-sync-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-site-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "passivelogic-tunnel-api-openapi.yml: previously refined output, superseded by openapi/_original/",

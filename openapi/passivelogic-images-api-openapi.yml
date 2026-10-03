@@ -230,23 +230,6 @@ paths:
           description: OK
       operationId: deleteApiImageByImageID
 components:
-  examples:
-    GenericMessageResponse:
-      value:
-        message: We will watch your career with great interest.
-    ImageUploadResponse:
-      value:
-        message: Image was succefully updated.
-        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
-    ImageData:
-      value:
-        fileType: svg
-        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
-    UploadImageData:
-      value:
-        fileType: svg
-        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
-        ID: 268C8D05-1BB8-4D48-8C70-AA01A7990A21
   schemas:
     ImageUploadResponse:
       properties:
@@ -307,6 +290,23 @@ components:
       description: Generic response information
       required:
       - message
+  examples:
+    ImageUploadResponse:
+      value:
+        message: Image was succefully updated.
+        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+    ImageData:
+      value:
+        fileType: svg
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+    UploadImageData:
+      value:
+        fileType: svg
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+        ID: 268C8D05-1BB8-4D48-8C70-AA01A7990A21
   securitySchemes:
     XSRF_header:
       in: header

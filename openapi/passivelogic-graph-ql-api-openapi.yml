@@ -284,6 +284,19 @@ paths:
       - PL API Key: []
 components:
   schemas:
+    GraphQLResult:
+      properties:
+        data:
+          type:
+          - boolean
+          - 'null'
+        errors:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+      type: object
     GraphQLError:
       properties:
         message:
@@ -310,31 +323,6 @@ components:
       - message
       - path
       type: object
-    SourceLocation:
-      properties:
-        column:
-          type: integer
-          format: int64
-        line:
-          type: integer
-          format: int64
-      required:
-      - column
-      - line
-      type: object
-    GraphQLResult:
-      properties:
-        data:
-          type:
-          - boolean
-          - 'null'
-        errors:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/GraphQLError'
-      type: object
     GraphQLRequest:
       properties:
         variables:
@@ -351,6 +339,18 @@ components:
           type: string
       required:
       - query
+      type: object
+    SourceLocation:
+      properties:
+        column:
+          type: integer
+          format: int64
+        line:
+          type: integer
+          format: int64
+      required:
+      - column
+      - line
       type: object
   securitySchemes:
     XSRF_header:

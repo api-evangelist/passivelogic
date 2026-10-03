@@ -239,6 +239,15 @@ paths:
                 $ref: '#/components/schemas/GenericMessageResponse'
 components:
   schemas:
+    GenericMessageResponse:
+      type: object
+      properties:
+        message:
+          description: Informative message relating to the specific response
+          type: string
+      description: Generic response information
+      required:
+      - message
     KeycloakCredentialInfo:
       properties:
         createdDate:
@@ -276,15 +285,6 @@ components:
       - id
       - type
       type: object
-    GenericMessageResponse:
-      type: object
-      properties:
-        message:
-          description: Informative message relating to the specific response
-          type: string
-      description: Generic response information
-      required:
-      - message
   examples:
     GenericMessageResponse:
       value:

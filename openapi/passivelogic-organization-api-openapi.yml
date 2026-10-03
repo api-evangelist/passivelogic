@@ -598,66 +598,7 @@ paths:
                   $ref: '#/components/examples/ImageUploadResponse'
       operationId: postApiV0.19OrganizationUpdate-image
 components:
-  examples:
-    AcceptOrganizationInvite:
-      value:
-        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
-    GenericMessageResponse:
-      value:
-        message: We will watch your career with great interest.
-    DeclineOrganizationInvite:
-      value:
-        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
-    InviteUserToOrganizationData:
-      value:
-        role: StandardUser
-        expiration: '2027-08-04T18:39:54Z'
-        orgID: 826F5A10-0158-43FD-B134-A0D047A6E8CB
-        inviteEmail: mithrawnuruodo@galactic-empire.com
-    OrgInviteResponse:
-      value:
-        inviteID: 33E9B8C6-BECC-4723-9BCA-08A432C7F8B5
-        message: Invitation sent.
-    ImageUploadResponse:
-      value:
-        message: Image was succefully updated.
-        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
-    OrganizationImageData:
-      value:
-        organizationID: E77FF523-421A-4625-A224-053A10A04381
-        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
-        fileType: svg
-    DeleteOrganizationData:
-      value:
-        orgID: 3E401610-4DB2-4A0F-9BC1-6F84709C4C20
   schemas:
-    AcceptOrganizationInvite:
-      properties:
-        inviteID:
-          description: ID of the invitation being accepted.
-          type: string
-          format: uuid
-      required:
-      - inviteID
-      description: Parameters required to accept an organization invite
-      type: object
-    DeleteOrganizationData:
-      properties:
-        orgID:
-          format: uuid
-          description: ID of the organization being deleted
-          type: string
-      required:
-      - orgID
-      description: Parameters require to delete an organization
-      type: object
-    QuantumRole:
-      enum:
-      - PrivilegedUser
-      - ReadOnlyUser
-      - StandardUser
-      - SuperUser
-      type: string
     ImageUploadResponse:
       properties:
         url:
@@ -670,20 +611,6 @@ components:
       required:
       - message
       description: Image response definition
-      type: object
-    OrgInviteResponse:
-      properties:
-        inviteID:
-          type: string
-          description: ID of the invitation generated/sent
-          format: uuid
-        message:
-          type: string
-          description: Message with additional information
-      required:
-      - inviteID
-      - message
-      description: Response indicating that an organization invitation was successfully sent.
       type: object
     OrganizationImageData:
       properties:
@@ -726,6 +653,37 @@ components:
       - orgID
       description: Parameters required to invite a user to an organization
       type: object
+    OrgInviteResponse:
+      properties:
+        inviteID:
+          type: string
+          description: ID of the invitation generated/sent
+          format: uuid
+        message:
+          type: string
+          description: Message with additional information
+      required:
+      - inviteID
+      - message
+      description: Response indicating that an organization invitation was successfully sent.
+      type: object
+    QuantumRole:
+      enum:
+      - PrivilegedUser
+      - ReadOnlyUser
+      - StandardUser
+      - SuperUser
+      type: string
+    AcceptOrganizationInvite:
+      properties:
+        inviteID:
+          description: ID of the invitation being accepted.
+          type: string
+          format: uuid
+      required:
+      - inviteID
+      description: Parameters required to accept an organization invite
+      type: object
     DeclineOrganizationInvite:
       properties:
         inviteID:
@@ -745,6 +703,48 @@ components:
       description: Generic response information
       required:
       - message
+    DeleteOrganizationData:
+      properties:
+        orgID:
+          format: uuid
+          description: ID of the organization being deleted
+          type: string
+      required:
+      - orgID
+      description: Parameters require to delete an organization
+      type: object
+  examples:
+    AcceptOrganizationInvite:
+      value:
+        inviteID: C3D4BFA1-76F7-4221-A097-ECAC145945AC
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
+    OrgInviteResponse:
+      value:
+        inviteID: 33E9B8C6-BECC-4723-9BCA-08A432C7F8B5
+        message: Invitation sent.
+    DeleteOrganizationData:
+      value:
+        orgID: 3E401610-4DB2-4A0F-9BC1-6F84709C4C20
+    ImageUploadResponse:
+      value:
+        message: Image was succefully updated.
+        url: http://www.passivelogic.com/image/45EC668F-A000-4769-913F-3F7B0487724E
+    OrganizationImageData:
+      value:
+        organizationID: E77FF523-421A-4625-A224-053A10A04381
+        image: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+        fileType: svg
+    InviteUserToOrganizationData:
+      value:
+        role: StandardUser
+        expiration: '2027-08-04T18:39:54Z'
+        orgID: 826F5A10-0158-43FD-B134-A0D047A6E8CB
+        inviteEmail: mithrawnuruodo@galactic-empire.com
+    DeclineOrganizationInvite:
+      value:
+        inviteID: 2E78D3E5-D702-4C0C-918F-7D4569E153CB
   securitySchemes:
     XSRF_header:
       in: header

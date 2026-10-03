@@ -133,6 +133,22 @@ paths:
       - PassiveLogic Device
 components:
   schemas:
+    DeviceLoginResponse:
+      properties:
+        token:
+          type: string
+          description: Signed authentication JWT
+      required:
+      - token
+      description: Response to /api/device/login
+      type: object
+    TailscaleCapabilities:
+      properties:
+        devices:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
+      required:
+      - devices
+      type: object
     TailscaleCapabilitiesDevicesCreate:
       properties:
         reusable:
@@ -150,29 +166,6 @@ components:
       - preauthorized
       - reusable
       - tags
-      type: object
-    DeviceLoginResponse:
-      properties:
-        token:
-          type: string
-          description: Signed authentication JWT
-      required:
-      - token
-      description: Response to /api/device/login
-      type: object
-    TailscaleCapabilities:
-      properties:
-        devices:
-          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
-      required:
-      - devices
-      type: object
-    TailscaleCapabilitiesDevices:
-      properties:
-        create:
-          $ref: '#/components/schemas/TailscaleCapabilitiesDevicesCreate'
-      required:
-      - create
       type: object
     TailscalePostTailnetKeyResponse:
       properties:
@@ -232,6 +225,13 @@ components:
       - id
       - key
       - keyType
+      type: object
+    TailscaleCapabilitiesDevices:
+      properties:
+        create:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevicesCreate'
+      required:
+      - create
       type: object
   examples:
     DeviceLoginResponse:
