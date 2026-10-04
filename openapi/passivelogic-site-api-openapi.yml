@@ -159,6 +159,15 @@ paths:
           description: OK
 components:
   schemas:
+    ObjectIdentifiers:
+      properties:
+        objectIdentifierMap:
+          type: array
+          items:
+            $ref: '#/components/schemas/ObjectPair'
+      required:
+      - objectIdentifierMap
+      type: object
     ObjectPair:
       properties:
         newID:
@@ -173,15 +182,6 @@ components:
       - newID
       - oldID
       - type
-      type: object
-    ObjectIdentifiers:
-      properties:
-        objectIdentifierMap:
-          type: array
-          items:
-            $ref: '#/components/schemas/ObjectPair'
-      required:
-      - objectIdentifierMap
       type: object
     QuantumObjectType:
       enum:

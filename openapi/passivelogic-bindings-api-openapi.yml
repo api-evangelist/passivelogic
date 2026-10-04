@@ -92,7 +92,30 @@ paths:
                 $ref: '#/components/schemas/BindingUploadResponse'
       operationId: postApiBinding
 components:
+  examples:
+    BindingUploadResponse:
+      value:
+        message: Binding object was successfully updated.
+        url: https://passivelogic.com/binding/497E362B-AB0B-4013-AE38-86DB09A013AA
+    UploadFileData:
+      value:
+        file: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
+        ID: FF5BFAAC-B65A-443D-8A0C-904A38C904E9
+        fileType: svg
   schemas:
+    BindingUploadResponse:
+      properties:
+        url:
+          type:
+          - string
+          - 'null'
+        message:
+          type: string
+          description: Informative message relating to binding upload. Updated binding url with cache bust.
+      required:
+      - message
+      description: Binding response definition
+      type: object
     UploadFileData:
       properties:
         ID:
@@ -116,29 +139,6 @@ components:
       - fileType
       description: Data required to upload a file binding.
       type: object
-    BindingUploadResponse:
-      properties:
-        url:
-          type:
-          - string
-          - 'null'
-        message:
-          type: string
-          description: Informative message relating to binding upload. Updated binding url with cache bust.
-      required:
-      - message
-      description: Binding response definition
-      type: object
-  examples:
-    BindingUploadResponse:
-      value:
-        message: Binding object was successfully updated.
-        url: https://passivelogic.com/binding/497E362B-AB0B-4013-AE38-86DB09A013AA
-    UploadFileData:
-      value:
-        file: PHN2ZyBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBzdHJva2U9ImJsYWNrIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9ImJsdWUiIC8+PC9zdmc+
-        ID: FF5BFAAC-B65A-443D-8A0C-904A38C904E9
-        fileType: svg
   securitySchemes:
     XSRF_header:
       in: header

@@ -238,6 +238,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericMessageResponse'
 components:
+  examples:
+    GenericMessageResponse:
+      value:
+        message: We will watch your career with great interest.
   schemas:
     GenericMessageResponse:
       type: object
@@ -285,10 +289,6 @@ components:
       - id
       - type
       type: object
-  examples:
-    GenericMessageResponse:
-      value:
-        message: We will watch your career with great interest.
   securitySchemes:
     XSRF_header:
       in: header

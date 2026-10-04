@@ -132,23 +132,11 @@ paths:
       tags:
       - PassiveLogic Device
 components:
-  schemas:
+  examples:
     DeviceLoginResponse:
-      properties:
-        token:
-          type: string
-          description: Signed authentication JWT
-      required:
-      - token
-      description: Response to /api/device/login
-      type: object
-    TailscaleCapabilities:
-      properties:
-        devices:
-          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
-      required:
-      - devices
-      type: object
+      value:
+        token: eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCIsImtpZCI6InBsLUUwOTk2NzlGLTQyNDQtNDA4Ni05NTZBLTg4OUM4QkVCQzg2QSJ9.eyJpc3N1ZXIiOiJQYXNzaXZlTG9naWMiLCJoaXZlSUQiOiJEMjU3M0M2Qy0wQjVBLTRCMzItQjM1Ni00OEEyOTlFRDE0OTMiLCJleHBpcmF0aW9uIjoxNzE0NDA2OTA3LjcyODE1Mywic3ViamVjdCI6IkhpdmUgQXV0aGVudGljYXRpb24iLCJoaXZlU2VyaWFsTnVtYmVyIjoiUTBSWFQyUE1HWCJ9.11Awfpm7Uo1LWBtZTCNn1pxUuliE3lcMF4bIqbJzX87u5zJRFRKqfNWdULlU7mmEq_Fes7CzEvSFmn7wlNLlZxY-T8NKhFq35raskqDW-ZdpXUKRk8aHyWfrCVeFcCZU
+  schemas:
     TailscaleCapabilitiesDevicesCreate:
       properties:
         reusable:
@@ -166,6 +154,20 @@ components:
       - preauthorized
       - reusable
       - tags
+      type: object
+    TailscaleCapabilitiesDevices:
+      properties:
+        create:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevicesCreate'
+      required:
+      - create
+      type: object
+    TailscaleCapabilities:
+      properties:
+        devices:
+          $ref: '#/components/schemas/TailscaleCapabilitiesDevices'
+      required:
+      - devices
       type: object
     TailscalePostTailnetKeyResponse:
       properties:
@@ -226,17 +228,15 @@ components:
       - key
       - keyType
       type: object
-    TailscaleCapabilitiesDevices:
-      properties:
-        create:
-          $ref: '#/components/schemas/TailscaleCapabilitiesDevicesCreate'
-      required:
-      - create
-      type: object
-  examples:
     DeviceLoginResponse:
-      value:
-        token: eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCIsImtpZCI6InBsLUUwOTk2NzlGLTQyNDQtNDA4Ni05NTZBLTg4OUM4QkVCQzg2QSJ9.eyJpc3N1ZXIiOiJQYXNzaXZlTG9naWMiLCJoaXZlSUQiOiJEMjU3M0M2Qy0wQjVBLTRCMzItQjM1Ni00OEEyOTlFRDE0OTMiLCJleHBpcmF0aW9uIjoxNzE0NDA2OTA3LjcyODE1Mywic3ViamVjdCI6IkhpdmUgQXV0aGVudGljYXRpb24iLCJoaXZlU2VyaWFsTnVtYmVyIjoiUTBSWFQyUE1HWCJ9.11Awfpm7Uo1LWBtZTCNn1pxUuliE3lcMF4bIqbJzX87u5zJRFRKqfNWdULlU7mmEq_Fes7CzEvSFmn7wlNLlZxY-T8NKhFq35raskqDW-ZdpXUKRk8aHyWfrCVeFcCZU
+      properties:
+        token:
+          type: string
+          description: Signed authentication JWT
+      required:
+      - token
+      description: Response to /api/device/login
+      type: object
   securitySchemes:
     XSRF_header:
       in: header
