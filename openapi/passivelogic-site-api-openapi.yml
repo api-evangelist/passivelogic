@@ -295,3 +295,9 @@ components:
       description: DEPRECATED - PL API Key in Bearer header
       name: 'Authorization: PL-API-KEY'
       type: apiKey
+x-provenance:
+  method: harvested
+  publisher: PassiveLogic
+  source: https://passivelogic.com/api/doc
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
